@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "composite": false,
+    "noEmit": true
+  },
+  "include": ["src/**/*"],
+  "references": [
+    { "path": "../../packages/ui" },
+    { "path": "../../packages/engine" },
+    { "path": "../../packages/tokens" }
+  ]
+}
