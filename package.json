@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "description": "Liquid UI Component Library Monorepo",
-  "scripts": {},
+  "scripts": {
+    "test": "echo \"Test git-auto-commit skill\""
+  },
   "keywords": ["ui", "components", "monorepo"],
   "author": "",
   "license": "MIT",
