@@ -1,0 +1,31 @@
+{
+  "name": "@liquid/tokens",
+  "version": "0.0.1",
+  "description": "Liquid Glass Design Tokens (CSS Variables)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./colors.css": "./dist/colors.css",
+    "./spacing.css": "./dist/spacing.css",
+    "./glass.css": "./dist/glass.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch"
+  },
+  "keywords": ["design-tokens", "css-variables", "liquid-glass"],
+  "publishConfig": {
+    "access": "public"
+  }
+}
