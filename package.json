@@ -1,0 +1,11 @@
+{
+  "name": "liquid-ui-library",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Liquid UI Component Library Monorepo",
+  "scripts": {},
+  "keywords": ["ui", "components", "monorepo"],
+  "author": "",
+  "license": "MIT",
+  "packageManager": "pnpm@10.16.1"
+}
