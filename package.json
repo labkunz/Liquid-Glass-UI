@@ -4,10 +4,45 @@
   "private": true,
   "description": "Liquid UI Component Library Monorepo",
   "scripts": {
-    "test": "echo \"Test git-auto-commit skill\""
+    "dev": "pnpm --filter @liquid/landing dev",
+    "dev:landing": "pnpm --filter @liquid/landing dev",
+    "dev:blog": "pnpm --filter @liquid/blog dev",
+    "dev:admin": "pnpm --filter @liquid/admin dev",
+    "dev:docs": "pnpm --filter @liquid/docs dev",
+    "dev:storybook": "pnpm --filter @liquid/storybook dev",
+    "dev:ui": "pnpm --filter @liquid/ui dev",
+    "dev:engine": "pnpm --filter @liquid/engine dev",
+    "build": "pnpm -r --filter './packages/*' run build",
+    "build:packages": "pnpm -r --filter './packages/*' run build",
+    "build:tokens": "pnpm --filter @liquid/tokens run build",
+    "build:ui": "pnpm --filter @liquid/ui run build",
+    "build:engine": "pnpm --filter @liquid/engine run build",
+    "build:apps": "pnpm -r --filter './apps/*' run build",
+    "build:landing": "pnpm --filter @liquid/landing run build",
+    "build:blog": "pnpm --filter @liquid/blog run build",
+    "build:admin": "pnpm --filter @liquid/admin run build",
+    "build:docs": "pnpm --filter @liquid/docs run build",
+    "build:storybook": "pnpm --filter @liquid/storybook run build",
+    "typecheck": "pnpm -r run typecheck",
+    "typecheck:packages": "pnpm -r --filter './packages/*' run typecheck",
+    "clean": "pnpm -r exec rm -rf dist node_modules",
+    "clean:dist": "pnpm -r exec rm -rf dist",
+    "install:all": "pnpm install"
   },
-  "keywords": ["ui", "components", "monorepo"],
+  "keywords": [
+    "ui",
+    "components",
+    "monorepo"
+  ],
   "author": "",
   "license": "MIT",
-  "packageManager": "pnpm@10.16.1"
+  "packageManager": "pnpm@10.16.1",
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "vite-plugin-dts": "^4.5.4",
+    "vue-tsc": "^2.2.12"
+  }
 }

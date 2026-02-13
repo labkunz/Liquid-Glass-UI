@@ -1,0 +1,2 @@
+// Vue integration layer
+export {};

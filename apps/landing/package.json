@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@liquid/ui": "workspace:*",
     "@liquid/tokens": "workspace:*",
-    "vue": "^3.4.21"
+    "@liquid/ui": "workspace:*",
+    "vue": "^3.5.28"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",

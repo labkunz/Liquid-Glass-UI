@@ -37,11 +37,16 @@
     "@liquid/ui": "workspace:*"
   },
   "devDependencies": {
-    "vue": "^3.4.21",
     "@vitejs/plugin-vue": "^5.0.4",
+    "vue": "^3.5.28",
     "vue-tsc": "^2.0.6"
   },
-  "keywords": ["form-engine", "table-engine", "schema-driven", "vue"],
+  "keywords": [
+    "form-engine",
+    "table-engine",
+    "schema-driven",
+    "vue"
+  ],
   "publishConfig": {
     "access": "public"
   }

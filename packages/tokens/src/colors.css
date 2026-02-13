@@ -1,0 +1,31 @@
+:root {
+  /* Primary Colors */
+  --liquid-color-primary: #007bff;
+  --liquid-color-primary-dark: #0056b3;
+  --liquid-color-primary-light: #66a3ff;
+
+  /* Secondary Colors */
+  --liquid-color-secondary: #6c757d;
+  --liquid-color-secondary-dark: #545b62;
+  --liquid-color-secondary-light: #a8adb2;
+
+  /* Text Colors */
+  --liquid-color-text: #333333;
+  --liquid-color-text-secondary: #666666;
+  --liquid-color-text-muted: #999999;
+
+  /* Background Colors */
+  --liquid-color-bg: #ffffff;
+  --liquid-color-bg-secondary: #f5f5f5;
+  --liquid-color-bg-tertiary: #e9ecef;
+
+  /* Border Colors */
+  --liquid-color-border: #dee2e6;
+  --liquid-color-border-light: #f0f0f0;
+
+  /* Status Colors */
+  --liquid-color-success: #28a745;
+  --liquid-color-warning: #ffc107;
+  --liquid-color-error: #dc3545;
+  --liquid-color-info: #17a2b8;
+}
