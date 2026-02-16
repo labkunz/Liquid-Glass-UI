@@ -42,3 +42,19 @@ coverage
 *.tmp
 .cache
 .temp
+
+# Turborepo
+.turbo
+
+# Next.js (如果未來使用)
+.next
+out
+
+# Vite
+.vite
+
+# Package manager lock files (optional, 視團隊協作需求)
+# pnpm-lock.yaml
+
+# Claude Code
+.claude/cache
