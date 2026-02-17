@@ -1,5 +1,13 @@
 {
   "compilerOptions": {
+    // Monorepo 路徑對應（TypeScript 直接讀 source，不需等 build）
+    "baseUrl": ".",
+    "paths": {
+      "@liquid/ui": ["packages/ui/src/index.ts"],
+      "@liquid/tokens": ["packages/tokens/src/index.ts"],
+      "@liquid/logic": ["packages/logic/src/index.ts"]
+    },
+
     // 語言與環境
     "target": "ES2020",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
