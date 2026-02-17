@@ -1,0 +1,79 @@
+/* ================================================================
+   Stack 基礎樣式 — 中性結構元件
+   ================================================================ */
+.liquid-stack {
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* ================================================================
+   Direction 變體
+   ================================================================ */
+.liquid-stack--row {
+  flex-direction: row;
+}
+
+.liquid-stack--column {
+  flex-direction: column;
+}
+
+/* ================================================================
+   Gap 變體
+   ================================================================ */
+.liquid-stack--gap-none {
+  gap: 0;
+}
+
+.liquid-stack--gap-sm {
+  gap: 0.5rem;
+}
+
+.liquid-stack--gap-md {
+  gap: 1rem;
+}
+
+.liquid-stack--gap-lg {
+  gap: 1.5rem;
+}
+
+/* ================================================================
+   Align 變體（align-items）
+   ================================================================ */
+.liquid-stack--align-start {
+  align-items: flex-start;
+}
+
+.liquid-stack--align-center {
+  align-items: center;
+}
+
+.liquid-stack--align-end {
+  align-items: flex-end;
+}
+
+.liquid-stack--align-stretch {
+  align-items: stretch;
+}
+
+/* ================================================================
+   Justify 變體（justify-content）
+   ================================================================ */
+.liquid-stack--justify-start {
+  justify-content: flex-start;
+}
+
+.liquid-stack--justify-center {
+  justify-content: center;
+}
+
+.liquid-stack--justify-end {
+  justify-content: flex-end;
+}
+
+.liquid-stack--justify-between {
+  justify-content: space-between;
+}
+
+.liquid-stack--justify-around {
+  justify-content: space-around;
+}

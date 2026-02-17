@@ -1,0 +1,216 @@
+/* ================================================================
+   Tabs 基礎佈局
+   ================================================================ */
+.liquid-tabs {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.liquid-tabs-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+.liquid-tabs-tab {
+  flex: 1;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.liquid-tabs-panel {
+  padding: 1.25rem;
+  box-sizing: border-box;
+}
+
+/* ================================================================
+   Default 變體
+   ================================================================ */
+.liquid-tabs--default {
+  background: var(--liquid-color-bg, #ffffff);
+  border: 1px solid var(--liquid-color-border, #dee2e6);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.liquid-tabs--default .liquid-tabs-nav {
+  border-bottom: 1px solid var(--liquid-color-border, #dee2e6);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.liquid-tabs--default .liquid-tabs-tab {
+  color: var(--liquid-color-text, #333333);
+}
+
+.liquid-tabs--default .liquid-tabs-tab:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--liquid-color-primary, #007bff);
+}
+
+.liquid-tabs--default .liquid-tabs-tab--active {
+  color: var(--liquid-color-primary, #007bff);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--liquid-color-primary, #007bff);
+}
+
+.liquid-tabs--default .liquid-tabs-panel {
+  color: var(--liquid-color-text, #333333);
+}
+
+/* ================================================================
+   glass-css-only 變體 — 純 CSS，整體一體化玻璃質感
+   ================================================================ */
+.liquid-tabs--glass-css-only {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(var(--glass-blur, 12px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 12px));
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* 左上角漸層高光（整個元件） */
+.liquid-tabs--glass-css-only::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.08) 40%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 頂部內光 */
+.liquid-tabs--glass-css-only::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% -10%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-tabs--glass-css-only .liquid-tabs-nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.liquid-tabs--glass-css-only .liquid-tabs-tab {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.liquid-tabs--glass-css-only .liquid-tabs-tab:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 1);
+}
+
+.liquid-tabs--glass-css-only .liquid-tabs-tab--active {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.8);
+}
+
+.liquid-tabs--glass-css-only .liquid-tabs-panel {
+  color: rgba(255, 255, 255, 0.92);
+  position: relative;
+  z-index: 1;
+}
+
+/* ================================================================
+   glass-highlight-layered 變體 — 分層，::before 套用 SVG 有機高光
+   ================================================================ */
+.liquid-tabs--glass-highlight-layered {
+  background: transparent;
+  backdrop-filter: blur(var(--glass-blur, 12px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 12px));
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+/* ::before：半透明底色 + SVG 有機高光（無位移） */
+.liquid-tabs--glass-highlight-layered::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: inherit;
+  pointer-events: none;
+  filter: url(#glass-highlight-only);
+  z-index: 0;
+}
+
+/* ::after：CSS 漸層補充光源 */
+.liquid-tabs--glass-highlight-layered::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 75% 10%,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 55%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquid-tabs--glass-highlight-layered .liquid-tabs-nav {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  position: relative;
+  z-index: 2;
+}
+
+.liquid-tabs--glass-highlight-layered .liquid-tabs-tab {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+
+.liquid-tabs--glass-highlight-layered .liquid-tabs-tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.liquid-tabs--glass-highlight-layered .liquid-tabs-tab--active {
+  color: rgba(255, 255, 255, 1);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.8);
+}
+
+.liquid-tabs--glass-highlight-layered .liquid-tabs-panel {
+  color: rgba(255, 255, 255, 0.92);
+  position: relative;
+  z-index: 2;
+}

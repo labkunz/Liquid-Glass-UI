@@ -1,0 +1,55 @@
+/* ================================================================
+   Container 基礎樣式 — 中性結構元件
+   ================================================================ */
+.liquid-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+/* ================================================================
+   MaxWidth 變體
+   ================================================================ */
+.liquid-container--sm {
+  max-width: 480px;
+}
+
+.liquid-container--md {
+  max-width: 768px;
+}
+
+.liquid-container--lg {
+  max-width: 1024px;
+}
+
+.liquid-container--xl {
+  max-width: 1280px;
+}
+
+.liquid-container--full {
+  max-width: 100%;
+}
+
+/* ================================================================
+   Padding 變體（左右）
+   ================================================================ */
+.liquid-container--padding-none {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.liquid-container--padding-sm {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.liquid-container--padding-md {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.liquid-container--padding-lg {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
