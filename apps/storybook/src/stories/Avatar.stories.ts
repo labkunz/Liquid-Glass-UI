@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Avatar } from '@liquid/ui';
+import { LiquidAvatar } from '@liquid/ui';
 import { GlassFilterProvider } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Avatar',
-  component: Avatar,
+  title: 'Components/LiquidAvatar',
+  component: LiquidAvatar,
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
       options: ['default', 'glass-css-only', 'glass-highlight-layered'],
-      description: 'Avatar 樣式變體',
+      description: 'LiquidAvatar 樣式變體',
       table: {
         type: { summary: "'default' | 'glass-css-only' | 'glass-highlight-layered'" },
         defaultValue: { summary: 'default' },
@@ -19,7 +19,7 @@ const meta = {
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg', 'xl'],
-      description: 'Avatar 尺寸',
+      description: 'LiquidAvatar 尺寸',
       table: {
         type: { summary: "'sm' | 'md' | 'lg' | 'xl'" },
         defaultValue: { summary: 'md' },
@@ -28,7 +28,7 @@ const meta = {
     color: {
       control: 'select',
       options: ['default', 'primary', 'success', 'warning', 'danger', 'info'],
-      description: 'Avatar 顏色',
+      description: 'LiquidAvatar 顏色',
       table: {
         type: { summary: "'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info'" },
         defaultValue: { summary: 'default' },
@@ -67,7 +67,7 @@ const meta = {
     alt: '',
     initials: '',
   },
-} satisfies Meta<typeof Avatar>;
+} satisfies Meta<typeof LiquidAvatar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -81,12 +81,12 @@ export const Default: Story = {
     size: 'md',
   },
   render: (args) => ({
-    components: { Avatar },
+    components: { LiquidAvatar },
     setup() {
       return { args };
     },
     template: `
-      <Avatar v-bind="args" />
+      <LiquidAvatar v-bind="args" />
     `,
   }),
 };
@@ -100,16 +100,16 @@ export const WithImage: Story = {
     size: 'lg',
   },
   render: (args) => ({
-    components: { Avatar },
+    components: { LiquidAvatar },
     setup() {
       return { args };
     },
     template: `
       <div style="display: flex; gap: 1rem; align-items: center;">
-        <Avatar v-bind="args" size="sm" />
-        <Avatar v-bind="args" size="md" />
-        <Avatar v-bind="args" size="lg" />
-        <Avatar v-bind="args" size="xl" />
+        <LiquidAvatar v-bind="args" size="sm" />
+        <LiquidAvatar v-bind="args" size="md" />
+        <LiquidAvatar v-bind="args" size="lg" />
+        <LiquidAvatar v-bind="args" size="xl" />
       </div>
     `,
   }),
@@ -121,7 +121,7 @@ export const GlassCssOnly: Story = {
     variant: 'glass-css-only',
   },
   render: (args) => ({
-    components: { Avatar, GlassFilterProvider },
+    components: { LiquidAvatar, GlassFilterProvider },
     setup() {
       return { args };
     },
@@ -139,11 +139,11 @@ export const GlassCssOnly: Story = {
         ">
           <p style="margin: 0; font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only — all colors</p>
           <div style="display: flex; gap: 1rem; align-items: center;">
-            <Avatar variant="glass-css-only" initials="陳" color="primary" />
-            <Avatar variant="glass-css-only" initials="林" color="success" />
-            <Avatar variant="glass-css-only" initials="王" color="warning" />
-            <Avatar variant="glass-css-only" initials="張" color="danger" />
-            <Avatar variant="glass-css-only" initials="李" color="info" />
+            <LiquidAvatar variant="glass-css-only" initials="陳" color="primary" />
+            <LiquidAvatar variant="glass-css-only" initials="林" color="success" />
+            <LiquidAvatar variant="glass-css-only" initials="王" color="warning" />
+            <LiquidAvatar variant="glass-css-only" initials="張" color="danger" />
+            <LiquidAvatar variant="glass-css-only" initials="李" color="info" />
           </div>
         </div>
       </GlassFilterProvider>
@@ -157,7 +157,7 @@ export const GlassHighlightLayered: Story = {
     variant: 'glass-highlight-layered',
   },
   render: (args) => ({
-    components: { Avatar, GlassFilterProvider },
+    components: { LiquidAvatar, GlassFilterProvider },
     setup() {
       return { args };
     },
@@ -175,11 +175,11 @@ export const GlassHighlightLayered: Story = {
         ">
           <p style="margin: 0; font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered — all colors</p>
           <div style="display: flex; gap: 1rem; align-items: center;">
-            <Avatar variant="glass-highlight-layered" initials="陳" color="primary" />
-            <Avatar variant="glass-highlight-layered" initials="林" color="success" />
-            <Avatar variant="glass-highlight-layered" initials="王" color="warning" />
-            <Avatar variant="glass-highlight-layered" initials="張" color="danger" />
-            <Avatar variant="glass-highlight-layered" initials="李" color="info" />
+            <LiquidAvatar variant="glass-highlight-layered" initials="陳" color="primary" />
+            <LiquidAvatar variant="glass-highlight-layered" initials="林" color="success" />
+            <LiquidAvatar variant="glass-highlight-layered" initials="王" color="warning" />
+            <LiquidAvatar variant="glass-highlight-layered" initials="張" color="danger" />
+            <LiquidAvatar variant="glass-highlight-layered" initials="李" color="info" />
           </div>
         </div>
       </GlassFilterProvider>
@@ -190,7 +190,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Avatar, GlassFilterProvider },
+    components: { LiquidAvatar, GlassFilterProvider },
     template: `
       <GlassFilterProvider>
         <div style="display: flex; flex-direction: column; gap: 2rem;">
@@ -206,21 +206,21 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; gap: 1rem; align-items: center;">
-                  <Avatar variant="glass-css-only" initials="陳" color="primary" />
-                  <Avatar variant="glass-css-only" initials="林" color="success" />
-                  <Avatar variant="glass-css-only" initials="王" color="warning" />
-                  <Avatar variant="glass-css-only" initials="張" color="danger" />
-                  <Avatar variant="glass-css-only" initials="李" color="info" />
+                  <LiquidAvatar variant="glass-css-only" initials="陳" color="primary" />
+                  <LiquidAvatar variant="glass-css-only" initials="林" color="success" />
+                  <LiquidAvatar variant="glass-css-only" initials="王" color="warning" />
+                  <LiquidAvatar variant="glass-css-only" initials="張" color="danger" />
+                  <LiquidAvatar variant="glass-css-only" initials="李" color="info" />
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; gap: 1rem; align-items: center;">
-                  <Avatar variant="glass-highlight-layered" initials="陳" color="primary" />
-                  <Avatar variant="glass-highlight-layered" initials="林" color="success" />
-                  <Avatar variant="glass-highlight-layered" initials="王" color="warning" />
-                  <Avatar variant="glass-highlight-layered" initials="張" color="danger" />
-                  <Avatar variant="glass-highlight-layered" initials="李" color="info" />
+                  <LiquidAvatar variant="glass-highlight-layered" initials="陳" color="primary" />
+                  <LiquidAvatar variant="glass-highlight-layered" initials="林" color="success" />
+                  <LiquidAvatar variant="glass-highlight-layered" initials="王" color="warning" />
+                  <LiquidAvatar variant="glass-highlight-layered" initials="張" color="danger" />
+                  <LiquidAvatar variant="glass-highlight-layered" initials="李" color="info" />
                 </div>
               </div>
             </div>
@@ -237,21 +237,21 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; gap: 1rem; align-items: center;">
-                  <Avatar variant="glass-css-only" initials="陳" color="primary" />
-                  <Avatar variant="glass-css-only" initials="林" color="success" />
-                  <Avatar variant="glass-css-only" initials="王" color="warning" />
-                  <Avatar variant="glass-css-only" initials="張" color="danger" />
-                  <Avatar variant="glass-css-only" initials="李" color="info" />
+                  <LiquidAvatar variant="glass-css-only" initials="陳" color="primary" />
+                  <LiquidAvatar variant="glass-css-only" initials="林" color="success" />
+                  <LiquidAvatar variant="glass-css-only" initials="王" color="warning" />
+                  <LiquidAvatar variant="glass-css-only" initials="張" color="danger" />
+                  <LiquidAvatar variant="glass-css-only" initials="李" color="info" />
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; gap: 1rem; align-items: center;">
-                  <Avatar variant="glass-highlight-layered" initials="陳" color="primary" />
-                  <Avatar variant="glass-highlight-layered" initials="林" color="success" />
-                  <Avatar variant="glass-highlight-layered" initials="王" color="warning" />
-                  <Avatar variant="glass-highlight-layered" initials="張" color="danger" />
-                  <Avatar variant="glass-highlight-layered" initials="李" color="info" />
+                  <LiquidAvatar variant="glass-highlight-layered" initials="陳" color="primary" />
+                  <LiquidAvatar variant="glass-highlight-layered" initials="林" color="success" />
+                  <LiquidAvatar variant="glass-highlight-layered" initials="王" color="warning" />
+                  <LiquidAvatar variant="glass-highlight-layered" initials="張" color="danger" />
+                  <LiquidAvatar variant="glass-highlight-layered" initials="李" color="info" />
                 </div>
               </div>
             </div>
@@ -266,43 +266,43 @@ export const GlassComparison: Story = {
 // Sizes — sm / md / lg / xl 比較
 export const Sizes: Story = {
   render: () => ({
-    components: { Avatar },
+    components: { LiquidAvatar },
     template: `
       <div style="display: flex; flex-direction: column; gap: 1.5rem;">
         <div>
           <p style="color: #888; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="sm" (32px)</p>
           <div style="display: flex; gap: 1rem; align-items: center;">
-            <Avatar variant="default" size="sm" initials="陳" color="primary" />
-            <Avatar variant="default" size="sm" initials="林" color="success" />
-            <Avatar variant="default" size="sm" initials="王" color="warning" />
-            <Avatar variant="default" size="sm" color="default" />
+            <LiquidAvatar variant="default" size="sm" initials="陳" color="primary" />
+            <LiquidAvatar variant="default" size="sm" initials="林" color="success" />
+            <LiquidAvatar variant="default" size="sm" initials="王" color="warning" />
+            <LiquidAvatar variant="default" size="sm" color="default" />
           </div>
         </div>
         <div>
           <p style="color: #888; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="md" (40px, default)</p>
           <div style="display: flex; gap: 1rem; align-items: center;">
-            <Avatar variant="default" size="md" initials="陳" color="primary" />
-            <Avatar variant="default" size="md" initials="林" color="success" />
-            <Avatar variant="default" size="md" initials="王" color="warning" />
-            <Avatar variant="default" size="md" color="default" />
+            <LiquidAvatar variant="default" size="md" initials="陳" color="primary" />
+            <LiquidAvatar variant="default" size="md" initials="林" color="success" />
+            <LiquidAvatar variant="default" size="md" initials="王" color="warning" />
+            <LiquidAvatar variant="default" size="md" color="default" />
           </div>
         </div>
         <div>
           <p style="color: #888; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="lg" (56px)</p>
           <div style="display: flex; gap: 1rem; align-items: center;">
-            <Avatar variant="default" size="lg" initials="陳" color="primary" />
-            <Avatar variant="default" size="lg" initials="林" color="success" />
-            <Avatar variant="default" size="lg" initials="王" color="warning" />
-            <Avatar variant="default" size="lg" color="default" />
+            <LiquidAvatar variant="default" size="lg" initials="陳" color="primary" />
+            <LiquidAvatar variant="default" size="lg" initials="林" color="success" />
+            <LiquidAvatar variant="default" size="lg" initials="王" color="warning" />
+            <LiquidAvatar variant="default" size="lg" color="default" />
           </div>
         </div>
         <div>
           <p style="color: #888; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="xl" (80px)</p>
           <div style="display: flex; gap: 1rem; align-items: center;">
-            <Avatar variant="default" size="xl" initials="陳" color="primary" />
-            <Avatar variant="default" size="xl" initials="林" color="success" />
-            <Avatar variant="default" size="xl" initials="王" color="warning" />
-            <Avatar variant="default" size="xl" color="default" />
+            <LiquidAvatar variant="default" size="xl" initials="陳" color="primary" />
+            <LiquidAvatar variant="default" size="xl" initials="林" color="success" />
+            <LiquidAvatar variant="default" size="xl" initials="王" color="warning" />
+            <LiquidAvatar variant="default" size="xl" color="default" />
           </div>
         </div>
       </div>
@@ -313,33 +313,33 @@ export const Sizes: Story = {
 // AllColors — 所有 6 種顏色在 default 樣式下
 export const AllColors: Story = {
   render: () => ({
-    components: { Avatar },
+    components: { LiquidAvatar },
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         <p style="margin: 0 0 0.5rem; font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.08em;">All 6 colors — default variant</p>
         <div style="display: flex; gap: 1rem; align-items: center;">
           <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-            <Avatar variant="default" color="default" initials="預" size="lg" />
+            <LiquidAvatar variant="default" color="default" initials="預" size="lg" />
             <span style="font-size: 11px; color: #888;">default</span>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-            <Avatar variant="default" color="primary" initials="主" size="lg" />
+            <LiquidAvatar variant="default" color="primary" initials="主" size="lg" />
             <span style="font-size: 11px; color: #888;">primary</span>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-            <Avatar variant="default" color="success" initials="成" size="lg" />
+            <LiquidAvatar variant="default" color="success" initials="成" size="lg" />
             <span style="font-size: 11px; color: #888;">success</span>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-            <Avatar variant="default" color="warning" initials="警" size="lg" />
+            <LiquidAvatar variant="default" color="warning" initials="警" size="lg" />
             <span style="font-size: 11px; color: #888;">warning</span>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-            <Avatar variant="default" color="danger" initials="危" size="lg" />
+            <LiquidAvatar variant="default" color="danger" initials="危" size="lg" />
             <span style="font-size: 11px; color: #888;">danger</span>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-            <Avatar variant="default" color="info" initials="訊" size="lg" />
+            <LiquidAvatar variant="default" color="info" initials="訊" size="lg" />
             <span style="font-size: 11px; color: #888;">info</span>
           </div>
         </div>

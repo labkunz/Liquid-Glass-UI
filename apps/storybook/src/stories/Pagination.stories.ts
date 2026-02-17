@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
-import { Pagination } from '@liquid/ui';
+import { LiquidPagination } from '@liquid/ui';
 import { GlassFilterProvider } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Pagination',
-  component: Pagination,
+  title: 'Components/LiquidPagination',
+  component: LiquidPagination,
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -48,7 +48,7 @@ const meta = {
     totalPages: 10,
     showPrevNext: true,
   },
-} satisfies Meta<typeof Pagination>;
+} satisfies Meta<typeof LiquidPagination>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -60,14 +60,14 @@ export const Default: Story = {
     totalPages: 10,
   },
   render: (args) => ({
-    components: { Pagination },
+    components: { LiquidPagination },
     setup() {
       const currentPage = ref(3);
       return { args, currentPage };
     },
     template: `
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 12px;">
-        <Pagination
+        <LiquidPagination
           v-bind="args"
           v-model:currentPage="currentPage"
         />
@@ -84,7 +84,7 @@ export const GlassCssOnly: Story = {
     totalPages: 10,
   },
   render: (args) => ({
-    components: { Pagination, GlassFilterProvider },
+    components: { LiquidPagination, GlassFilterProvider },
     setup() {
       const currentPage = ref(3);
       return { args, currentPage };
@@ -100,7 +100,7 @@ export const GlassCssOnly: Story = {
           align-items: center;
           gap: 1rem;
         ">
-          <Pagination
+          <LiquidPagination
             v-bind="args"
             v-model:currentPage="currentPage"
           />
@@ -118,7 +118,7 @@ export const GlassHighlightLayered: Story = {
     totalPages: 10,
   },
   render: (args) => ({
-    components: { Pagination, GlassFilterProvider },
+    components: { LiquidPagination, GlassFilterProvider },
     setup() {
       const currentPage = ref(3);
       return { args, currentPage };
@@ -134,7 +134,7 @@ export const GlassHighlightLayered: Story = {
           align-items: center;
           gap: 1rem;
         ">
-          <Pagination
+          <LiquidPagination
             v-bind="args"
             v-model:currentPage="currentPage"
           />
@@ -148,7 +148,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Pagination, GlassFilterProvider },
+    components: { LiquidPagination, GlassFilterProvider },
     setup() {
       const currentPageA = ref(3);
       const currentPageB = ref(3);
@@ -170,11 +170,11 @@ export const GlassComparison: Story = {
             <div style="display: flex; flex-direction: column; gap: 1.5rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <Pagination variant="glass-css-only" :totalPages="10" v-model:currentPage="currentPageA" />
+                <LiquidPagination variant="glass-css-only" :totalPages="10" v-model:currentPage="currentPageA" />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <Pagination variant="glass-highlight-layered" :totalPages="10" v-model:currentPage="currentPageB" />
+                <LiquidPagination variant="glass-highlight-layered" :totalPages="10" v-model:currentPage="currentPageB" />
               </div>
             </div>
           </div>
@@ -189,11 +189,11 @@ export const GlassComparison: Story = {
             <div style="display: flex; flex-direction: column; gap: 1.5rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <Pagination variant="glass-css-only" :totalPages="10" v-model:currentPage="currentPageC" />
+                <LiquidPagination variant="glass-css-only" :totalPages="10" v-model:currentPage="currentPageC" />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <Pagination variant="glass-highlight-layered" :totalPages="10" v-model:currentPage="currentPageD" />
+                <LiquidPagination variant="glass-highlight-layered" :totalPages="10" v-model:currentPage="currentPageD" />
               </div>
             </div>
           </div>
@@ -207,7 +207,7 @@ export const GlassComparison: Story = {
 // Sizes 比較
 export const Sizes: Story = {
   render: () => ({
-    components: { Pagination },
+    components: { LiquidPagination },
     setup() {
       const currentPageSm = ref(3);
       const currentPageMd = ref(3);
@@ -218,15 +218,15 @@ export const Sizes: Story = {
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 12px; display: flex; flex-direction: column; gap: 2rem;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">size="sm"</p>
-          <Pagination variant="default" size="sm" :totalPages="10" v-model:currentPage="currentPageSm" />
+          <LiquidPagination variant="default" size="sm" :totalPages="10" v-model:currentPage="currentPageSm" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">size="md" (default)</p>
-          <Pagination variant="default" size="md" :totalPages="10" v-model:currentPage="currentPageMd" />
+          <LiquidPagination variant="default" size="md" :totalPages="10" v-model:currentPage="currentPageMd" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">size="lg"</p>
-          <Pagination variant="default" size="lg" :totalPages="10" v-model:currentPage="currentPageLg" />
+          <LiquidPagination variant="default" size="lg" :totalPages="10" v-model:currentPage="currentPageLg" />
         </div>
       </div>
     `,
@@ -240,7 +240,7 @@ export const ManyPages: Story = {
     totalPages: 50,
   },
   render: (args) => ({
-    components: { Pagination },
+    components: { LiquidPagination },
     setup() {
       const currentPage = ref(3);
       return { args, currentPage };
@@ -249,18 +249,18 @@ export const ManyPages: Story = {
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 12px; display: flex; flex-direction: column; gap: 1.5rem;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.75rem;">50 pages — near start (page {{ currentPage }})</p>
-          <Pagination
+          <LiquidPagination
             v-bind="args"
             v-model:currentPage="currentPage"
           />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.75rem;">50 pages — middle (page 25)</p>
-          <Pagination variant="default" :totalPages="50" :currentPage="25" />
+          <LiquidPagination variant="default" :totalPages="50" :currentPage="25" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.75rem;">50 pages — near end (page 48)</p>
-          <Pagination variant="default" :totalPages="50" :currentPage="48" />
+          <LiquidPagination variant="default" :totalPages="50" :currentPage="48" />
         </div>
         <p style="margin: 0; color: #666; font-size: 13px;">Interactive page: {{ currentPage }}</p>
       </div>

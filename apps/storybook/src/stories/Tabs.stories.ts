@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
-import { Tabs, GlassFilterProvider } from '@liquid/ui';
+import { LiquidTabs, GlassFilterProvider } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Tabs',
-  component: Tabs,
+  title: 'Components/LiquidTabs',
+  component: LiquidTabs,
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -24,7 +24,7 @@ const meta = {
   args: {
     variant: 'default',
   },
-} satisfies Meta<typeof Tabs>;
+} satisfies Meta<typeof LiquidTabs>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -41,13 +41,13 @@ export const Default: Story = {
     variant: 'default',
   },
   render: (args) => ({
-    components: { Tabs },
+    components: { LiquidTabs },
     setup() {
       const activeTab = ref('overview');
       return { args, activeTab, DEMO_TABS };
     },
     template: `
-      <Tabs
+      <LiquidTabs
         v-bind="args"
         :tabs="DEMO_TABS"
         v-model="activeTab"
@@ -68,7 +68,7 @@ export const Default: Story = {
             Settings content — Configuration options and preferences.
           </p>
         </template>
-      </Tabs>
+      </LiquidTabs>
     `,
   }),
 };
@@ -79,7 +79,7 @@ export const GlassCssOnly: Story = {
     variant: 'glass-css-only',
   },
   render: (args) => ({
-    components: { Tabs, GlassFilterProvider },
+    components: { LiquidTabs, GlassFilterProvider },
     setup() {
       const activeTab = ref('overview');
       return { args, activeTab, DEMO_TABS };
@@ -95,7 +95,7 @@ export const GlassCssOnly: Story = {
           align-items: center;
           justify-content: center;
         ">
-          <Tabs
+          <LiquidTabs
             v-bind="args"
             :tabs="DEMO_TABS"
             v-model="activeTab"
@@ -116,7 +116,7 @@ export const GlassCssOnly: Story = {
                 Settings content — Configuration options.
               </p>
             </template>
-          </Tabs>
+          </LiquidTabs>
         </div>
       </GlassFilterProvider>
     `,
@@ -129,7 +129,7 @@ export const GlassHighlightLayered: Story = {
     variant: 'glass-highlight-layered',
   },
   render: (args) => ({
-    components: { Tabs, GlassFilterProvider },
+    components: { LiquidTabs, GlassFilterProvider },
     setup() {
       const activeTab = ref('overview');
       return { args, activeTab, DEMO_TABS };
@@ -145,7 +145,7 @@ export const GlassHighlightLayered: Story = {
           align-items: center;
           justify-content: center;
         ">
-          <Tabs
+          <LiquidTabs
             v-bind="args"
             :tabs="DEMO_TABS"
             v-model="activeTab"
@@ -166,7 +166,7 @@ export const GlassHighlightLayered: Story = {
                 Settings content — Configuration options.
               </p>
             </template>
-          </Tabs>
+          </LiquidTabs>
         </div>
       </GlassFilterProvider>
     `,
@@ -176,7 +176,7 @@ export const GlassHighlightLayered: Story = {
 // 兩種 Glass 變體對比
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Tabs, GlassFilterProvider },
+    components: { LiquidTabs, GlassFilterProvider },
     setup() {
       const activeTab1 = ref('overview');
       const activeTab2 = ref('overview');
@@ -198,19 +198,19 @@ export const GlassComparison: Story = {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <Tabs variant="glass-css-only" :tabs="DEMO_TABS" v-model="activeTab1">
+                <LiquidTabs variant="glass-css-only" :tabs="DEMO_TABS" v-model="activeTab1">
                   <template #overview><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Overview content here.</p></template>
                   <template #details><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Details content here.</p></template>
                   <template #settings><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Settings content here.</p></template>
-                </Tabs>
+                </LiquidTabs>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <Tabs variant="glass-highlight-layered" :tabs="DEMO_TABS" v-model="activeTab2">
+                <LiquidTabs variant="glass-highlight-layered" :tabs="DEMO_TABS" v-model="activeTab2">
                   <template #overview><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Overview content here.</p></template>
                   <template #details><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Details content here.</p></template>
                   <template #settings><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Settings content here.</p></template>
-                </Tabs>
+                </LiquidTabs>
               </div>
             </div>
           </div>
@@ -225,19 +225,19 @@ export const GlassComparison: Story = {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <Tabs variant="glass-css-only" :tabs="DEMO_TABS" v-model="activeTab3">
+                <LiquidTabs variant="glass-css-only" :tabs="DEMO_TABS" v-model="activeTab3">
                   <template #overview><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Overview content here.</p></template>
                   <template #details><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Details content here.</p></template>
                   <template #settings><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Settings content here.</p></template>
-                </Tabs>
+                </LiquidTabs>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <Tabs variant="glass-highlight-layered" :tabs="DEMO_TABS" v-model="activeTab4">
+                <LiquidTabs variant="glass-highlight-layered" :tabs="DEMO_TABS" v-model="activeTab4">
                   <template #overview><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Overview content here.</p></template>
                   <template #details><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Details content here.</p></template>
                   <template #settings><p style="margin:0;color:rgba(255,255,255,0.8);font-size:13px;">Settings content here.</p></template>
-                </Tabs>
+                </LiquidTabs>
               </div>
             </div>
           </div>

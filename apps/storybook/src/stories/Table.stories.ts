@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Table, GlassFilterProvider } from '@liquid/ui';
+import { LiquidTable, GlassFilterProvider } from '@liquid/ui';
 
 const DEMO_COLUMNS = [
   { key: 'name', label: '姓名', width: '180px' },
@@ -16,8 +16,8 @@ const DEMO_ROWS = [
 ];
 
 const meta = {
-  title: 'Components/Table',
-  component: Table,
+  title: 'Components/LiquidTable',
+  component: LiquidTable,
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -53,7 +53,7 @@ const meta = {
     columns: DEMO_COLUMNS,
     rows: DEMO_ROWS,
   },
-} satisfies Meta<typeof Table>;
+} satisfies Meta<typeof LiquidTable>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -66,13 +66,13 @@ export const Default: Story = {
     hoverable: true,
   },
   render: (args) => ({
-    components: { Table },
+    components: { LiquidTable },
     setup() {
       return { args, columns: DEMO_COLUMNS, rows: DEMO_ROWS };
     },
     template: `
       <div style="padding: 2rem; background: #f5f7fa; border-radius: 12px;">
-        <Table v-bind="args" :columns="columns" :rows="rows" />
+        <LiquidTable v-bind="args" :columns="columns" :rows="rows" />
       </div>
     `,
   }),
@@ -86,7 +86,7 @@ export const GlassCssOnly: Story = {
     hoverable: true,
   },
   render: (args) => ({
-    components: { Table, GlassFilterProvider },
+    components: { LiquidTable, GlassFilterProvider },
     setup() {
       return { args, columns: DEMO_COLUMNS, rows: DEMO_ROWS };
     },
@@ -98,7 +98,7 @@ export const GlassCssOnly: Story = {
           border-radius: 16px;
           min-height: 300px;
         ">
-          <Table v-bind="args" :columns="columns" :rows="rows" />
+          <LiquidTable v-bind="args" :columns="columns" :rows="rows" />
         </div>
       </GlassFilterProvider>
     `,
@@ -113,7 +113,7 @@ export const GlassHighlightLayered: Story = {
     hoverable: true,
   },
   render: (args) => ({
-    components: { Table, GlassFilterProvider },
+    components: { LiquidTable, GlassFilterProvider },
     setup() {
       return { args, columns: DEMO_COLUMNS, rows: DEMO_ROWS };
     },
@@ -125,7 +125,7 @@ export const GlassHighlightLayered: Story = {
           border-radius: 16px;
           min-height: 300px;
         ">
-          <Table v-bind="args" :columns="columns" :rows="rows" />
+          <LiquidTable v-bind="args" :columns="columns" :rows="rows" />
         </div>
       </GlassFilterProvider>
     `,
@@ -135,7 +135,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比（垂直排列）
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Table, GlassFilterProvider },
+    components: { LiquidTable, GlassFilterProvider },
     setup() {
       return { columns: DEMO_COLUMNS, rows: DEMO_ROWS };
     },
@@ -150,7 +150,7 @@ export const GlassComparison: Story = {
             border-radius: 16px;
           ">
             <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only — Dark Purple Gradient</p>
-            <Table variant="glass-css-only" :columns="columns" :rows="rows" :hoverable="true" />
+            <LiquidTable variant="glass-css-only" :columns="columns" :rows="rows" :hoverable="true" />
           </div>
 
           <!-- Dark Purple Gradient — Highlight Layered -->
@@ -160,7 +160,7 @@ export const GlassComparison: Story = {
             border-radius: 16px;
           ">
             <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered — Dark Purple Gradient</p>
-            <Table variant="glass-highlight-layered" :columns="columns" :rows="rows" :hoverable="true" />
+            <LiquidTable variant="glass-highlight-layered" :columns="columns" :rows="rows" :hoverable="true" />
           </div>
 
           <!-- Dark Ocean Gradient -->
@@ -170,7 +170,7 @@ export const GlassComparison: Story = {
             border-radius: 16px;
           ">
             <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only — Dark Ocean Gradient</p>
-            <Table variant="glass-css-only" :columns="columns" :rows="rows" :hoverable="true" />
+            <LiquidTable variant="glass-css-only" :columns="columns" :rows="rows" :hoverable="true" />
           </div>
 
           <!-- Dark Ocean Gradient — Highlight Layered -->
@@ -180,7 +180,7 @@ export const GlassComparison: Story = {
             border-radius: 16px;
           ">
             <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered — Dark Ocean Gradient</p>
-            <Table variant="glass-highlight-layered" :columns="columns" :rows="rows" :hoverable="true" />
+            <LiquidTable variant="glass-highlight-layered" :columns="columns" :rows="rows" :hoverable="true" />
           </div>
 
         </div>
@@ -197,13 +197,13 @@ export const Striped: Story = {
     hoverable: true,
   },
   render: (args) => ({
-    components: { Table },
+    components: { LiquidTable },
     setup() {
       return { args, columns: DEMO_COLUMNS, rows: DEMO_ROWS };
     },
     template: `
       <div style="padding: 2rem; background: #f5f7fa; border-radius: 12px;">
-        <Table v-bind="args" :columns="columns" :rows="rows" />
+        <LiquidTable v-bind="args" :columns="columns" :rows="rows" />
       </div>
     `,
   }),
@@ -217,13 +217,13 @@ export const Empty: Story = {
     hoverable: true,
   },
   render: (args) => ({
-    components: { Table },
+    components: { LiquidTable },
     setup() {
       return { args, columns: DEMO_COLUMNS };
     },
     template: `
       <div style="padding: 2rem; background: #f5f7fa; border-radius: 12px;">
-        <Table v-bind="args" :columns="columns" :rows="[]" />
+        <LiquidTable v-bind="args" :columns="columns" :rows="[]" />
       </div>
     `,
   }),

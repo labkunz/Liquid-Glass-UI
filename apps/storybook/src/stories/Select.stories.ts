@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
-import { Select, GlassFilterProvider } from '@liquid/ui';
+import { LiquidSelect, GlassFilterProvider } from '@liquid/ui';
 
 const DEMO_OPTIONS = [
   { value: 'apple', label: '蘋果' },
@@ -11,8 +11,8 @@ const DEMO_OPTIONS = [
 ];
 
 const meta = {
-  title: 'Components/Select',
-  component: Select,
+  title: 'Components/LiquidSelect',
+  component: LiquidSelect,
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -56,7 +56,7 @@ const meta = {
     placeholder: '請選擇...',
     disabled: false,
   },
-} satisfies Meta<typeof Select>;
+} satisfies Meta<typeof LiquidSelect>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -67,14 +67,14 @@ export const Default: Story = {
     variant: 'default',
   },
   render: (args) => ({
-    components: { Select },
+    components: { LiquidSelect },
     setup() {
       const selected = ref(null);
       return { args, selected, DEMO_OPTIONS };
     },
     template: `
       <div style="padding: 2rem; min-height: 200px;">
-        <Select
+        <LiquidSelect
           v-bind="args"
           :options="DEMO_OPTIONS"
           v-model="selected"
@@ -100,7 +100,7 @@ export const GlassCssOnly: Story = {
     },
   },
   render: (args) => ({
-    components: { Select, GlassFilterProvider },
+    components: { LiquidSelect, GlassFilterProvider },
     setup() {
       const selected = ref(null);
       return { args, selected, DEMO_OPTIONS };
@@ -118,7 +118,7 @@ export const GlassCssOnly: Story = {
           justify-content: flex-start;
           padding-top: 3rem;
         ">
-          <Select
+          <LiquidSelect
             v-bind="args"
             :options="DEMO_OPTIONS"
             v-model="selected"
@@ -138,7 +138,7 @@ export const GlassHighlightLayered: Story = {
     variant: 'glass-highlight-layered',
   },
   render: (args) => ({
-    components: { Select, GlassFilterProvider },
+    components: { LiquidSelect, GlassFilterProvider },
     setup() {
       const selected = ref(null);
       return { args, selected, DEMO_OPTIONS };
@@ -156,7 +156,7 @@ export const GlassHighlightLayered: Story = {
           justify-content: flex-start;
           padding-top: 3rem;
         ">
-          <Select
+          <LiquidSelect
             v-bind="args"
             :options="DEMO_OPTIONS"
             v-model="selected"
@@ -173,7 +173,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Select, GlassFilterProvider },
+    components: { LiquidSelect, GlassFilterProvider },
     setup() {
       const selectedA = ref(null);
       const selectedB = ref(null);
@@ -196,11 +196,11 @@ export const GlassComparison: Story = {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <Select variant="glass-css-only" :options="DEMO_OPTIONS" v-model="selectedA" />
+                <LiquidSelect variant="glass-css-only" :options="DEMO_OPTIONS" v-model="selectedA" />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <Select variant="glass-highlight-layered" :options="DEMO_OPTIONS" v-model="selectedB" />
+                <LiquidSelect variant="glass-highlight-layered" :options="DEMO_OPTIONS" v-model="selectedB" />
               </div>
             </div>
           </div>
@@ -216,11 +216,11 @@ export const GlassComparison: Story = {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <Select variant="glass-css-only" :options="DEMO_OPTIONS" v-model="selectedC" />
+                <LiquidSelect variant="glass-css-only" :options="DEMO_OPTIONS" v-model="selectedC" />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <Select variant="glass-highlight-layered" :options="DEMO_OPTIONS" v-model="selectedD" />
+                <LiquidSelect variant="glass-highlight-layered" :options="DEMO_OPTIONS" v-model="selectedD" />
               </div>
             </div>
           </div>
@@ -234,7 +234,7 @@ export const GlassComparison: Story = {
 // 尺寸對比
 export const Sizes: Story = {
   render: () => ({
-    components: { Select },
+    components: { LiquidSelect },
     setup() {
       const selectedSm = ref(null);
       const selectedMd = ref(null);
@@ -245,15 +245,15 @@ export const Sizes: Story = {
       <div style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2rem; min-height: 300px;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="sm"</p>
-          <Select variant="default" size="sm" :options="DEMO_OPTIONS" v-model="selectedSm" />
+          <LiquidSelect variant="default" size="sm" :options="DEMO_OPTIONS" v-model="selectedSm" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="md" (default)</p>
-          <Select variant="default" size="md" :options="DEMO_OPTIONS" v-model="selectedMd" />
+          <LiquidSelect variant="default" size="md" :options="DEMO_OPTIONS" v-model="selectedMd" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="lg"</p>
-          <Select variant="default" size="lg" :options="DEMO_OPTIONS" v-model="selectedLg" />
+          <LiquidSelect variant="default" size="lg" :options="DEMO_OPTIONS" v-model="selectedLg" />
         </div>
       </div>
     `,
@@ -266,14 +266,14 @@ export const WithSelectedValue: Story = {
     variant: 'default',
   },
   render: (args) => ({
-    components: { Select },
+    components: { LiquidSelect },
     setup() {
       const selected = ref('banana');
       return { args, selected, DEMO_OPTIONS };
     },
     template: `
       <div style="padding: 2rem; min-height: 200px;">
-        <Select
+        <LiquidSelect
           v-bind="args"
           :options="DEMO_OPTIONS"
           v-model="selected"

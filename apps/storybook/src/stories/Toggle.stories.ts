@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
-import { Toggle } from '@liquid/ui';
+import { LiquidToggle } from '@liquid/ui';
 import { GlassFilterProvider } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Toggle',
-  component: Toggle,
+  title: 'Components/LiquidToggle',
+  component: LiquidToggle,
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
       options: ['default', 'glass-css-only', 'glass-highlight-layered'],
-      description: 'Toggle 樣式變體',
+      description: 'LiquidToggle 樣式變體',
       table: {
         type: { summary: "'default' | 'glass-css-only' | 'glass-highlight-layered'" },
         defaultValue: { summary: 'default' },
@@ -20,7 +20,7 @@ const meta = {
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
-      description: 'Toggle 尺寸',
+      description: 'LiquidToggle 尺寸',
       table: {
         type: { summary: "'sm' | 'md' | 'lg'" },
         defaultValue: { summary: 'md' },
@@ -58,7 +58,7 @@ const meta = {
     disabled: false,
     modelValue: false,
   },
-} satisfies Meta<typeof Toggle>;
+} satisfies Meta<typeof LiquidToggle>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -70,14 +70,14 @@ export const Default: Story = {
     label: '啟用通知',
   },
   render: (args) => ({
-    components: { Toggle },
+    components: { LiquidToggle },
     setup() {
       const value = ref(false);
       return { args, value };
     },
     template: `
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 12px; display: inline-flex; flex-direction: column; gap: 1rem;">
-        <Toggle v-bind="args" v-model="value" />
+        <LiquidToggle v-bind="args" v-model="value" />
         <p style="margin: 0; font-size: 12px; color: #666;">當前狀態：{{ value ? '開' : '關' }}</p>
       </div>
     `,
@@ -91,7 +91,7 @@ export const GlassCssOnly: Story = {
     label: '啟用通知',
   },
   render: (args) => ({
-    components: { Toggle, GlassFilterProvider },
+    components: { LiquidToggle, GlassFilterProvider },
     setup() {
       const value = ref(false);
       return { args, value };
@@ -109,7 +109,7 @@ export const GlassCssOnly: Story = {
           min-height: 160px;
           justify-content: center;
         ">
-          <Toggle v-bind="args" v-model="value" />
+          <LiquidToggle v-bind="args" v-model="value" />
           <p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.7);">當前狀態：{{ value ? '開' : '關' }}</p>
         </div>
       </GlassFilterProvider>
@@ -124,7 +124,7 @@ export const GlassHighlightLayered: Story = {
     label: '啟用通知',
   },
   render: (args) => ({
-    components: { Toggle, GlassFilterProvider },
+    components: { LiquidToggle, GlassFilterProvider },
     setup() {
       const value = ref(false);
       return { args, value };
@@ -142,7 +142,7 @@ export const GlassHighlightLayered: Story = {
           min-height: 160px;
           justify-content: center;
         ">
-          <Toggle v-bind="args" v-model="value" />
+          <LiquidToggle v-bind="args" v-model="value" />
           <p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.7);">當前狀態：{{ value ? '開' : '關' }}</p>
         </div>
       </GlassFilterProvider>
@@ -153,7 +153,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比 — ON 與 OFF 狀態並排
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Toggle, GlassFilterProvider },
+    components: { LiquidToggle, GlassFilterProvider },
     setup() {
       const cssOnlyOn = ref(true);
       const cssOnlyOff = ref(false);
@@ -185,15 +185,15 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                  <Toggle variant="glass-css-only" label="ON state" v-model="cssOnlyOn" />
-                  <Toggle variant="glass-css-only" label="OFF state" v-model="cssOnlyOff" />
+                  <LiquidToggle variant="glass-css-only" label="ON state" v-model="cssOnlyOn" />
+                  <LiquidToggle variant="glass-css-only" label="OFF state" v-model="cssOnlyOff" />
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                  <Toggle variant="glass-highlight-layered" label="ON state" v-model="layeredOn" />
-                  <Toggle variant="glass-highlight-layered" label="OFF state" v-model="layeredOff" />
+                  <LiquidToggle variant="glass-highlight-layered" label="ON state" v-model="layeredOn" />
+                  <LiquidToggle variant="glass-highlight-layered" label="OFF state" v-model="layeredOff" />
                 </div>
               </div>
             </div>
@@ -210,15 +210,15 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                  <Toggle variant="glass-css-only" label="ON state" v-model="cssOnlyOn2" />
-                  <Toggle variant="glass-css-only" label="OFF state" v-model="cssOnlyOff2" />
+                  <LiquidToggle variant="glass-css-only" label="ON state" v-model="cssOnlyOn2" />
+                  <LiquidToggle variant="glass-css-only" label="OFF state" v-model="cssOnlyOff2" />
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                  <Toggle variant="glass-highlight-layered" label="ON state" v-model="layeredOn2" />
-                  <Toggle variant="glass-highlight-layered" label="OFF state" v-model="layeredOff2" />
+                  <LiquidToggle variant="glass-highlight-layered" label="ON state" v-model="layeredOn2" />
+                  <LiquidToggle variant="glass-highlight-layered" label="OFF state" v-model="layeredOff2" />
                 </div>
               </div>
             </div>
@@ -233,7 +233,7 @@ export const GlassComparison: Story = {
 // Sizes 尺寸比較
 export const Sizes: Story = {
   render: () => ({
-    components: { Toggle },
+    components: { LiquidToggle },
     setup() {
       const smValue = ref(false);
       const mdValue = ref(false);
@@ -244,15 +244,15 @@ export const Sizes: Story = {
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 12px; display: flex; flex-direction: column; gap: 1.25rem;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem;">size="sm"</p>
-          <Toggle size="sm" label="小尺寸 Toggle" v-model="smValue" />
+          <LiquidToggle size="sm" label="小尺寸 LiquidToggle" v-model="smValue" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem;">size="md" (預設)</p>
-          <Toggle size="md" label="中尺寸 Toggle" v-model="mdValue" />
+          <LiquidToggle size="md" label="中尺寸 LiquidToggle" v-model="mdValue" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem;">size="lg"</p>
-          <Toggle size="lg" label="大尺寸 Toggle" v-model="lgValue" />
+          <LiquidToggle size="lg" label="大尺寸 LiquidToggle" v-model="lgValue" />
         </div>
       </div>
     `,
@@ -262,16 +262,16 @@ export const Sizes: Story = {
 // Disabled 狀態
 export const Disabled: Story = {
   render: () => ({
-    components: { Toggle },
+    components: { LiquidToggle },
     template: `
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 12px; display: flex; flex-direction: column; gap: 1rem;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem;">disabled + OFF</p>
-          <Toggle label="禁用（關閉）" disabled :model-value="false" />
+          <LiquidToggle label="禁用（關閉）" disabled :model-value="false" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem;">disabled + ON</p>
-          <Toggle label="禁用（開啟）" disabled :model-value="true" />
+          <LiquidToggle label="禁用（開啟）" disabled :model-value="true" />
         </div>
       </div>
     `,
@@ -281,7 +281,7 @@ export const Disabled: Story = {
 // AllStates — 所有 variant 的 OFF / ON 展示
 export const AllStates: Story = {
   render: () => ({
-    components: { Toggle, GlassFilterProvider },
+    components: { LiquidToggle, GlassFilterProvider },
     setup() {
       const defaultOn = ref(true);
       const defaultOff = ref(false);
@@ -301,11 +301,11 @@ export const AllStates: Story = {
             <div style="display: flex; gap: 2rem;">
               <div>
                 <p style="color: #999; font-size: 11px; margin: 0 0 0.4rem;">OFF</p>
-                <Toggle variant="default" label="通知" v-model="defaultOff" />
+                <LiquidToggle variant="default" label="通知" v-model="defaultOff" />
               </div>
               <div>
                 <p style="color: #999; font-size: 11px; margin: 0 0 0.4rem;">ON</p>
-                <Toggle variant="default" label="通知" v-model="defaultOn" />
+                <LiquidToggle variant="default" label="通知" v-model="defaultOn" />
               </div>
             </div>
           </div>
@@ -320,11 +320,11 @@ export const AllStates: Story = {
             <div style="display: flex; gap: 2rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.5); font-size: 11px; margin: 0 0 0.4rem;">OFF</p>
-                <Toggle variant="glass-css-only" label="通知" v-model="cssOff" />
+                <LiquidToggle variant="glass-css-only" label="通知" v-model="cssOff" />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.5); font-size: 11px; margin: 0 0 0.4rem;">ON</p>
-                <Toggle variant="glass-css-only" label="通知" v-model="cssOn" />
+                <LiquidToggle variant="glass-css-only" label="通知" v-model="cssOn" />
               </div>
             </div>
           </div>
@@ -339,11 +339,11 @@ export const AllStates: Story = {
             <div style="display: flex; gap: 2rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.5); font-size: 11px; margin: 0 0 0.4rem;">OFF</p>
-                <Toggle variant="glass-highlight-layered" label="通知" v-model="layOff" />
+                <LiquidToggle variant="glass-highlight-layered" label="通知" v-model="layOff" />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.5); font-size: 11px; margin: 0 0 0.4rem;">ON</p>
-                <Toggle variant="glass-highlight-layered" label="通知" v-model="layOn" />
+                <LiquidToggle variant="glass-highlight-layered" label="通知" v-model="layOn" />
               </div>
             </div>
           </div>

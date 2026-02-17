@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Loading } from '@liquid/ui';
+import { LiquidLoading } from '@liquid/ui';
 import { GlassFilterProvider } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Loading',
-  component: Loading,
+  title: 'Components/LiquidLoading',
+  component: LiquidLoading,
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -58,7 +58,7 @@ const meta = {
     label: '',
     overlay: false,
   },
-} satisfies Meta<typeof Loading>;
+} satisfies Meta<typeof LiquidLoading>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -71,13 +71,13 @@ export const Default: Story = {
     type: 'spinner',
   },
   render: (args) => ({
-    components: { Loading },
+    components: { LiquidLoading },
     setup() {
       return { args };
     },
     template: `
       <div style="padding: 2rem; display: flex; align-items: center; justify-content: center;">
-        <Loading v-bind="args" />
+        <LiquidLoading v-bind="args" />
       </div>
     `,
   }),
@@ -86,22 +86,22 @@ export const Default: Story = {
 // All animation types side by side
 export const AllTypes: Story = {
   render: () => ({
-    components: { Loading },
+    components: { LiquidLoading },
     template: `
       <div style="padding: 2rem; display: flex; flex-direction: column; gap: 2rem;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">Animation Types — size md</p>
           <div style="display: flex; gap: 3rem; align-items: center;">
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="spinner" size="md" />
+              <LiquidLoading variant="default" type="spinner" size="md" />
               <span style="font-size: 12px; color: #888;">spinner</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="dots" size="md" />
+              <LiquidLoading variant="default" type="dots" size="md" />
               <span style="font-size: 12px; color: #888;">dots</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="pulse" size="md" />
+              <LiquidLoading variant="default" type="pulse" size="md" />
               <span style="font-size: 12px; color: #888;">pulse</span>
             </div>
           </div>
@@ -117,7 +117,7 @@ export const GlassCssOnly: Story = {
     variant: 'glass-css-only',
   },
   render: (args) => ({
-    components: { Loading, GlassFilterProvider },
+    components: { LiquidLoading, GlassFilterProvider },
     setup() {
       return { args };
     },
@@ -133,9 +133,9 @@ export const GlassCssOnly: Story = {
           justify-content: center;
         ">
           <div style="display: flex; gap: 2rem; align-items: center;">
-            <Loading variant="glass-css-only" type="spinner" />
-            <Loading variant="glass-css-only" type="dots" />
-            <Loading variant="glass-css-only" type="pulse" />
+            <LiquidLoading variant="glass-css-only" type="spinner" />
+            <LiquidLoading variant="glass-css-only" type="dots" />
+            <LiquidLoading variant="glass-css-only" type="pulse" />
           </div>
         </div>
       </GlassFilterProvider>
@@ -149,7 +149,7 @@ export const GlassHighlightLayered: Story = {
     variant: 'glass-highlight-layered',
   },
   render: (args) => ({
-    components: { Loading, GlassFilterProvider },
+    components: { LiquidLoading, GlassFilterProvider },
     setup() {
       return { args };
     },
@@ -165,9 +165,9 @@ export const GlassHighlightLayered: Story = {
           justify-content: center;
         ">
           <div style="display: flex; gap: 2rem; align-items: center;">
-            <Loading variant="glass-highlight-layered" type="spinner" />
-            <Loading variant="glass-highlight-layered" type="dots" />
-            <Loading variant="glass-highlight-layered" type="pulse" />
+            <LiquidLoading variant="glass-highlight-layered" type="spinner" />
+            <LiquidLoading variant="glass-highlight-layered" type="dots" />
+            <LiquidLoading variant="glass-highlight-layered" type="pulse" />
           </div>
         </div>
       </GlassFilterProvider>
@@ -178,7 +178,7 @@ export const GlassHighlightLayered: Story = {
 // Glass Comparison — both variants side by side, all 3 animation types
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Loading, GlassFilterProvider },
+    components: { LiquidLoading, GlassFilterProvider },
     template: `
       <GlassFilterProvider>
         <div style="display: flex; flex-direction: column; gap: 2.5rem;">
@@ -194,17 +194,17 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; gap: 2rem; align-items: center;">
-                  <Loading variant="glass-css-only" type="spinner" />
-                  <Loading variant="glass-css-only" type="dots" />
-                  <Loading variant="glass-css-only" type="pulse" />
+                  <LiquidLoading variant="glass-css-only" type="spinner" />
+                  <LiquidLoading variant="glass-css-only" type="dots" />
+                  <LiquidLoading variant="glass-css-only" type="pulse" />
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; gap: 2rem; align-items: center;">
-                  <Loading variant="glass-highlight-layered" type="spinner" />
-                  <Loading variant="glass-highlight-layered" type="dots" />
-                  <Loading variant="glass-highlight-layered" type="pulse" />
+                  <LiquidLoading variant="glass-highlight-layered" type="spinner" />
+                  <LiquidLoading variant="glass-highlight-layered" type="dots" />
+                  <LiquidLoading variant="glass-highlight-layered" type="pulse" />
                 </div>
               </div>
             </div>
@@ -221,17 +221,17 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; gap: 2rem; align-items: center;">
-                  <Loading variant="glass-css-only" type="spinner" />
-                  <Loading variant="glass-css-only" type="dots" />
-                  <Loading variant="glass-css-only" type="pulse" />
+                  <LiquidLoading variant="glass-css-only" type="spinner" />
+                  <LiquidLoading variant="glass-css-only" type="dots" />
+                  <LiquidLoading variant="glass-css-only" type="pulse" />
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; gap: 2rem; align-items: center;">
-                  <Loading variant="glass-highlight-layered" type="spinner" />
-                  <Loading variant="glass-highlight-layered" type="dots" />
-                  <Loading variant="glass-highlight-layered" type="pulse" />
+                  <LiquidLoading variant="glass-highlight-layered" type="spinner" />
+                  <LiquidLoading variant="glass-highlight-layered" type="dots" />
+                  <LiquidLoading variant="glass-highlight-layered" type="pulse" />
                 </div>
               </div>
             </div>
@@ -248,17 +248,17 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; gap: 2rem; align-items: center;">
-                  <Loading variant="glass-css-only" type="spinner" />
-                  <Loading variant="glass-css-only" type="dots" />
-                  <Loading variant="glass-css-only" type="pulse" />
+                  <LiquidLoading variant="glass-css-only" type="spinner" />
+                  <LiquidLoading variant="glass-css-only" type="dots" />
+                  <LiquidLoading variant="glass-css-only" type="pulse" />
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; gap: 2rem; align-items: center;">
-                  <Loading variant="glass-highlight-layered" type="spinner" />
-                  <Loading variant="glass-highlight-layered" type="dots" />
-                  <Loading variant="glass-highlight-layered" type="pulse" />
+                  <LiquidLoading variant="glass-highlight-layered" type="spinner" />
+                  <LiquidLoading variant="glass-highlight-layered" type="dots" />
+                  <LiquidLoading variant="glass-highlight-layered" type="pulse" />
                 </div>
               </div>
             </div>
@@ -273,26 +273,26 @@ export const GlassComparison: Story = {
 // Sizes comparison
 export const Sizes: Story = {
   render: () => ({
-    components: { Loading },
+    components: { LiquidLoading },
     template: `
       <div style="padding: 2rem; display: flex; flex-direction: column; gap: 2rem;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">Spinner — All Sizes</p>
           <div style="display: flex; gap: 3rem; align-items: center;">
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="spinner" size="sm" />
+              <LiquidLoading variant="default" type="spinner" size="sm" />
               <span style="font-size: 12px; color: #888;">sm</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="spinner" size="md" />
+              <LiquidLoading variant="default" type="spinner" size="md" />
               <span style="font-size: 12px; color: #888;">md</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="spinner" size="lg" />
+              <LiquidLoading variant="default" type="spinner" size="lg" />
               <span style="font-size: 12px; color: #888;">lg</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="spinner" size="xl" />
+              <LiquidLoading variant="default" type="spinner" size="xl" />
               <span style="font-size: 12px; color: #888;">xl</span>
             </div>
           </div>
@@ -301,19 +301,19 @@ export const Sizes: Story = {
           <p style="color: #666; font-size: 12px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">Dots — All Sizes</p>
           <div style="display: flex; gap: 3rem; align-items: center;">
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="dots" size="sm" />
+              <LiquidLoading variant="default" type="dots" size="sm" />
               <span style="font-size: 12px; color: #888;">sm</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="dots" size="md" />
+              <LiquidLoading variant="default" type="dots" size="md" />
               <span style="font-size: 12px; color: #888;">md</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="dots" size="lg" />
+              <LiquidLoading variant="default" type="dots" size="lg" />
               <span style="font-size: 12px; color: #888;">lg</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="dots" size="xl" />
+              <LiquidLoading variant="default" type="dots" size="xl" />
               <span style="font-size: 12px; color: #888;">xl</span>
             </div>
           </div>
@@ -322,19 +322,19 @@ export const Sizes: Story = {
           <p style="color: #666; font-size: 12px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">Pulse — All Sizes</p>
           <div style="display: flex; gap: 3rem; align-items: center;">
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="pulse" size="sm" />
+              <LiquidLoading variant="default" type="pulse" size="sm" />
               <span style="font-size: 12px; color: #888;">sm</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="pulse" size="md" />
+              <LiquidLoading variant="default" type="pulse" size="md" />
               <span style="font-size: 12px; color: #888;">md</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="pulse" size="lg" />
+              <LiquidLoading variant="default" type="pulse" size="lg" />
               <span style="font-size: 12px; color: #888;">lg</span>
             </div>
             <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem;">
-              <Loading variant="default" type="pulse" size="xl" />
+              <LiquidLoading variant="default" type="pulse" size="xl" />
               <span style="font-size: 12px; color: #888;">xl</span>
             </div>
           </div>
@@ -353,7 +353,7 @@ export const WithLabel: Story = {
     label: '資料載入中...',
   },
   render: (args) => ({
-    components: { Loading },
+    components: { LiquidLoading },
     setup() {
       return { args };
     },
@@ -361,19 +361,19 @@ export const WithLabel: Story = {
       <div style="padding: 2rem; display: flex; flex-direction: column; gap: 2rem; align-items: flex-start;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">Spinner with label</p>
-          <Loading variant="default" type="spinner" size="md" label="資料載入中..." />
+          <LiquidLoading variant="default" type="spinner" size="md" label="資料載入中..." />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">Dots with label</p>
-          <Loading variant="default" type="dots" size="md" label="資料載入中..." />
+          <LiquidLoading variant="default" type="dots" size="md" label="資料載入中..." />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">Pulse with label</p>
-          <Loading variant="default" type="pulse" size="md" label="資料載入中..." />
+          <LiquidLoading variant="default" type="pulse" size="md" label="資料載入中..." />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em;">Large spinner with label</p>
-          <Loading variant="default" type="spinner" size="lg" label="資料載入中..." />
+          <LiquidLoading variant="default" type="spinner" size="lg" label="資料載入中..." />
         </div>
       </div>
     `,

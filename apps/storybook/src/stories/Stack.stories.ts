@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Stack } from '@liquid/ui';
+import { LiquidStack } from '@liquid/ui';
 
 const meta = {
-  title: 'Layout/Stack',
-  component: Stack,
+  title: 'Layout/LiquidStack',
+  component: LiquidStack,
   tags: ['autodocs'],
   argTypes: {
     direction: {
@@ -49,7 +49,7 @@ const meta = {
     align: 'stretch',
     justify: 'start',
   },
-} satisfies Meta<typeof Stack>;
+} satisfies Meta<typeof LiquidStack>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -64,16 +64,16 @@ export const Column: Story = {
     gap: 'md',
   },
   render: (args) => ({
-    components: { Stack },
+    components: { LiquidStack },
     setup() {
       return { args, BOX_STYLE };
     },
     template: `
-      <Stack v-bind="args" style="width: 280px;">
+      <LiquidStack v-bind="args" style="width: 280px;">
         <div :style="BOX_STYLE">Item 1</div>
         <div :style="BOX_STYLE">Item 2</div>
         <div :style="BOX_STYLE">Item 3</div>
-      </Stack>
+      </LiquidStack>
     `,
   }),
 };
@@ -86,16 +86,16 @@ export const Row: Story = {
     align: 'center',
   },
   render: (args) => ({
-    components: { Stack },
+    components: { LiquidStack },
     setup() {
       return { args, BOX_STYLE };
     },
     template: `
-      <Stack v-bind="args">
+      <LiquidStack v-bind="args">
         <div :style="BOX_STYLE">Item 1</div>
         <div :style="BOX_STYLE">Item 2</div>
         <div :style="BOX_STYLE">Item 3</div>
-      </Stack>
+      </LiquidStack>
     `,
   }),
 };
@@ -103,20 +103,20 @@ export const Row: Story = {
 // Gap 所有尺寸對比
 export const GapVariants: Story = {
   render: () => ({
-    components: { Stack },
+    components: { LiquidStack },
     template: `
-      <Stack direction="column" gap="lg">
+      <LiquidStack direction="column" gap="lg">
 
         <div v-for="gap in ['none', 'sm', 'md', 'lg']" :key="gap">
           <p style="font-size: 12px; color: #666; margin: 0 0 0.4rem; font-weight: 600;">gap="{{ gap }}"</p>
-          <Stack direction="row" :gap="gap" style="background: #f5f5f5; padding: 0.75rem; border-radius: 8px;">
+          <LiquidStack direction="row" :gap="gap" style="background: #f5f5f5; padding: 0.75rem; border-radius: 8px;">
             <div style="background: #007bff; color: white; border-radius: 4px; padding: 0.5rem 0.75rem; font-size: 12px; font-weight: 600;">A</div>
             <div style="background: #28a745; color: white; border-radius: 4px; padding: 0.5rem 0.75rem; font-size: 12px; font-weight: 600;">B</div>
             <div style="background: #dc3545; color: white; border-radius: 4px; padding: 0.5rem 0.75rem; font-size: 12px; font-weight: 600;">C</div>
-          </Stack>
+          </LiquidStack>
         </div>
 
-      </Stack>
+      </LiquidStack>
     `,
   }),
 };
@@ -124,51 +124,51 @@ export const GapVariants: Story = {
 // Justify 所有模式對比（Row 方向）
 export const JustifyVariants: Story = {
   render: () => ({
-    components: { Stack },
+    components: { LiquidStack },
     template: `
-      <Stack direction="column" gap="md" style="width: 500px;">
+      <LiquidStack direction="column" gap="md" style="width: 500px;">
 
         <div v-for="justify in ['start', 'center', 'end', 'between', 'around']" :key="justify">
           <p style="font-size: 12px; color: #666; margin: 0 0 0.4rem; font-weight: 600;">justify="{{ justify }}"</p>
-          <Stack direction="row" :justify="justify" style="background: #f5f5f5; padding: 0.75rem; border-radius: 8px; width: 100%;">
+          <LiquidStack direction="row" :justify="justify" style="background: #f5f5f5; padding: 0.75rem; border-radius: 8px; width: 100%;">
             <div style="background: #007bff; color: white; border-radius: 4px; padding: 0.5rem 0.75rem; font-size: 12px; font-weight: 600;">A</div>
             <div style="background: #28a745; color: white; border-radius: 4px; padding: 0.5rem 0.75rem; font-size: 12px; font-weight: 600;">B</div>
             <div style="background: #dc3545; color: white; border-radius: 4px; padding: 0.5rem 0.75rem; font-size: 12px; font-weight: 600;">C</div>
-          </Stack>
+          </LiquidStack>
         </div>
 
-      </Stack>
+      </LiquidStack>
     `,
   }),
 };
 
-// Stack 組合使用範例（Card + Stack）
+// LiquidStack 組合使用範例（Card + LiquidStack）
 export const ComposedExample: Story = {
   render: () => ({
-    components: { Stack },
+    components: { LiquidStack },
     template: `
-      <Stack direction="column" gap="md" style="width: 340px; background: white; border: 1px solid #dee2e6; border-radius: 12px; padding: 1.25rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+      <LiquidStack direction="column" gap="md" style="width: 340px; background: white; border: 1px solid #dee2e6; border-radius: 12px; padding: 1.25rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
 
-        <Stack direction="row" gap="sm" align="center" justify="between">
+        <LiquidStack direction="row" gap="sm" align="center" justify="between">
           <span style="font-size: 16px; font-weight: 700; color: #333;">User Profile</span>
           <span style="font-size: 12px; color: #999; background: #f0f0f0; padding: 0.25rem 0.5rem; border-radius: 4px;">Active</span>
-        </Stack>
+        </LiquidStack>
 
-        <Stack direction="row" gap="md" align="center">
+        <LiquidStack direction="row" gap="md" align="center">
           <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #667eea, #764ba2); flex-shrink: 0;"></div>
-          <Stack direction="column" gap="none">
+          <LiquidStack direction="column" gap="none">
             <span style="font-size: 14px; font-weight: 600; color: #333;">Alex Chen</span>
             <span style="font-size: 12px; color: #999;">Senior Designer</span>
-          </Stack>
-        </Stack>
+          </LiquidStack>
+        </LiquidStack>
 
-        <Stack direction="row" gap="sm" justify="start">
+        <LiquidStack direction="row" gap="sm" justify="start">
           <div style="background: rgba(0,123,255,0.1); color: #007bff; font-size: 11px; font-weight: 600; padding: 0.25rem 0.5rem; border-radius: 4px;">Vue</div>
           <div style="background: rgba(40,167,69,0.1); color: #28a745; font-size: 11px; font-weight: 600; padding: 0.25rem 0.5rem; border-radius: 4px;">TypeScript</div>
           <div style="background: rgba(220,53,69,0.1); color: #dc3545; font-size: 11px; font-weight: 600; padding: 0.25rem 0.5rem; border-radius: 4px;">Figma</div>
-        </Stack>
+        </LiquidStack>
 
-      </Stack>
+      </LiquidStack>
     `,
   }),
 };

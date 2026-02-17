@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Input, GlassFilterProvider } from '@liquid/ui';
+import { LiquidInput, GlassFilterProvider } from '@liquid/ui';
 import { ref } from 'vue';
 
 const meta = {
-  title: 'Components/Input',
-  component: Input,
+  title: 'Components/LiquidInput',
+  component: LiquidInput,
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -59,7 +59,7 @@ const meta = {
     disabled: false,
     modelValue: '',
   },
-} satisfies Meta<typeof Input>;
+} satisfies Meta<typeof LiquidInput>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -71,14 +71,14 @@ export const Default: Story = {
     placeholder: 'Enter text...',
   },
   render: (args) => ({
-    components: { Input },
+    components: { LiquidInput },
     setup() {
       const value = ref('');
       return { args, value };
     },
     template: `
       <div style="width: 280px;">
-        <Input v-bind="args" v-model="value" />
+        <LiquidInput v-bind="args" v-model="value" />
         <p style="margin-top: 0.5rem; font-size: 12px; color: #888;">Value: {{ value }}</p>
       </div>
     `,
@@ -92,7 +92,7 @@ export const GlassCssOnly: Story = {
     placeholder: 'Glass input...',
   },
   render: (args) => ({
-    components: { Input, GlassFilterProvider },
+    components: { LiquidInput, GlassFilterProvider },
     setup() {
       const value = ref('');
       return { args, value };
@@ -109,7 +109,7 @@ export const GlassCssOnly: Story = {
           border-radius: 12px;
         ">
           <div style="width: 280px;">
-            <Input v-bind="args" v-model="value" />
+            <LiquidInput v-bind="args" v-model="value" />
             <p style="margin-top: 0.5rem; font-size: 12px; color: rgba(255,255,255,0.7);">Value: {{ value }}</p>
           </div>
         </div>
@@ -125,7 +125,7 @@ export const GlassHighlightLayered: Story = {
     placeholder: 'Glass input...',
   },
   render: (args) => ({
-    components: { Input, GlassFilterProvider },
+    components: { LiquidInput, GlassFilterProvider },
     setup() {
       const value = ref('');
       return { args, value };
@@ -142,7 +142,7 @@ export const GlassHighlightLayered: Story = {
           border-radius: 12px;
         ">
           <div style="width: 280px;">
-            <Input v-bind="args" v-model="value" />
+            <LiquidInput v-bind="args" v-model="value" />
             <p style="margin-top: 0.5rem; font-size: 12px; color: rgba(255,255,255,0.7);">Value: {{ value }}</p>
           </div>
         </div>
@@ -154,7 +154,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Input, GlassFilterProvider },
+    components: { LiquidInput, GlassFilterProvider },
     setup() {
       const values = ref({
         purpleCssOnly: '',
@@ -178,11 +178,11 @@ export const GlassComparison: Story = {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <Input variant="glass-css-only" placeholder="CSS only..." v-model="values.purpleCssOnly" style="width: 100%;" />
+                <LiquidInput variant="glass-css-only" placeholder="CSS only..." v-model="values.purpleCssOnly" style="width: 100%;" />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <Input variant="glass-highlight-layered" placeholder="Layered..." v-model="values.purpleLayered" style="width: 100%;" />
+                <LiquidInput variant="glass-highlight-layered" placeholder="Layered..." v-model="values.purpleLayered" style="width: 100%;" />
               </div>
             </div>
           </div>
@@ -197,11 +197,11 @@ export const GlassComparison: Story = {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <Input variant="glass-css-only" placeholder="CSS only..." v-model="values.tealCssOnly" style="width: 100%;" />
+                <LiquidInput variant="glass-css-only" placeholder="CSS only..." v-model="values.tealCssOnly" style="width: 100%;" />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <Input variant="glass-highlight-layered" placeholder="Layered..." v-model="values.tealLayered" style="width: 100%;" />
+                <LiquidInput variant="glass-highlight-layered" placeholder="Layered..." v-model="values.tealLayered" style="width: 100%;" />
               </div>
             </div>
           </div>
@@ -215,7 +215,7 @@ export const GlassComparison: Story = {
 // 尺寸變體展示
 export const Sizes: Story = {
   render: () => ({
-    components: { Input },
+    components: { LiquidInput },
     setup() {
       const sm = ref('');
       const md = ref('');
@@ -226,15 +226,15 @@ export const Sizes: Story = {
       <div style="display: flex; flex-direction: column; gap: 1.25rem; width: 320px;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="sm" (height ~32px, font 13px)</p>
-          <Input size="sm" placeholder="Small input..." v-model="sm" />
+          <LiquidInput size="sm" placeholder="Small input..." v-model="sm" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="md" (height ~40px, font 14px) — default</p>
-          <Input size="md" placeholder="Medium input..." v-model="md" />
+          <LiquidInput size="md" placeholder="Medium input..." v-model="md" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="lg" (height ~48px, font 16px)</p>
-          <Input size="lg" placeholder="Large input..." v-model="lg" />
+          <LiquidInput size="lg" placeholder="Large input..." v-model="lg" />
         </div>
       </div>
     `,
@@ -244,14 +244,14 @@ export const Sizes: Story = {
 // 禁用狀態
 export const Disabled: Story = {
   render: () => ({
-    components: { Input, GlassFilterProvider },
+    components: { LiquidInput, GlassFilterProvider },
     template: `
       <div style="display: flex; flex-direction: column; gap: 2rem;">
 
         <!-- Default disabled -->
         <div style="width: 320px;">
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Default — Disabled</p>
-          <Input variant="default" placeholder="Disabled input" disabled model-value="Cannot edit this" />
+          <LiquidInput variant="default" placeholder="Disabled input" disabled model-value="Cannot edit this" />
         </div>
 
         <!-- Glass disabled on gradient -->
@@ -267,11 +267,11 @@ export const Disabled: Story = {
             <p style="color: white; font-size: 12px; margin: 0; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; opacity: 0.8;">Glass Variants — Disabled</p>
             <div style="width: 280px;">
               <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-              <Input variant="glass-css-only" placeholder="Disabled" disabled model-value="Cannot edit this" />
+              <LiquidInput variant="glass-css-only" placeholder="Disabled" disabled model-value="Cannot edit this" />
             </div>
             <div style="width: 280px;">
               <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-              <Input variant="glass-highlight-layered" placeholder="Disabled" disabled model-value="Cannot edit this" />
+              <LiquidInput variant="glass-highlight-layered" placeholder="Disabled" disabled model-value="Cannot edit this" />
             </div>
           </div>
         </GlassFilterProvider>

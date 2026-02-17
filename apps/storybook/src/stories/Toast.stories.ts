@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 import { GlassFilterProvider } from '@liquid/ui';
-import { Toast } from '@liquid/ui';
+import { LiquidToast } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Toast',
-  component: Toast,
+  title: 'Components/LiquidToast',
+  component: LiquidToast,
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
       options: ['default', 'glass-css-only', 'glass-highlight-layered'],
-      description: 'Toast 樣式變體',
+      description: 'LiquidToast 樣式變體',
       table: {
         type: { summary: "'default' | 'glass-css-only' | 'glass-highlight-layered'" },
         defaultValue: { summary: 'default' },
@@ -20,7 +20,7 @@ const meta = {
     type: {
       control: 'select',
       options: ['info', 'success', 'warning', 'error'],
-      description: 'Toast 類型',
+      description: 'LiquidToast 類型',
       table: {
         type: { summary: "'info' | 'success' | 'warning' | 'error'" },
         defaultValue: { summary: 'info' },
@@ -28,7 +28,7 @@ const meta = {
     },
     message: {
       control: 'text',
-      description: 'Toast 顯示訊息',
+      description: 'LiquidToast 顯示訊息',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -37,7 +37,7 @@ const meta = {
     position: {
       control: 'select',
       options: ['top-right', 'top-left', 'bottom-right', 'bottom-left', 'top-center', 'bottom-center'],
-      description: 'Toast 顯示位置',
+      description: 'LiquidToast 顯示位置',
       table: {
         type: { summary: "'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center'" },
         defaultValue: { summary: 'bottom-right' },
@@ -59,7 +59,7 @@ const meta = {
     position: 'bottom-right',
     duration: 3000,
   },
-} satisfies Meta<typeof Toast>;
+} satisfies Meta<typeof LiquidToast>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -72,7 +72,7 @@ export const Default: Story = {
     message: 'This is an info notification.',
   },
   render: (args) => ({
-    components: { Toast, GlassFilterProvider },
+    components: { LiquidToast, GlassFilterProvider },
     setup() {
       const isVisible = ref(false);
       const show = () => { isVisible.value = true; };
@@ -82,9 +82,9 @@ export const Default: Story = {
       <GlassFilterProvider>
         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 12px; padding: 2rem;">
           <button @click="show" style="padding: 0.75rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; cursor: pointer; font-size: 14px;">
-            顯示 Toast
+            顯示 LiquidToast
           </button>
-          <Toast v-bind="args" v-model="isVisible" />
+          <LiquidToast v-bind="args" v-model="isVisible" />
         </div>
       </GlassFilterProvider>
     `,
@@ -94,7 +94,7 @@ export const Default: Story = {
 // AllTypes - show all 4 types at once using separate refs
 export const AllTypes: Story = {
   render: () => ({
-    components: { Toast, GlassFilterProvider },
+    components: { LiquidToast, GlassFilterProvider },
     setup() {
       const isVisibleInfo = ref(false);
       const isVisibleSuccess = ref(false);
@@ -114,10 +114,10 @@ export const AllTypes: Story = {
           <button @click="showAll" style="padding: 0.75rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; cursor: pointer; font-size: 14px;">
             顯示所有類型
           </button>
-          <Toast variant="default" type="info" message="Info: Something to note." position="top-right" :duration="5000" v-model="isVisibleInfo" />
-          <Toast variant="default" type="success" message="Success: Operation completed!" position="top-right" :duration="5000" v-model="isVisibleSuccess" />
-          <Toast variant="default" type="warning" message="Warning: Proceed with caution." position="bottom-right" :duration="5000" v-model="isVisibleWarning" />
-          <Toast variant="default" type="error" message="Error: Something went wrong." position="bottom-right" :duration="5000" v-model="isVisibleError" />
+          <LiquidToast variant="default" type="info" message="Info: Something to note." position="top-right" :duration="5000" v-model="isVisibleInfo" />
+          <LiquidToast variant="default" type="success" message="Success: Operation completed!" position="top-right" :duration="5000" v-model="isVisibleSuccess" />
+          <LiquidToast variant="default" type="warning" message="Warning: Proceed with caution." position="bottom-right" :duration="5000" v-model="isVisibleWarning" />
+          <LiquidToast variant="default" type="error" message="Error: Something went wrong." position="bottom-right" :duration="5000" v-model="isVisibleError" />
         </div>
       </GlassFilterProvider>
     `,
@@ -132,7 +132,7 @@ export const GlassCssOnly: Story = {
     message: 'Glass CSS Only notification.',
   },
   render: (args) => ({
-    components: { Toast, GlassFilterProvider },
+    components: { LiquidToast, GlassFilterProvider },
     setup() {
       const isVisible = ref(false);
       const show = () => { isVisible.value = true; };
@@ -142,9 +142,9 @@ export const GlassCssOnly: Story = {
       <GlassFilterProvider>
         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 12px; padding: 2rem;">
           <button @click="show" style="padding: 0.75rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; cursor: pointer; font-size: 14px;">
-            顯示 Toast
+            顯示 LiquidToast
           </button>
-          <Toast v-bind="args" v-model="isVisible" />
+          <LiquidToast v-bind="args" v-model="isVisible" />
         </div>
       </GlassFilterProvider>
     `,
@@ -159,7 +159,7 @@ export const GlassHighlightLayered: Story = {
     message: 'Glass Highlight Layered notification.',
   },
   render: (args) => ({
-    components: { Toast, GlassFilterProvider },
+    components: { LiquidToast, GlassFilterProvider },
     setup() {
       const isVisible = ref(false);
       const show = () => { isVisible.value = true; };
@@ -169,9 +169,9 @@ export const GlassHighlightLayered: Story = {
       <GlassFilterProvider>
         <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); min-height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 12px; padding: 2rem;">
           <button @click="show" style="padding: 0.75rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; cursor: pointer; font-size: 14px;">
-            顯示 Toast
+            顯示 LiquidToast
           </button>
-          <Toast v-bind="args" v-model="isVisible" />
+          <LiquidToast v-bind="args" v-model="isVisible" />
         </div>
       </GlassFilterProvider>
     `,
@@ -181,7 +181,7 @@ export const GlassHighlightLayered: Story = {
 // GlassComparison - compare both glass variants, all 4 types shown
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Toast, GlassFilterProvider },
+    components: { LiquidToast, GlassFilterProvider },
     setup() {
       const cssOnlyInfo = ref(false);
       const cssOnlySuccess = ref(false);
@@ -232,16 +232,16 @@ export const GlassComparison: Story = {
           </div>
 
           <!-- CSS Only Toasts -->
-          <Toast variant="glass-css-only" type="info" message="CSS Only: Info notification." position="top-left" :duration="6000" v-model="cssOnlyInfo" />
-          <Toast variant="glass-css-only" type="success" message="CSS Only: Success notification." position="top-left" :duration="6000" v-model="cssOnlySuccess" />
-          <Toast variant="glass-css-only" type="warning" message="CSS Only: Warning notification." position="bottom-left" :duration="6000" v-model="cssOnlyWarning" />
-          <Toast variant="glass-css-only" type="error" message="CSS Only: Error notification." position="bottom-left" :duration="6000" v-model="cssOnlyError" />
+          <LiquidToast variant="glass-css-only" type="info" message="CSS Only: Info notification." position="top-left" :duration="6000" v-model="cssOnlyInfo" />
+          <LiquidToast variant="glass-css-only" type="success" message="CSS Only: Success notification." position="top-left" :duration="6000" v-model="cssOnlySuccess" />
+          <LiquidToast variant="glass-css-only" type="warning" message="CSS Only: Warning notification." position="bottom-left" :duration="6000" v-model="cssOnlyWarning" />
+          <LiquidToast variant="glass-css-only" type="error" message="CSS Only: Error notification." position="bottom-left" :duration="6000" v-model="cssOnlyError" />
 
           <!-- Layered Toasts -->
-          <Toast variant="glass-highlight-layered" type="info" message="Layered: Info notification." position="top-right" :duration="6000" v-model="layeredInfo" />
-          <Toast variant="glass-highlight-layered" type="success" message="Layered: Success notification." position="top-right" :duration="6000" v-model="layeredSuccess" />
-          <Toast variant="glass-highlight-layered" type="warning" message="Layered: Warning notification." position="bottom-right" :duration="6000" v-model="layeredWarning" />
-          <Toast variant="glass-highlight-layered" type="error" message="Layered: Error notification." position="bottom-right" :duration="6000" v-model="layeredError" />
+          <LiquidToast variant="glass-highlight-layered" type="info" message="Layered: Info notification." position="top-right" :duration="6000" v-model="layeredInfo" />
+          <LiquidToast variant="glass-highlight-layered" type="success" message="Layered: Success notification." position="top-right" :duration="6000" v-model="layeredSuccess" />
+          <LiquidToast variant="glass-highlight-layered" type="warning" message="Layered: Warning notification." position="bottom-right" :duration="6000" v-model="layeredWarning" />
+          <LiquidToast variant="glass-highlight-layered" type="error" message="Layered: Error notification." position="bottom-right" :duration="6000" v-model="layeredError" />
 
         </div>
       </GlassFilterProvider>
@@ -252,7 +252,7 @@ export const GlassComparison: Story = {
 // Positions - show bottom-right and top-right
 export const Positions: Story = {
   render: () => ({
-    components: { Toast, GlassFilterProvider },
+    components: { LiquidToast, GlassFilterProvider },
     setup() {
       const bottomRight = ref(false);
       const topRight = ref(false);
@@ -272,12 +272,12 @@ export const Positions: Story = {
       <GlassFilterProvider>
         <div style="background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%); min-height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 12px; padding: 2rem;">
           <button @click="showAll" style="padding: 0.75rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: white; cursor: pointer; font-size: 14px;">
-            顯示各位置 Toast
+            顯示各位置 LiquidToast
           </button>
-          <Toast variant="default" type="info" message="Bottom Right position." position="bottom-right" :duration="5000" v-model="bottomRight" />
-          <Toast variant="default" type="success" message="Top Right position." position="top-right" :duration="5000" v-model="topRight" />
-          <Toast variant="default" type="warning" message="Top Center position." position="top-center" :duration="5000" v-model="topCenter" />
-          <Toast variant="default" type="error" message="Bottom Left position." position="bottom-left" :duration="5000" v-model="bottomLeft" />
+          <LiquidToast variant="default" type="info" message="Bottom Right position." position="bottom-right" :duration="5000" v-model="bottomRight" />
+          <LiquidToast variant="default" type="success" message="Top Right position." position="top-right" :duration="5000" v-model="topRight" />
+          <LiquidToast variant="default" type="warning" message="Top Center position." position="top-center" :duration="5000" v-model="topCenter" />
+          <LiquidToast variant="default" type="error" message="Bottom Left position." position="bottom-left" :duration="5000" v-model="bottomLeft" />
         </div>
       </GlassFilterProvider>
     `,

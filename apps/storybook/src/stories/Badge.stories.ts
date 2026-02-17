@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Badge } from '@liquid/ui';
+import { LiquidBadge } from '@liquid/ui';
 import { GlassFilterProvider } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Badge',
-  component: Badge,
+  title: 'Components/LiquidBadge',
+  component: LiquidBadge,
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
       options: ['default', 'glass-css-only', 'glass-highlight-layered'],
-      description: 'Badge 樣式變體',
+      description: 'LiquidBadge 樣式變體',
       table: {
         type: { summary: "'default' | 'glass-css-only' | 'glass-highlight-layered'" },
         defaultValue: { summary: 'default' },
@@ -19,7 +19,7 @@ const meta = {
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
-      description: 'Badge 尺寸',
+      description: 'LiquidBadge 尺寸',
       table: {
         type: { summary: "'sm' | 'md' | 'lg'" },
         defaultValue: { summary: 'md' },
@@ -28,7 +28,7 @@ const meta = {
     color: {
       control: 'select',
       options: ['default', 'primary', 'success', 'warning', 'danger', 'info'],
-      description: 'Badge 顏色',
+      description: 'LiquidBadge 顏色',
       table: {
         type: { summary: "'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info'" },
         defaultValue: { summary: 'default' },
@@ -40,7 +40,7 @@ const meta = {
     size: 'md',
     color: 'default',
   },
-} satisfies Meta<typeof Badge>;
+} satisfies Meta<typeof LiquidBadge>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -51,7 +51,7 @@ export const Default: Story = {
     variant: 'default',
   },
   render: (args) => ({
-    components: { Badge },
+    components: { LiquidBadge },
     setup() {
       return { args };
     },
@@ -59,12 +59,12 @@ export const Default: Story = {
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         <p style="margin: 0; font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.08em;">Default variant — all colors</p>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-          <Badge variant="default" color="default">預設</Badge>
-          <Badge variant="default" color="primary">主要</Badge>
-          <Badge variant="default" color="success">成功</Badge>
-          <Badge variant="default" color="warning">警告</Badge>
-          <Badge variant="default" color="danger">危險</Badge>
-          <Badge variant="default" color="info">資訊</Badge>
+          <LiquidBadge variant="default" color="default">預設</LiquidBadge>
+          <LiquidBadge variant="default" color="primary">主要</LiquidBadge>
+          <LiquidBadge variant="default" color="success">成功</LiquidBadge>
+          <LiquidBadge variant="default" color="warning">警告</LiquidBadge>
+          <LiquidBadge variant="default" color="danger">危險</LiquidBadge>
+          <LiquidBadge variant="default" color="info">資訊</LiquidBadge>
         </div>
       </div>
     `,
@@ -77,7 +77,7 @@ export const GlassCssOnly: Story = {
     variant: 'glass-css-only',
   },
   render: (args) => ({
-    components: { Badge, GlassFilterProvider },
+    components: { LiquidBadge, GlassFilterProvider },
     setup() {
       return { args };
     },
@@ -95,12 +95,12 @@ export const GlassCssOnly: Story = {
         ">
           <p style="margin: 0; font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only — all colors</p>
           <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-            <Badge variant="glass-css-only" color="default">預設</Badge>
-            <Badge variant="glass-css-only" color="primary">主要</Badge>
-            <Badge variant="glass-css-only" color="success">成功</Badge>
-            <Badge variant="glass-css-only" color="warning">警告</Badge>
-            <Badge variant="glass-css-only" color="danger">危險</Badge>
-            <Badge variant="glass-css-only" color="info">資訊</Badge>
+            <LiquidBadge variant="glass-css-only" color="default">預設</LiquidBadge>
+            <LiquidBadge variant="glass-css-only" color="primary">主要</LiquidBadge>
+            <LiquidBadge variant="glass-css-only" color="success">成功</LiquidBadge>
+            <LiquidBadge variant="glass-css-only" color="warning">警告</LiquidBadge>
+            <LiquidBadge variant="glass-css-only" color="danger">危險</LiquidBadge>
+            <LiquidBadge variant="glass-css-only" color="info">資訊</LiquidBadge>
           </div>
         </div>
       </GlassFilterProvider>
@@ -114,7 +114,7 @@ export const GlassHighlightLayered: Story = {
     variant: 'glass-highlight-layered',
   },
   render: (args) => ({
-    components: { Badge, GlassFilterProvider },
+    components: { LiquidBadge, GlassFilterProvider },
     setup() {
       return { args };
     },
@@ -132,12 +132,12 @@ export const GlassHighlightLayered: Story = {
         ">
           <p style="margin: 0; font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered — all colors</p>
           <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-            <Badge variant="glass-highlight-layered" color="default">預設</Badge>
-            <Badge variant="glass-highlight-layered" color="primary">主要</Badge>
-            <Badge variant="glass-highlight-layered" color="success">成功</Badge>
-            <Badge variant="glass-highlight-layered" color="warning">警告</Badge>
-            <Badge variant="glass-highlight-layered" color="danger">危險</Badge>
-            <Badge variant="glass-highlight-layered" color="info">資訊</Badge>
+            <LiquidBadge variant="glass-highlight-layered" color="default">預設</LiquidBadge>
+            <LiquidBadge variant="glass-highlight-layered" color="primary">主要</LiquidBadge>
+            <LiquidBadge variant="glass-highlight-layered" color="success">成功</LiquidBadge>
+            <LiquidBadge variant="glass-highlight-layered" color="warning">警告</LiquidBadge>
+            <LiquidBadge variant="glass-highlight-layered" color="danger">危險</LiquidBadge>
+            <LiquidBadge variant="glass-highlight-layered" color="info">資訊</LiquidBadge>
           </div>
         </div>
       </GlassFilterProvider>
@@ -148,7 +148,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Badge, GlassFilterProvider },
+    components: { LiquidBadge, GlassFilterProvider },
     template: `
       <GlassFilterProvider>
         <div style="display: flex; flex-direction: column; gap: 2rem;">
@@ -164,23 +164,23 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-                  <Badge variant="glass-css-only" color="default">預設</Badge>
-                  <Badge variant="glass-css-only" color="primary">主要</Badge>
-                  <Badge variant="glass-css-only" color="success">成功</Badge>
-                  <Badge variant="glass-css-only" color="warning">警告</Badge>
-                  <Badge variant="glass-css-only" color="danger">危險</Badge>
-                  <Badge variant="glass-css-only" color="info">資訊</Badge>
+                  <LiquidBadge variant="glass-css-only" color="default">預設</LiquidBadge>
+                  <LiquidBadge variant="glass-css-only" color="primary">主要</LiquidBadge>
+                  <LiquidBadge variant="glass-css-only" color="success">成功</LiquidBadge>
+                  <LiquidBadge variant="glass-css-only" color="warning">警告</LiquidBadge>
+                  <LiquidBadge variant="glass-css-only" color="danger">危險</LiquidBadge>
+                  <LiquidBadge variant="glass-css-only" color="info">資訊</LiquidBadge>
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-                  <Badge variant="glass-highlight-layered" color="default">預設</Badge>
-                  <Badge variant="glass-highlight-layered" color="primary">主要</Badge>
-                  <Badge variant="glass-highlight-layered" color="success">成功</Badge>
-                  <Badge variant="glass-highlight-layered" color="warning">警告</Badge>
-                  <Badge variant="glass-highlight-layered" color="danger">危險</Badge>
-                  <Badge variant="glass-highlight-layered" color="info">資訊</Badge>
+                  <LiquidBadge variant="glass-highlight-layered" color="default">預設</LiquidBadge>
+                  <LiquidBadge variant="glass-highlight-layered" color="primary">主要</LiquidBadge>
+                  <LiquidBadge variant="glass-highlight-layered" color="success">成功</LiquidBadge>
+                  <LiquidBadge variant="glass-highlight-layered" color="warning">警告</LiquidBadge>
+                  <LiquidBadge variant="glass-highlight-layered" color="danger">危險</LiquidBadge>
+                  <LiquidBadge variant="glass-highlight-layered" color="info">資訊</LiquidBadge>
                 </div>
               </div>
             </div>
@@ -197,23 +197,23 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-                  <Badge variant="glass-css-only" color="default">預設</Badge>
-                  <Badge variant="glass-css-only" color="primary">主要</Badge>
-                  <Badge variant="glass-css-only" color="success">成功</Badge>
-                  <Badge variant="glass-css-only" color="warning">警告</Badge>
-                  <Badge variant="glass-css-only" color="danger">危險</Badge>
-                  <Badge variant="glass-css-only" color="info">資訊</Badge>
+                  <LiquidBadge variant="glass-css-only" color="default">預設</LiquidBadge>
+                  <LiquidBadge variant="glass-css-only" color="primary">主要</LiquidBadge>
+                  <LiquidBadge variant="glass-css-only" color="success">成功</LiquidBadge>
+                  <LiquidBadge variant="glass-css-only" color="warning">警告</LiquidBadge>
+                  <LiquidBadge variant="glass-css-only" color="danger">危險</LiquidBadge>
+                  <LiquidBadge variant="glass-css-only" color="info">資訊</LiquidBadge>
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.4rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-                  <Badge variant="glass-highlight-layered" color="default">預設</Badge>
-                  <Badge variant="glass-highlight-layered" color="primary">主要</Badge>
-                  <Badge variant="glass-highlight-layered" color="success">成功</Badge>
-                  <Badge variant="glass-highlight-layered" color="warning">警告</Badge>
-                  <Badge variant="glass-highlight-layered" color="danger">危險</Badge>
-                  <Badge variant="glass-highlight-layered" color="info">資訊</Badge>
+                  <LiquidBadge variant="glass-highlight-layered" color="default">預設</LiquidBadge>
+                  <LiquidBadge variant="glass-highlight-layered" color="primary">主要</LiquidBadge>
+                  <LiquidBadge variant="glass-highlight-layered" color="success">成功</LiquidBadge>
+                  <LiquidBadge variant="glass-highlight-layered" color="warning">警告</LiquidBadge>
+                  <LiquidBadge variant="glass-highlight-layered" color="danger">危險</LiquidBadge>
+                  <LiquidBadge variant="glass-highlight-layered" color="info">資訊</LiquidBadge>
                 </div>
               </div>
             </div>
@@ -228,40 +228,40 @@ export const GlassComparison: Story = {
 // Sizes — sm / md / lg 比較
 export const Sizes: Story = {
   render: () => ({
-    components: { Badge },
+    components: { LiquidBadge },
     template: `
       <div style="display: flex; flex-direction: column; gap: 1.25rem;">
         <div>
           <p style="color: #888; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="sm"</p>
           <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-            <Badge variant="default" size="sm" color="default">預設</Badge>
-            <Badge variant="default" size="sm" color="primary">主要</Badge>
-            <Badge variant="default" size="sm" color="success">成功</Badge>
-            <Badge variant="default" size="sm" color="warning">警告</Badge>
-            <Badge variant="default" size="sm" color="danger">危險</Badge>
-            <Badge variant="default" size="sm" color="info">資訊</Badge>
+            <LiquidBadge variant="default" size="sm" color="default">預設</LiquidBadge>
+            <LiquidBadge variant="default" size="sm" color="primary">主要</LiquidBadge>
+            <LiquidBadge variant="default" size="sm" color="success">成功</LiquidBadge>
+            <LiquidBadge variant="default" size="sm" color="warning">警告</LiquidBadge>
+            <LiquidBadge variant="default" size="sm" color="danger">危險</LiquidBadge>
+            <LiquidBadge variant="default" size="sm" color="info">資訊</LiquidBadge>
           </div>
         </div>
         <div>
           <p style="color: #888; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="md" (default)</p>
           <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-            <Badge variant="default" size="md" color="default">預設</Badge>
-            <Badge variant="default" size="md" color="primary">主要</Badge>
-            <Badge variant="default" size="md" color="success">成功</Badge>
-            <Badge variant="default" size="md" color="warning">警告</Badge>
-            <Badge variant="default" size="md" color="danger">危險</Badge>
-            <Badge variant="default" size="md" color="info">資訊</Badge>
+            <LiquidBadge variant="default" size="md" color="default">預設</LiquidBadge>
+            <LiquidBadge variant="default" size="md" color="primary">主要</LiquidBadge>
+            <LiquidBadge variant="default" size="md" color="success">成功</LiquidBadge>
+            <LiquidBadge variant="default" size="md" color="warning">警告</LiquidBadge>
+            <LiquidBadge variant="default" size="md" color="danger">危險</LiquidBadge>
+            <LiquidBadge variant="default" size="md" color="info">資訊</LiquidBadge>
           </div>
         </div>
         <div>
           <p style="color: #888; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="lg"</p>
           <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-            <Badge variant="default" size="lg" color="default">預設</Badge>
-            <Badge variant="default" size="lg" color="primary">主要</Badge>
-            <Badge variant="default" size="lg" color="success">成功</Badge>
-            <Badge variant="default" size="lg" color="warning">警告</Badge>
-            <Badge variant="default" size="lg" color="danger">危險</Badge>
-            <Badge variant="default" size="lg" color="info">資訊</Badge>
+            <LiquidBadge variant="default" size="lg" color="default">預設</LiquidBadge>
+            <LiquidBadge variant="default" size="lg" color="primary">主要</LiquidBadge>
+            <LiquidBadge variant="default" size="lg" color="success">成功</LiquidBadge>
+            <LiquidBadge variant="default" size="lg" color="warning">警告</LiquidBadge>
+            <LiquidBadge variant="default" size="lg" color="danger">危險</LiquidBadge>
+            <LiquidBadge variant="default" size="lg" color="info">資訊</LiquidBadge>
           </div>
         </div>
       </div>
@@ -272,17 +272,17 @@ export const Sizes: Story = {
 // AllColors — 所有 6 種顏色在 default 樣式下
 export const AllColors: Story = {
   render: () => ({
-    components: { Badge },
+    components: { LiquidBadge },
     template: `
       <div style="display: flex; flex-direction: column; gap: 0.75rem;">
         <p style="margin: 0 0 0.5rem; font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 0.08em;">All 6 colors — default variant</p>
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
-          <Badge variant="default" color="default">預設 (default)</Badge>
-          <Badge variant="default" color="primary">主要 (primary)</Badge>
-          <Badge variant="default" color="success">成功 (success)</Badge>
-          <Badge variant="default" color="warning">警告 (warning)</Badge>
-          <Badge variant="default" color="danger">危險 (danger)</Badge>
-          <Badge variant="default" color="info">資訊 (info)</Badge>
+          <LiquidBadge variant="default" color="default">預設 (default)</LiquidBadge>
+          <LiquidBadge variant="default" color="primary">主要 (primary)</LiquidBadge>
+          <LiquidBadge variant="default" color="success">成功 (success)</LiquidBadge>
+          <LiquidBadge variant="default" color="warning">警告 (warning)</LiquidBadge>
+          <LiquidBadge variant="default" color="danger">危險 (danger)</LiquidBadge>
+          <LiquidBadge variant="default" color="info">資訊 (info)</LiquidBadge>
         </div>
       </div>
     `,

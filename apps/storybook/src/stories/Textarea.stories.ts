@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Textarea, GlassFilterProvider } from '@liquid/ui';
+import { LiquidTextarea, GlassFilterProvider } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Textarea',
-  component: Textarea,
+  title: 'Components/LiquidTextarea',
+  component: LiquidTextarea,
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
       options: ['default', 'glass-css-only', 'glass-highlight-layered'],
-      description: 'Textarea 樣式變體',
+      description: 'LiquidTextarea 樣式變體',
       table: {
         type: { summary: "'default' | 'glass-css-only' | 'glass-highlight-layered'" },
         defaultValue: { summary: 'default' },
@@ -18,7 +18,7 @@ const meta = {
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
-      description: 'Textarea 尺寸',
+      description: 'LiquidTextarea 尺寸',
       table: {
         type: { summary: "'sm' | 'md' | 'lg'" },
         defaultValue: { summary: 'md' },
@@ -66,7 +66,7 @@ const meta = {
     disabled: false,
     resize: 'vertical',
   },
-} satisfies Meta<typeof Textarea>;
+} satisfies Meta<typeof LiquidTextarea>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -78,13 +78,13 @@ export const Default: Story = {
     placeholder: '輸入多行文字...',
   },
   render: (args) => ({
-    components: { Textarea },
+    components: { LiquidTextarea },
     setup() {
       return { args };
     },
     template: `
       <div style="width: 300px;">
-        <Textarea v-bind="args" />
+        <LiquidTextarea v-bind="args" />
       </div>
     `,
   }),
@@ -97,7 +97,7 @@ export const GlassCssOnly: Story = {
     placeholder: '輸入多行文字...',
   },
   render: (args) => ({
-    components: { Textarea, GlassFilterProvider },
+    components: { LiquidTextarea, GlassFilterProvider },
     setup() {
       return { args };
     },
@@ -112,7 +112,7 @@ export const GlassCssOnly: Story = {
           border-radius: 12px;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         ">
-          <Textarea v-bind="args" style="width: 300px;" />
+          <LiquidTextarea v-bind="args" style="width: 300px;" />
         </div>
       </GlassFilterProvider>
     `,
@@ -126,7 +126,7 @@ export const GlassHighlightLayered: Story = {
     placeholder: '輸入多行文字...',
   },
   render: (args) => ({
-    components: { Textarea, GlassFilterProvider },
+    components: { LiquidTextarea, GlassFilterProvider },
     setup() {
       return { args };
     },
@@ -141,7 +141,7 @@ export const GlassHighlightLayered: Story = {
           border-radius: 12px;
           background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
         ">
-          <Textarea v-bind="args" style="width: 300px;" />
+          <LiquidTextarea v-bind="args" style="width: 300px;" />
         </div>
       </GlassFilterProvider>
     `,
@@ -151,7 +151,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Textarea, GlassFilterProvider },
+    components: { LiquidTextarea, GlassFilterProvider },
     template: `
       <GlassFilterProvider>
         <div style="display: flex; flex-direction: column; gap: 2.5rem;">
@@ -166,11 +166,11 @@ export const GlassComparison: Story = {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <Textarea variant="glass-css-only" placeholder="輸入多行文字..." />
+                <LiquidTextarea variant="glass-css-only" placeholder="輸入多行文字..." />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <Textarea variant="glass-highlight-layered" placeholder="輸入多行文字..." />
+                <LiquidTextarea variant="glass-highlight-layered" placeholder="輸入多行文字..." />
               </div>
             </div>
           </div>
@@ -185,11 +185,11 @@ export const GlassComparison: Story = {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <Textarea variant="glass-css-only" placeholder="輸入多行文字..." />
+                <LiquidTextarea variant="glass-css-only" placeholder="輸入多行文字..." />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <Textarea variant="glass-highlight-layered" placeholder="輸入多行文字..." />
+                <LiquidTextarea variant="glass-highlight-layered" placeholder="輸入多行文字..." />
               </div>
             </div>
           </div>
@@ -203,20 +203,20 @@ export const GlassComparison: Story = {
 // Sizes 尺寸比較
 export const Sizes: Story = {
   render: () => ({
-    components: { Textarea },
+    components: { LiquidTextarea },
     template: `
       <div style="display: flex; flex-direction: column; gap: 1.5rem; width: 320px;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="sm"</p>
-          <Textarea variant="default" size="sm" placeholder="Small textarea..." :rows="3" />
+          <LiquidTextarea variant="default" size="sm" placeholder="Small textarea..." :rows="3" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="md" (default)</p>
-          <Textarea variant="default" size="md" placeholder="Medium textarea..." :rows="3" />
+          <LiquidTextarea variant="default" size="md" placeholder="Medium textarea..." :rows="3" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="lg"</p>
-          <Textarea variant="default" size="lg" placeholder="Large textarea..." :rows="3" />
+          <LiquidTextarea variant="default" size="lg" placeholder="Large textarea..." :rows="3" />
         </div>
       </div>
     `,
@@ -229,16 +229,16 @@ export const Disabled: Story = {
     variant: 'default',
     placeholder: '此欄位已禁用...',
     disabled: true,
-    modelValue: '這是已禁用的 Textarea，無法編輯。',
+    modelValue: '這是已禁用的 LiquidTextarea，無法編輯。',
   },
   render: (args) => ({
-    components: { Textarea },
+    components: { LiquidTextarea },
     setup() {
       return { args };
     },
     template: `
       <div style="width: 300px;">
-        <Textarea v-bind="args" />
+        <LiquidTextarea v-bind="args" />
       </div>
     `,
   }),

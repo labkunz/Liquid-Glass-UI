@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Button, GlassFilterProvider } from '@liquid/ui';
+import { LiquidButton, GlassFilterProvider } from '@liquid/ui';
 
 // Meta 定義
 const meta = {
-  title: 'Components/Button',
-  component: Button,
+  title: 'Components/LiquidButton',
+  component: LiquidButton,
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -47,7 +47,7 @@ const meta = {
     size: 'md',
     disabled: false,
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof LiquidButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -58,14 +58,14 @@ export const Primary: Story = {
     variant: 'primary',
   },
   render: (args) => ({
-    components: { Button },
+    components: { LiquidButton },
     setup() {
       const handleClick = () => {
         console.log('Primary button clicked');
       };
       return { args, handleClick };
     },
-    template: '<Button v-bind="args" @click="handleClick">Primary Button</Button>',
+    template: '<LiquidButton v-bind="args" @click="handleClick">Primary LiquidButton</LiquidButton>',
   }),
 };
 
@@ -75,14 +75,14 @@ export const Secondary: Story = {
     variant: 'secondary',
   },
   render: (args) => ({
-    components: { Button },
+    components: { LiquidButton },
     setup() {
       const handleClick = () => {
         console.log('Secondary button clicked');
       };
       return { args, handleClick };
     },
-    template: '<Button v-bind="args" @click="handleClick">Secondary Button</Button>',
+    template: '<LiquidButton v-bind="args" @click="handleClick">Secondary LiquidButton</LiquidButton>',
   }),
 };
 
@@ -92,14 +92,14 @@ export const Outline: Story = {
     variant: 'outline',
   },
   render: (args) => ({
-    components: { Button },
+    components: { LiquidButton },
     setup() {
       const handleClick = () => {
         console.log('Outline button clicked');
       };
       return { args, handleClick };
     },
-    template: '<Button v-bind="args" @click="handleClick">Outline Button</Button>',
+    template: '<LiquidButton v-bind="args" @click="handleClick">Outline LiquidButton</LiquidButton>',
   }),
 };
 
@@ -109,11 +109,11 @@ export const Small: Story = {
     size: 'sm',
   },
   render: (args) => ({
-    components: { Button },
+    components: { LiquidButton },
     setup() {
       return { args };
     },
-    template: '<Button v-bind="args">Small Button</Button>',
+    template: '<LiquidButton v-bind="args">Small LiquidButton</LiquidButton>',
   }),
 };
 
@@ -123,11 +123,11 @@ export const Medium: Story = {
     size: 'md',
   },
   render: (args) => ({
-    components: { Button },
+    components: { LiquidButton },
     setup() {
       return { args };
     },
-    template: '<Button v-bind="args">Medium Button</Button>',
+    template: '<LiquidButton v-bind="args">Medium LiquidButton</LiquidButton>',
   }),
 };
 
@@ -137,11 +137,11 @@ export const Large: Story = {
     size: 'lg',
   },
   render: (args) => ({
-    components: { Button },
+    components: { LiquidButton },
     setup() {
       return { args };
     },
-    template: '<Button v-bind="args">Large Button</Button>',
+    template: '<LiquidButton v-bind="args">Large LiquidButton</LiquidButton>',
   }),
 };
 
@@ -151,11 +151,11 @@ export const Disabled: Story = {
     disabled: true,
   },
   render: (args) => ({
-    components: { Button },
+    components: { LiquidButton },
     setup() {
       return { args };
     },
-    template: '<Button v-bind="args">Disabled Button</Button>',
+    template: '<LiquidButton v-bind="args">Disabled LiquidButton</LiquidButton>',
   }),
 };
 
@@ -165,7 +165,7 @@ export const Glass: Story = {
     variant: 'glass',
   },
   render: (args) => ({
-    components: { Button, GlassFilterProvider },
+    components: { LiquidButton, GlassFilterProvider },
     setup() {
       const handleClick = () => {
         console.log('Glass button clicked');
@@ -179,7 +179,7 @@ export const Glass: Story = {
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           border-radius: 8px;
         ">
-          <Button v-bind="args" @click="handleClick">Glass Button</Button>
+          <LiquidButton v-bind="args" @click="handleClick">Glass LiquidButton</LiquidButton>
         </div>
       </GlassFilterProvider>
     `,
@@ -192,7 +192,7 @@ export const GlassIntense: Story = {
     variant: 'glass-intense',
   },
   render: (args) => ({
-    components: { Button, GlassFilterProvider },
+    components: { LiquidButton, GlassFilterProvider },
     setup() {
       const handleClick = () => {
         console.log('Glass Intense button clicked');
@@ -206,7 +206,7 @@ export const GlassIntense: Story = {
           background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
           border-radius: 8px;
         ">
-          <Button v-bind="args" @click="handleClick">Glass Intense Button</Button>
+          <LiquidButton v-bind="args" @click="handleClick">Glass Intense LiquidButton</LiquidButton>
         </div>
       </GlassFilterProvider>
     `,
@@ -216,7 +216,7 @@ export const GlassIntense: Story = {
 // Glass 效果對比 - 兩種方案並排展示
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Button, GlassFilterProvider },
+    components: { LiquidButton, GlassFilterProvider },
     template: `
       <GlassFilterProvider>
         <div style="display: flex; flex-direction: column; gap: 2rem;">
@@ -231,10 +231,10 @@ export const GlassComparison: Story = {
               gap: 1rem;
               flex-wrap: wrap;
             ">
-              <Button variant="glass" size="sm">Small Glass</Button>
-              <Button variant="glass" size="md">Medium Glass</Button>
-              <Button variant="glass" size="lg">Large Glass</Button>
-              <Button variant="glass" disabled>Disabled</Button>
+              <LiquidButton variant="glass" size="sm">Small Glass</LiquidButton>
+              <LiquidButton variant="glass" size="md">Medium Glass</LiquidButton>
+              <LiquidButton variant="glass" size="lg">Large Glass</LiquidButton>
+              <LiquidButton variant="glass" disabled>Disabled</LiquidButton>
             </div>
           </div>
 
@@ -249,10 +249,10 @@ export const GlassComparison: Story = {
               gap: 1rem;
               flex-wrap: wrap;
             ">
-              <Button variant="glass-intense" size="sm">Small Intense</Button>
-              <Button variant="glass-intense" size="md">Medium Intense</Button>
-              <Button variant="glass-intense" size="lg">Large Intense</Button>
-              <Button variant="glass-intense" disabled>Disabled</Button>
+              <LiquidButton variant="glass-intense" size="sm">Small Intense</LiquidButton>
+              <LiquidButton variant="glass-intense" size="md">Medium Intense</LiquidButton>
+              <LiquidButton variant="glass-intense" size="lg">Large Intense</LiquidButton>
+              <LiquidButton variant="glass-intense" disabled>Disabled</LiquidButton>
             </div>
           </div>
 
@@ -270,11 +270,11 @@ export const GlassComparison: Story = {
             ">
               <div style="text-align: center;">
                 <p style="margin-bottom: 0.5rem; color: white; font-weight: 600;">保守</p>
-                <Button variant="glass">Click Me</Button>
+                <LiquidButton variant="glass">Click Me</LiquidButton>
               </div>
               <div style="text-align: center;">
                 <p style="margin-bottom: 0.5rem; color: white; font-weight: 600;">激進</p>
-                <Button variant="glass-intense">Click Me</Button>
+                <LiquidButton variant="glass-intense">Click Me</LiquidButton>
               </div>
             </div>
           </div>
@@ -287,7 +287,7 @@ export const GlassComparison: Story = {
 // 不同背景下的 Glass 效果測試
 export const GlassOnDifferentBackgrounds: Story = {
   render: () => ({
-    components: { Button, GlassFilterProvider },
+    components: { LiquidButton, GlassFilterProvider },
     template: `
       <GlassFilterProvider>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
@@ -299,8 +299,8 @@ export const GlassOnDifferentBackgrounds: Story = {
           ">
             <p style="color: white; margin-bottom: 1rem; font-weight: 600;">Purple Gradient</p>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <Button variant="glass">Glass</Button>
-              <Button variant="glass-intense">Intense</Button>
+              <LiquidButton variant="glass">Glass</LiquidButton>
+              <LiquidButton variant="glass-intense">Intense</LiquidButton>
             </div>
           </div>
 
@@ -312,8 +312,8 @@ export const GlassOnDifferentBackgrounds: Story = {
           ">
             <p style="color: white; margin-bottom: 1rem; font-weight: 600;">Pink Gradient</p>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <Button variant="glass">Glass</Button>
-              <Button variant="glass-intense">Intense</Button>
+              <LiquidButton variant="glass">Glass</LiquidButton>
+              <LiquidButton variant="glass-intense">Intense</LiquidButton>
             </div>
           </div>
 
@@ -325,8 +325,8 @@ export const GlassOnDifferentBackgrounds: Story = {
           ">
             <p style="color: white; margin-bottom: 1rem; font-weight: 600;">Blue Gradient</p>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <Button variant="glass">Glass</Button>
-              <Button variant="glass-intense">Intense</Button>
+              <LiquidButton variant="glass">Glass</LiquidButton>
+              <LiquidButton variant="glass-intense">Intense</LiquidButton>
             </div>
           </div>
 
@@ -341,8 +341,8 @@ export const GlassOnDifferentBackgrounds: Story = {
           ">
             <p style="color: white; margin-bottom: 1rem; font-weight: 600;">Pattern Background</p>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <Button variant="glass">Glass</Button>
-              <Button variant="glass-intense">Intense</Button>
+              <LiquidButton variant="glass">Glass</LiquidButton>
+              <LiquidButton variant="glass-intense">Intense</LiquidButton>
             </div>
           </div>
 
@@ -354,8 +354,8 @@ export const GlassOnDifferentBackgrounds: Story = {
           ">
             <p style="color: white; margin-bottom: 1rem; font-weight: 600;">Solid Color (Worst Case)</p>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <Button variant="glass">Glass</Button>
-              <Button variant="glass-intense">Intense</Button>
+              <LiquidButton variant="glass">Glass</LiquidButton>
+              <LiquidButton variant="glass-intense">Intense</LiquidButton>
             </div>
           </div>
 
@@ -367,8 +367,8 @@ export const GlassOnDifferentBackgrounds: Story = {
           ">
             <p style="color: white; margin-bottom: 1rem; font-weight: 600;">Dark Background</p>
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-              <Button variant="glass">Glass</Button>
-              <Button variant="glass-intense">Intense</Button>
+              <LiquidButton variant="glass">Glass</LiquidButton>
+              <LiquidButton variant="glass-intense">Intense</LiquidButton>
             </div>
           </div>
         </div>
@@ -380,7 +380,7 @@ export const GlassOnDifferentBackgrounds: Story = {
 // 所有變體展示
 export const AllVariants: Story = {
   render: () => ({
-    components: { Button, GlassFilterProvider },
+    components: { LiquidButton, GlassFilterProvider },
     template: `
       <GlassFilterProvider>
         <div style="display: flex; flex-direction: column; gap: 2rem;">
@@ -388,10 +388,10 @@ export const AllVariants: Story = {
           <div>
             <h3 style="margin-bottom: 1rem; color: #333;">Traditional Variants</h3>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-              <Button variant="primary">Primary</Button>
-              <Button variant="secondary">Secondary</Button>
-              <Button variant="outline">Outline</Button>
-              <Button variant="primary" disabled>Disabled</Button>
+              <LiquidButton variant="primary">Primary</LiquidButton>
+              <LiquidButton variant="secondary">Secondary</LiquidButton>
+              <LiquidButton variant="outline">Outline</LiquidButton>
+              <LiquidButton variant="primary" disabled>Disabled</LiquidButton>
             </div>
           </div>
 
@@ -406,9 +406,9 @@ export const AllVariants: Story = {
               gap: 1rem;
               flex-wrap: wrap;
             ">
-              <Button variant="glass">Glass</Button>
-              <Button variant="glass-intense">Glass Intense</Button>
-              <Button variant="glass" disabled>Glass Disabled</Button>
+              <LiquidButton variant="glass">Glass</LiquidButton>
+              <LiquidButton variant="glass-intense">Glass Intense</LiquidButton>
+              <LiquidButton variant="glass" disabled>Glass Disabled</LiquidButton>
             </div>
           </div>
         </div>
@@ -425,12 +425,12 @@ export const AllVariants: Story = {
 export const GlassCssOnly: Story = {
   args: { variant: 'glass-css-only' },
   render: (args) => ({
-    components: { Button, GlassFilterProvider },
+    components: { LiquidButton, GlassFilterProvider },
     setup() { return { args }; },
     template: `
       <GlassFilterProvider>
         <div style="padding: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px;">
-          <Button v-bind="args">CSS Only Button</Button>
+          <LiquidButton v-bind="args">CSS Only LiquidButton</LiquidButton>
         </div>
       </GlassFilterProvider>
     `,
@@ -441,12 +441,12 @@ export const GlassCssOnly: Story = {
 export const GlassHighlightOnly: Story = {
   args: { variant: 'glass-highlight-only' },
   render: (args) => ({
-    components: { Button, GlassFilterProvider },
+    components: { LiquidButton, GlassFilterProvider },
     setup() { return { args }; },
     template: `
       <GlassFilterProvider>
         <div style="padding: 3rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 8px;">
-          <Button v-bind="args">Highlight Only Button</Button>
+          <LiquidButton v-bind="args">Highlight Only LiquidButton</LiquidButton>
         </div>
       </GlassFilterProvider>
     `,
@@ -457,12 +457,12 @@ export const GlassHighlightOnly: Story = {
 export const GlassLayered: Story = {
   args: { variant: 'glass-layered' },
   render: (args) => ({
-    components: { Button, GlassFilterProvider },
+    components: { LiquidButton, GlassFilterProvider },
     setup() { return { args }; },
     template: `
       <GlassFilterProvider>
         <div style="padding: 3rem; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 8px;">
-          <Button v-bind="args">Layered Button</Button>
+          <LiquidButton v-bind="args">Layered LiquidButton</LiquidButton>
         </div>
       </GlassFilterProvider>
     `,
@@ -473,12 +473,12 @@ export const GlassLayered: Story = {
 export const GlassHighlightLayered: Story = {
   args: { variant: 'glass-highlight-layered' },
   render: (args) => ({
-    components: { Button, GlassFilterProvider },
+    components: { LiquidButton, GlassFilterProvider },
     setup() { return { args }; },
     template: `
       <GlassFilterProvider>
         <div style="padding: 3rem; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); border-radius: 8px;">
-          <Button v-bind="args">Highlight + Layered Button</Button>
+          <LiquidButton v-bind="args">Highlight + Layered LiquidButton</LiquidButton>
         </div>
       </GlassFilterProvider>
     `,
@@ -488,7 +488,7 @@ export const GlassHighlightLayered: Story = {
 // 六種方案完整對比
 export const GlassFullComparison: Story = {
   render: () => ({
-    components: { Button, GlassFilterProvider },
+    components: { LiquidButton, GlassFilterProvider },
     template: `
       <GlassFilterProvider>
         <div style="display: flex; flex-direction: column; gap: 1.5rem; min-width: 700px;">
@@ -504,9 +504,9 @@ export const GlassFullComparison: Story = {
               對照組 A：glass（整體套用，位移 scale=3）
             </p>
             <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
-              <Button variant="glass" size="sm">Small</Button>
-              <Button variant="glass" size="md">Medium</Button>
-              <Button variant="glass" size="lg">Large</Button>
+              <LiquidButton variant="glass" size="sm">Small</LiquidButton>
+              <LiquidButton variant="glass" size="md">Medium</LiquidButton>
+              <LiquidButton variant="glass" size="lg">Large</LiquidButton>
             </div>
           </div>
 
@@ -516,9 +516,9 @@ export const GlassFullComparison: Story = {
               對照組 B：glass-intense（整體套用，位移 scale=12）
             </p>
             <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
-              <Button variant="glass-intense" size="sm">Small</Button>
-              <Button variant="glass-intense" size="md">Medium</Button>
-              <Button variant="glass-intense" size="lg">Large</Button>
+              <LiquidButton variant="glass-intense" size="sm">Small</LiquidButton>
+              <LiquidButton variant="glass-intense" size="md">Medium</LiquidButton>
+              <LiquidButton variant="glass-intense" size="lg">Large</LiquidButton>
             </div>
           </div>
 
@@ -528,9 +528,9 @@ export const GlassFullComparison: Story = {
               實驗 1：glass-css-only（純 CSS，無 SVG Filter）
             </p>
             <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
-              <Button variant="glass-css-only" size="sm">Small</Button>
-              <Button variant="glass-css-only" size="md">Medium</Button>
-              <Button variant="glass-css-only" size="lg">Large</Button>
+              <LiquidButton variant="glass-css-only" size="sm">Small</LiquidButton>
+              <LiquidButton variant="glass-css-only" size="md">Medium</LiquidButton>
+              <LiquidButton variant="glass-css-only" size="lg">Large</LiquidButton>
             </div>
           </div>
 
@@ -540,9 +540,9 @@ export const GlassFullComparison: Story = {
               實驗 2：glass-highlight-only（整體套用，只有高光，無位移）
             </p>
             <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
-              <Button variant="glass-highlight-only" size="sm">Small</Button>
-              <Button variant="glass-highlight-only" size="md">Medium</Button>
-              <Button variant="glass-highlight-only" size="lg">Large</Button>
+              <LiquidButton variant="glass-highlight-only" size="sm">Small</LiquidButton>
+              <LiquidButton variant="glass-highlight-only" size="md">Medium</LiquidButton>
+              <LiquidButton variant="glass-highlight-only" size="lg">Large</LiquidButton>
             </div>
           </div>
 
@@ -552,9 +552,9 @@ export const GlassFullComparison: Story = {
               實驗 3：glass-layered（::before 分離，位移在底層，邊框直線）
             </p>
             <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
-              <Button variant="glass-layered" size="sm">Small</Button>
-              <Button variant="glass-layered" size="md">Medium</Button>
-              <Button variant="glass-layered" size="lg">Large</Button>
+              <LiquidButton variant="glass-layered" size="sm">Small</LiquidButton>
+              <LiquidButton variant="glass-layered" size="md">Medium</LiquidButton>
+              <LiquidButton variant="glass-layered" size="lg">Large</LiquidButton>
             </div>
           </div>
 
@@ -564,9 +564,9 @@ export const GlassFullComparison: Story = {
               實驗 4：glass-highlight-layered（::before 分離，只有高光，無任何位移）
             </p>
             <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
-              <Button variant="glass-highlight-layered" size="sm">Small</Button>
-              <Button variant="glass-highlight-layered" size="md">Medium</Button>
-              <Button variant="glass-highlight-layered" size="lg">Large</Button>
+              <LiquidButton variant="glass-highlight-layered" size="sm">Small</LiquidButton>
+              <LiquidButton variant="glass-highlight-layered" size="md">Medium</LiquidButton>
+              <LiquidButton variant="glass-highlight-layered" size="lg">Large</LiquidButton>
             </div>
           </div>
 
@@ -579,12 +579,12 @@ export const GlassFullComparison: Story = {
 // 所有尺寸展示
 export const AllSizes: Story = {
   render: () => ({
-    components: { Button },
+    components: { LiquidButton },
     template: `
       <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-        <Button size="sm">Small</Button>
-        <Button size="md">Medium</Button>
-        <Button size="lg">Large</Button>
+        <LiquidButton size="sm">Small</LiquidButton>
+        <LiquidButton size="md">Medium</LiquidButton>
+        <LiquidButton size="lg">Large</LiquidButton>
       </div>
     `,
   }),

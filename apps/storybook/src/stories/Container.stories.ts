@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { Container } from '@liquid/ui';
+import { LiquidContainer } from '@liquid/ui';
 
 const meta = {
-  title: 'Layout/Container',
-  component: Container,
+  title: 'Layout/LiquidContainer',
+  component: LiquidContainer,
   tags: ['autodocs'],
   argTypes: {
     maxWidth: {
@@ -29,7 +29,7 @@ const meta = {
     maxWidth: 'lg',
     padding: 'md',
   },
-} satisfies Meta<typeof Container>;
+} satisfies Meta<typeof LiquidContainer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -41,13 +41,13 @@ export const Default: Story = {
     padding: 'md',
   },
   render: (args) => ({
-    components: { Container },
+    components: { LiquidContainer },
     setup() {
       return { args };
     },
     template: `
       <div style="width: 100%; background: #f5f5f5; padding: 1rem 0;">
-        <Container v-bind="args">
+        <LiquidContainer v-bind="args">
           <div style="
             background: rgba(0, 123, 255, 0.1);
             border: 2px dashed rgba(0, 123, 255, 0.4);
@@ -56,9 +56,9 @@ export const Default: Story = {
             font-size: 14px;
             color: #333;
           ">
-            Container content — constrained to maxWidth="{{ args.maxWidth }}", padding="{{ args.padding }}"
+            LiquidContainer content — constrained to maxWidth="{{ args.maxWidth }}", padding="{{ args.padding }}"
           </div>
-        </Container>
+        </LiquidContainer>
       </div>
     `,
   }),
@@ -67,12 +67,12 @@ export const Default: Story = {
 // MaxWidth 所有尺寸對比
 export const MaxWidthVariants: Story = {
   render: () => ({
-    components: { Container },
+    components: { LiquidContainer },
     template: `
       <div style="width: 100%; background: #f0f2f5; display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem 0;">
 
         <div v-for="size in ['sm', 'md', 'lg', 'xl', 'full']" :key="size">
-          <Container :maxWidth="size" padding="md">
+          <LiquidContainer :maxWidth="size" padding="md">
             <div style="
               background: white;
               border: 1px solid #dee2e6;
@@ -88,7 +88,7 @@ export const MaxWidthVariants: Story = {
               <span style="font-weight: 600; color: #007bff;">maxWidth="{{ size }}"</span>
               <span style="color: #999;">sm=480px | md=768px | lg=1024px | xl=1280px | full=100%</span>
             </div>
-          </Container>
+          </LiquidContainer>
         </div>
 
       </div>
@@ -99,12 +99,12 @@ export const MaxWidthVariants: Story = {
 // Padding 對比
 export const PaddingVariants: Story = {
   render: () => ({
-    components: { Container },
+    components: { LiquidContainer },
     template: `
       <div style="width: 600px; background: #f0f2f5; display: flex; flex-direction: column; gap: 0.75rem; padding: 1rem 0;">
 
         <div v-for="pad in ['none', 'sm', 'md', 'lg']" :key="pad">
-          <Container maxWidth="full" :padding="pad">
+          <LiquidContainer maxWidth="full" :padding="pad">
             <div style="
               background: white;
               border: 1px solid #dee2e6;
@@ -117,7 +117,7 @@ export const PaddingVariants: Story = {
             ">
               padding="{{ pad }}"
             </div>
-          </Container>
+          </LiquidContainer>
         </div>
 
       </div>

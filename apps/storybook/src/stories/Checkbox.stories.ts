@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
-import { Checkbox, GlassFilterProvider } from '@liquid/ui';
+import { LiquidCheckbox, GlassFilterProvider } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Checkbox',
-  component: Checkbox,
+  title: 'Components/LiquidCheckbox',
+  component: LiquidCheckbox,
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
       options: ['default', 'glass-css-only', 'glass-highlight-layered'],
-      description: 'Checkbox 樣式變體',
+      description: 'LiquidCheckbox 樣式變體',
       table: {
         type: { summary: "'default' | 'glass-css-only' | 'glass-highlight-layered'" },
         defaultValue: { summary: 'default' },
@@ -19,7 +19,7 @@ const meta = {
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
-      description: 'Checkbox 尺寸',
+      description: 'LiquidCheckbox 尺寸',
       table: {
         type: { summary: "'sm' | 'md' | 'lg'" },
         defaultValue: { summary: 'md' },
@@ -27,7 +27,7 @@ const meta = {
     },
     label: {
       control: 'text',
-      description: 'Checkbox 標籤文字',
+      description: 'LiquidCheckbox 標籤文字',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -57,7 +57,7 @@ const meta = {
     disabled: false,
     modelValue: false,
   },
-} satisfies Meta<typeof Checkbox>;
+} satisfies Meta<typeof LiquidCheckbox>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -70,14 +70,14 @@ export const Default: Story = {
     modelValue: false,
   },
   render: (args) => ({
-    components: { Checkbox },
+    components: { LiquidCheckbox },
     setup() {
       const checked = ref(args.modelValue);
       return { args, checked };
     },
     template: `
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 8px;">
-        <Checkbox
+        <LiquidCheckbox
           v-bind="args"
           v-model="checked"
           :label="args.label"
@@ -95,14 +95,14 @@ export const Checked: Story = {
     modelValue: true,
   },
   render: (args) => ({
-    components: { Checkbox },
+    components: { LiquidCheckbox },
     setup() {
       const checked = ref(args.modelValue);
       return { args, checked };
     },
     template: `
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 8px;">
-        <Checkbox
+        <LiquidCheckbox
           v-bind="args"
           v-model="checked"
           :label="args.label"
@@ -121,21 +121,21 @@ export const Disabled: Story = {
     modelValue: false,
   },
   render: (args) => ({
-    components: { Checkbox },
+    components: { LiquidCheckbox },
     setup() {
       const checked = ref(args.modelValue);
       return { args, checked };
     },
     template: `
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 8px; display: flex; flex-direction: column; gap: 1rem;">
-        <Checkbox
+        <LiquidCheckbox
           v-bind="args"
           v-model="checked"
           label="禁用未勾選"
           :disabled="true"
           :modelValue="false"
         />
-        <Checkbox
+        <LiquidCheckbox
           v-bind="args"
           label="禁用已勾選"
           :disabled="true"
@@ -149,32 +149,32 @@ export const Disabled: Story = {
 // Sizes 尺寸對比
 export const Sizes: Story = {
   render: () => ({
-    components: { Checkbox },
+    components: { LiquidCheckbox },
     template: `
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 8px; display: flex; flex-direction: column; gap: 1.2rem;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="sm"</p>
-          <Checkbox variant="default" size="sm" label="小尺寸 Checkbox" :modelValue="false" />
+          <LiquidCheckbox variant="default" size="sm" label="小尺寸 LiquidCheckbox" :modelValue="false" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="md" (default)</p>
-          <Checkbox variant="default" size="md" label="中尺寸 Checkbox" :modelValue="false" />
+          <LiquidCheckbox variant="default" size="md" label="中尺寸 LiquidCheckbox" :modelValue="false" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="lg"</p>
-          <Checkbox variant="default" size="lg" label="大尺寸 Checkbox" :modelValue="false" />
+          <LiquidCheckbox variant="default" size="lg" label="大尺寸 LiquidCheckbox" :modelValue="false" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="sm" (checked)</p>
-          <Checkbox variant="default" size="sm" label="小尺寸 已勾選" :modelValue="true" />
+          <LiquidCheckbox variant="default" size="sm" label="小尺寸 已勾選" :modelValue="true" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="md" (checked)</p>
-          <Checkbox variant="default" size="md" label="中尺寸 已勾選" :modelValue="true" />
+          <LiquidCheckbox variant="default" size="md" label="中尺寸 已勾選" :modelValue="true" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">size="lg" (checked)</p>
-          <Checkbox variant="default" size="lg" label="大尺寸 已勾選" :modelValue="true" />
+          <LiquidCheckbox variant="default" size="lg" label="大尺寸 已勾選" :modelValue="true" />
         </div>
       </div>
     `,
@@ -189,7 +189,7 @@ export const GlassCssOnly: Story = {
     modelValue: false,
   },
   render: (args) => ({
-    components: { Checkbox, GlassFilterProvider },
+    components: { LiquidCheckbox, GlassFilterProvider },
     setup() {
       const checked = ref(args.modelValue);
       return { args, checked };
@@ -205,7 +205,7 @@ export const GlassCssOnly: Story = {
           border-radius: 12px;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         ">
-          <Checkbox
+          <LiquidCheckbox
             v-bind="args"
             v-model="checked"
             :label="args.label"
@@ -224,7 +224,7 @@ export const GlassHighlightLayered: Story = {
     modelValue: false,
   },
   render: (args) => ({
-    components: { Checkbox, GlassFilterProvider },
+    components: { LiquidCheckbox, GlassFilterProvider },
     setup() {
       const checked = ref(args.modelValue);
       return { args, checked };
@@ -240,7 +240,7 @@ export const GlassHighlightLayered: Story = {
           border-radius: 12px;
           background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
         ">
-          <Checkbox
+          <LiquidCheckbox
             v-bind="args"
             v-model="checked"
             :label="args.label"
@@ -254,7 +254,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比（互動式）
 export const GlassComparison: Story = {
   render: (args) => ({
-    components: { Checkbox, GlassFilterProvider },
+    components: { LiquidCheckbox, GlassFilterProvider },
     setup() {
       const checked1 = ref(false);
       const checked2 = ref(true);
@@ -280,17 +280,17 @@ export const GlassComparison: Story = {
                 <div>
                   <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                   <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <Checkbox variant="glass-css-only" label="未勾選" :modelValue="false" />
-                    <Checkbox variant="glass-css-only" label="已勾選" :modelValue="true" />
-                    <Checkbox variant="glass-css-only" label="互動式" v-model="checked1" />
+                    <LiquidCheckbox variant="glass-css-only" label="未勾選" :modelValue="false" />
+                    <LiquidCheckbox variant="glass-css-only" label="已勾選" :modelValue="true" />
+                    <LiquidCheckbox variant="glass-css-only" label="互動式" v-model="checked1" />
                   </div>
                 </div>
                 <div>
                   <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                   <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <Checkbox variant="glass-highlight-layered" label="未勾選" :modelValue="false" />
-                    <Checkbox variant="glass-highlight-layered" label="已勾選" :modelValue="true" />
-                    <Checkbox variant="glass-highlight-layered" label="互動式" v-model="checked2" />
+                    <LiquidCheckbox variant="glass-highlight-layered" label="未勾選" :modelValue="false" />
+                    <LiquidCheckbox variant="glass-highlight-layered" label="已勾選" :modelValue="true" />
+                    <LiquidCheckbox variant="glass-highlight-layered" label="互動式" v-model="checked2" />
                   </div>
                 </div>
               </div>
@@ -313,15 +313,15 @@ export const GlassComparison: Story = {
                 <div>
                   <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                   <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <Checkbox variant="glass-css-only" label="未勾選" :modelValue="false" />
-                    <Checkbox variant="glass-css-only" label="已勾選" :modelValue="true" />
+                    <LiquidCheckbox variant="glass-css-only" label="未勾選" :modelValue="false" />
+                    <LiquidCheckbox variant="glass-css-only" label="已勾選" :modelValue="true" />
                   </div>
                 </div>
                 <div>
                   <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                   <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                    <Checkbox variant="glass-highlight-layered" label="未勾選" :modelValue="false" />
-                    <Checkbox variant="glass-highlight-layered" label="已勾選" :modelValue="true" />
+                    <LiquidCheckbox variant="glass-highlight-layered" label="未勾選" :modelValue="false" />
+                    <LiquidCheckbox variant="glass-highlight-layered" label="已勾選" :modelValue="true" />
                   </div>
                 </div>
               </div>

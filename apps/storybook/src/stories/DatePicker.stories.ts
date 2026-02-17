@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { GlassFilterProvider } from '@liquid/ui';
-import { DatePicker } from '@liquid/ui';
+import { LiquidDatePicker } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/DatePicker',
-  component: DatePicker,
+  title: 'Components/LiquidDatePicker',
+  component: LiquidDatePicker,
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -39,7 +39,7 @@ const meta = {
     size: 'md',
     disabled: false,
   },
-} satisfies Meta<typeof DatePicker>;
+} satisfies Meta<typeof LiquidDatePicker>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -50,14 +50,14 @@ export const Default: Story = {
     variant: 'default',
   },
   render: (args) => ({
-    components: { DatePicker },
+    components: { LiquidDatePicker },
     setup() {
       return { args };
     },
     template: `
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 12px; display: inline-block;">
         <p style="margin: 0 0 1rem; color: #666; font-size: 13px;">Default date picker</p>
-        <DatePicker v-bind="args" />
+        <LiquidDatePicker v-bind="args" />
       </div>
     `,
   }),
@@ -69,7 +69,7 @@ export const GlassCssOnly: Story = {
     variant: 'glass-css-only',
   },
   render: (args) => ({
-    components: { DatePicker, GlassFilterProvider },
+    components: { LiquidDatePicker, GlassFilterProvider },
     setup() {
       return { args };
     },
@@ -84,7 +84,7 @@ export const GlassCssOnly: Story = {
           align-items: center;
           justify-content: center;
         ">
-          <DatePicker v-bind="args" />
+          <LiquidDatePicker v-bind="args" />
         </div>
       </GlassFilterProvider>
     `,
@@ -97,7 +97,7 @@ export const GlassHighlightLayered: Story = {
     variant: 'glass-highlight-layered',
   },
   render: (args) => ({
-    components: { DatePicker, GlassFilterProvider },
+    components: { LiquidDatePicker, GlassFilterProvider },
     setup() {
       return { args };
     },
@@ -112,7 +112,7 @@ export const GlassHighlightLayered: Story = {
           align-items: center;
           justify-content: center;
         ">
-          <DatePicker v-bind="args" />
+          <LiquidDatePicker v-bind="args" />
         </div>
       </GlassFilterProvider>
     `,
@@ -122,7 +122,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比
 export const GlassComparison: Story = {
   render: () => ({
-    components: { DatePicker, GlassFilterProvider },
+    components: { LiquidDatePicker, GlassFilterProvider },
     template: `
       <GlassFilterProvider>
         <div style="display: flex; flex-direction: column; gap: 2.5rem;">
@@ -137,11 +137,11 @@ export const GlassComparison: Story = {
             <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <DatePicker variant="glass-css-only" />
+                <LiquidDatePicker variant="glass-css-only" />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <DatePicker variant="glass-highlight-layered" />
+                <LiquidDatePicker variant="glass-highlight-layered" />
               </div>
             </div>
           </div>
@@ -156,11 +156,11 @@ export const GlassComparison: Story = {
             <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
-                <DatePicker variant="glass-css-only" />
+                <LiquidDatePicker variant="glass-css-only" />
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
-                <DatePicker variant="glass-highlight-layered" />
+                <LiquidDatePicker variant="glass-highlight-layered" />
               </div>
             </div>
           </div>
@@ -174,20 +174,20 @@ export const GlassComparison: Story = {
 // Size 變體展示
 export const Sizes: Story = {
   render: () => ({
-    components: { DatePicker },
+    components: { LiquidDatePicker },
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem; padding: 2rem; background: #f8f9fa; border-radius: 12px; display: inline-flex;">
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="sm"</p>
-          <DatePicker variant="default" size="sm" />
+          <LiquidDatePicker variant="default" size="sm" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="md" (default)</p>
-          <DatePicker variant="default" size="md" />
+          <LiquidDatePicker variant="default" size="md" />
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.4rem;">size="lg"</p>
-          <DatePicker variant="default" size="lg" />
+          <LiquidDatePicker variant="default" size="lg" />
         </div>
       </div>
     `,
@@ -201,14 +201,14 @@ export const Disabled: Story = {
     disabled: true,
   },
   render: (args) => ({
-    components: { DatePicker },
+    components: { LiquidDatePicker },
     setup() {
       return { args };
     },
     template: `
       <div style="padding: 2rem; background: #f8f9fa; border-radius: 12px; display: inline-block;">
         <p style="margin: 0 0 1rem; color: #666; font-size: 13px;">Disabled state</p>
-        <DatePicker v-bind="args" />
+        <LiquidDatePicker v-bind="args" />
       </div>
     `,
   }),

@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
-import { Modal } from '@liquid/ui';
+import { LiquidModal } from '@liquid/ui';
 import { GlassFilterProvider } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Modal',
-  component: Modal,
+  title: 'Components/LiquidModal',
+  component: LiquidModal,
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
       options: ['default', 'glass-css-only', 'glass-highlight-layered'],
-      description: 'Modal 樣式變體',
+      description: 'LiquidModal 樣式變體',
       table: {
         type: { summary: "'default' | 'glass-css-only' | 'glass-highlight-layered'" },
         defaultValue: { summary: 'default' },
@@ -20,7 +20,7 @@ const meta = {
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg', 'xl'],
-      description: 'Modal 尺寸',
+      description: 'LiquidModal 尺寸',
       table: {
         type: { summary: "'sm' | 'md' | 'lg' | 'xl'" },
         defaultValue: { summary: 'md' },
@@ -28,7 +28,7 @@ const meta = {
     },
     title: {
       control: 'text',
-      description: 'Modal 標題文字',
+      description: 'LiquidModal 標題文字',
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: '' },
@@ -49,7 +49,7 @@ const meta = {
     title: '對話框標題',
     showClose: true,
   },
-} satisfies Meta<typeof Modal>;
+} satisfies Meta<typeof LiquidModal>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -60,7 +60,7 @@ export const Default: Story = {
     variant: 'default',
   },
   render: (args) => ({
-    components: { Modal, GlassFilterProvider },
+    components: { LiquidModal, GlassFilterProvider },
     setup() {
       const isOpen = ref(false);
       return { args, isOpen };
@@ -89,11 +89,11 @@ export const Default: Story = {
               font-weight: 500;
             "
           >
-            開啟 Modal
+            開啟 LiquidModal
           </button>
-          <Modal v-bind="args" v-model="isOpen" title="對話框標題">
+          <LiquidModal v-bind="args" v-model="isOpen" title="對話框標題">
             <p style="margin: 0; color: #495057; line-height: 1.6;">
-              這是 Modal 的內容區域。可以放置任何內容，例如表單、資訊說明或確認訊息。
+              這是 LiquidModal 的內容區域。可以放置任何內容，例如表單、資訊說明或確認訊息。
             </p>
             <template #footer>
               <button
@@ -109,7 +109,7 @@ export const Default: Story = {
                 確認
               </button>
             </template>
-          </Modal>
+          </LiquidModal>
         </div>
       </GlassFilterProvider>
     `,
@@ -122,7 +122,7 @@ export const GlassCssOnly: Story = {
     variant: 'glass-css-only',
   },
   render: (args) => ({
-    components: { Modal, GlassFilterProvider },
+    components: { LiquidModal, GlassFilterProvider },
     setup() {
       const isOpen = ref(false);
       return { args, isOpen };
@@ -153,9 +153,9 @@ export const GlassCssOnly: Story = {
               -webkit-backdrop-filter: blur(8px);
             "
           >
-            開啟 Glass Modal
+            開啟 Glass LiquidModal
           </button>
-          <Modal v-bind="args" v-model="isOpen" title="Glass 對話框">
+          <LiquidModal v-bind="args" v-model="isOpen" title="Glass 對話框">
             <p style="margin: 0; color: rgba(255,255,255,0.85); line-height: 1.6;">
               Pure CSS glassmorphism modal。使用 backdrop-filter 和漸層疊加實現玻璃效果，無需 SVG filter。
             </p>
@@ -173,7 +173,7 @@ export const GlassCssOnly: Story = {
                 確認
               </button>
             </template>
-          </Modal>
+          </LiquidModal>
         </div>
       </GlassFilterProvider>
     `,
@@ -186,7 +186,7 @@ export const GlassHighlightLayered: Story = {
     variant: 'glass-highlight-layered',
   },
   render: (args) => ({
-    components: { Modal, GlassFilterProvider },
+    components: { LiquidModal, GlassFilterProvider },
     setup() {
       const isOpen = ref(false);
       return { args, isOpen };
@@ -217,9 +217,9 @@ export const GlassHighlightLayered: Story = {
               -webkit-backdrop-filter: blur(8px);
             "
           >
-            開啟 Layered Modal
+            開啟 Layered LiquidModal
           </button>
-          <Modal v-bind="args" v-model="isOpen" title="Highlight Layered 對話框">
+          <LiquidModal v-bind="args" v-model="isOpen" title="Highlight Layered 對話框">
             <p style="margin: 0; color: rgba(255,255,255,0.85); line-height: 1.6;">
               Layered glass modal 使用 SVG filter 搭配 radial-gradient 頂部亮光，呈現最高品質的液態玻璃效果。
             </p>
@@ -237,7 +237,7 @@ export const GlassHighlightLayered: Story = {
                 確認
               </button>
             </template>
-          </Modal>
+          </LiquidModal>
         </div>
       </GlassFilterProvider>
     `,
@@ -247,7 +247,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Modal, GlassFilterProvider },
+    components: { LiquidModal, GlassFilterProvider },
     setup() {
       const isOpenCssOnly = ref(false);
       const isOpenLayered = ref(false);
@@ -288,7 +288,7 @@ export const GlassComparison: Story = {
                   -webkit-backdrop-filter: blur(8px);
                 "
               >
-                CSS Only Modal
+                CSS Only LiquidModal
               </button>
             </div>
 
@@ -308,29 +308,29 @@ export const GlassComparison: Story = {
                   -webkit-backdrop-filter: blur(8px);
                 "
               >
-                Layered Modal
+                Layered LiquidModal
               </button>
             </div>
           </div>
 
           <!-- Modals -->
-          <Modal v-model="isOpenCssOnly" variant="glass-css-only" title="CSS Only Glass">
+          <LiquidModal v-model="isOpenCssOnly" variant="glass-css-only" title="CSS Only Glass">
             <p style="margin: 0; color: rgba(255,255,255,0.85); line-height: 1.6;">
               Pure CSS glassmorphism. backdrop-filter + gradient overlay. No SVG required.
             </p>
             <template #footer>
               <button @click="isOpenCssOnly = false" style="padding: 0.5rem 1rem; border-radius: 6px; background: transparent; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; font-size: 14px; color: rgba(255,255,255,0.8);">關閉</button>
             </template>
-          </Modal>
+          </LiquidModal>
 
-          <Modal v-model="isOpenLayered" variant="glass-highlight-layered" title="Highlight Layered Glass">
+          <LiquidModal v-model="isOpenLayered" variant="glass-highlight-layered" title="Highlight Layered Glass">
             <p style="margin: 0; color: rgba(255,255,255,0.85); line-height: 1.6;">
               Layered glass with SVG highlight filter and radial gradient top-light. Best visual quality.
             </p>
             <template #footer>
               <button @click="isOpenLayered = false" style="padding: 0.5rem 1rem; border-radius: 6px; background: transparent; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; font-size: 14px; color: rgba(255,255,255,0.8);">關閉</button>
             </template>
-          </Modal>
+          </LiquidModal>
 
         </div>
       </GlassFilterProvider>
@@ -341,7 +341,7 @@ export const GlassComparison: Story = {
 // Size 變體展示
 export const Sizes: Story = {
   render: () => ({
-    components: { Modal, GlassFilterProvider },
+    components: { LiquidModal, GlassFilterProvider },
     setup() {
       const openSize = ref<string | null>(null);
       return { openSize };
@@ -378,7 +378,7 @@ export const Sizes: Story = {
             </button>
           </div>
 
-          <Modal
+          <LiquidModal
             v-for="size in ['sm', 'md', 'lg', 'xl']"
             :key="size"
             :modelValue="openSize === size"
@@ -388,7 +388,7 @@ export const Sizes: Story = {
             :title="size.toUpperCase() + ' — 尺寸展示'"
           >
             <p style="margin: 0; color: #495057; line-height: 1.6;">
-              這是 <strong>{{ size }}</strong> 尺寸的 Modal。max-width:
+              這是 <strong>{{ size }}</strong> 尺寸的 LiquidModal。max-width:
               <span v-if="size === 'sm'">400px</span>
               <span v-if="size === 'md'">560px</span>
               <span v-if="size === 'lg'">720px</span>
@@ -408,7 +408,7 @@ export const Sizes: Story = {
                 確認
               </button>
             </template>
-          </Modal>
+          </LiquidModal>
         </div>
       </GlassFilterProvider>
     `,

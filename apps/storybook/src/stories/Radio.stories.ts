@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
-import { Radio, GlassFilterProvider } from '@liquid/ui';
+import { LiquidRadio, GlassFilterProvider } from '@liquid/ui';
 
 const meta = {
-  title: 'Components/Radio',
-  component: Radio,
+  title: 'Components/LiquidRadio',
+  component: LiquidRadio,
   tags: ['autodocs'],
   argTypes: {
     variant: {
       control: 'select',
       options: ['default', 'glass-css-only', 'glass-highlight-layered'],
-      description: 'Radio 樣式變體',
+      description: 'LiquidRadio 樣式變體',
       table: {
         type: { summary: "'default' | 'glass-css-only' | 'glass-highlight-layered'" },
         defaultValue: { summary: 'default' },
@@ -19,7 +19,7 @@ const meta = {
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
-      description: 'Radio 尺寸',
+      description: 'LiquidRadio 尺寸',
       table: {
         type: { summary: "'sm' | 'md' | 'lg'" },
         defaultValue: { summary: 'md' },
@@ -43,7 +43,7 @@ const meta = {
     },
     value: {
       control: 'text',
-      description: 'Radio 的值',
+      description: 'LiquidRadio 的值',
       table: {
         type: { summary: 'string | number' },
       },
@@ -54,7 +54,7 @@ const meta = {
     size: 'md',
     disabled: false,
   },
-} satisfies Meta<typeof Radio>;
+} satisfies Meta<typeof LiquidRadio>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -65,16 +65,16 @@ export const Default: Story = {
     variant: 'default',
   },
   render: (args) => ({
-    components: { Radio },
+    components: { LiquidRadio },
     setup() {
       const selected = ref('a');
       return { args, selected };
     },
     template: `
       <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-        <Radio v-bind="args" value="a" label="選項 A" v-model="selected" />
-        <Radio v-bind="args" value="b" label="選項 B" v-model="selected" />
-        <Radio v-bind="args" value="c" label="選項 C" v-model="selected" />
+        <LiquidRadio v-bind="args" value="a" label="選項 A" v-model="selected" />
+        <LiquidRadio v-bind="args" value="b" label="選項 B" v-model="selected" />
+        <LiquidRadio v-bind="args" value="c" label="選項 C" v-model="selected" />
       </div>
     `,
   }),
@@ -86,7 +86,7 @@ export const GlassCssOnly: Story = {
     variant: 'glass-css-only',
   },
   render: (args) => ({
-    components: { Radio, GlassFilterProvider },
+    components: { LiquidRadio, GlassFilterProvider },
     setup() {
       const selected = ref('a');
       return { args, selected };
@@ -103,9 +103,9 @@ export const GlassCssOnly: Story = {
           justify-content: center;
         ">
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <Radio v-bind="args" value="a" label="選項 A" v-model="selected" />
-            <Radio v-bind="args" value="b" label="選項 B" v-model="selected" />
-            <Radio v-bind="args" value="c" label="選項 C" v-model="selected" />
+            <LiquidRadio v-bind="args" value="a" label="選項 A" v-model="selected" />
+            <LiquidRadio v-bind="args" value="b" label="選項 B" v-model="selected" />
+            <LiquidRadio v-bind="args" value="c" label="選項 C" v-model="selected" />
           </div>
         </div>
       </GlassFilterProvider>
@@ -119,7 +119,7 @@ export const GlassHighlightLayered: Story = {
     variant: 'glass-highlight-layered',
   },
   render: (args) => ({
-    components: { Radio, GlassFilterProvider },
+    components: { LiquidRadio, GlassFilterProvider },
     setup() {
       const selected = ref('a');
       return { args, selected };
@@ -136,9 +136,9 @@ export const GlassHighlightLayered: Story = {
           justify-content: center;
         ">
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <Radio v-bind="args" value="a" label="選項 A" v-model="selected" />
-            <Radio v-bind="args" value="b" label="選項 B" v-model="selected" />
-            <Radio v-bind="args" value="c" label="選項 C" v-model="selected" />
+            <LiquidRadio v-bind="args" value="a" label="選項 A" v-model="selected" />
+            <LiquidRadio v-bind="args" value="b" label="選項 B" v-model="selected" />
+            <LiquidRadio v-bind="args" value="c" label="選項 C" v-model="selected" />
           </div>
         </div>
       </GlassFilterProvider>
@@ -149,7 +149,7 @@ export const GlassHighlightLayered: Story = {
 // Glass 兩種變體對比
 export const GlassComparison: Story = {
   render: () => ({
-    components: { Radio, GlassFilterProvider },
+    components: { LiquidRadio, GlassFilterProvider },
     setup() {
       const selectedPurpleCss = ref('a');
       const selectedPurpleLayered = ref('a');
@@ -177,17 +177,17 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                  <Radio variant="glass-css-only" value="a" label="選項 A" v-model="selectedPurpleCss" />
-                  <Radio variant="glass-css-only" value="b" label="選項 B" v-model="selectedPurpleCss" />
-                  <Radio variant="glass-css-only" value="c" label="選項 C" v-model="selectedPurpleCss" />
+                  <LiquidRadio variant="glass-css-only" value="a" label="選項 A" v-model="selectedPurpleCss" />
+                  <LiquidRadio variant="glass-css-only" value="b" label="選項 B" v-model="selectedPurpleCss" />
+                  <LiquidRadio variant="glass-css-only" value="c" label="選項 C" v-model="selectedPurpleCss" />
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                  <Radio variant="glass-highlight-layered" value="a" label="選項 A" v-model="selectedPurpleLayered" />
-                  <Radio variant="glass-highlight-layered" value="b" label="選項 B" v-model="selectedPurpleLayered" />
-                  <Radio variant="glass-highlight-layered" value="c" label="選項 C" v-model="selectedPurpleLayered" />
+                  <LiquidRadio variant="glass-highlight-layered" value="a" label="選項 A" v-model="selectedPurpleLayered" />
+                  <LiquidRadio variant="glass-highlight-layered" value="b" label="選項 B" v-model="selectedPurpleLayered" />
+                  <LiquidRadio variant="glass-highlight-layered" value="c" label="選項 C" v-model="selectedPurpleLayered" />
                 </div>
               </div>
             </div>
@@ -204,17 +204,17 @@ export const GlassComparison: Story = {
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-css-only</p>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                  <Radio variant="glass-css-only" value="a" label="選項 A" v-model="selectedDarkCss" />
-                  <Radio variant="glass-css-only" value="b" label="選項 B" v-model="selectedDarkCss" />
-                  <Radio variant="glass-css-only" value="c" label="選項 C" v-model="selectedDarkCss" />
+                  <LiquidRadio variant="glass-css-only" value="a" label="選項 A" v-model="selectedDarkCss" />
+                  <LiquidRadio variant="glass-css-only" value="b" label="選項 B" v-model="selectedDarkCss" />
+                  <LiquidRadio variant="glass-css-only" value="c" label="選項 C" v-model="selectedDarkCss" />
                 </div>
               </div>
               <div>
                 <p style="color: rgba(255,255,255,0.6); font-size: 11px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">glass-highlight-layered</p>
                 <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                  <Radio variant="glass-highlight-layered" value="a" label="選項 A" v-model="selectedDarkLayered" />
-                  <Radio variant="glass-highlight-layered" value="b" label="選項 B" v-model="selectedDarkLayered" />
-                  <Radio variant="glass-highlight-layered" value="c" label="選項 C" v-model="selectedDarkLayered" />
+                  <LiquidRadio variant="glass-highlight-layered" value="a" label="選項 A" v-model="selectedDarkLayered" />
+                  <LiquidRadio variant="glass-highlight-layered" value="b" label="選項 B" v-model="selectedDarkLayered" />
+                  <LiquidRadio variant="glass-highlight-layered" value="c" label="選項 C" v-model="selectedDarkLayered" />
                 </div>
               </div>
             </div>
@@ -229,7 +229,7 @@ export const GlassComparison: Story = {
 // Sizes 展示
 export const Sizes: Story = {
   render: () => ({
-    components: { Radio },
+    components: { LiquidRadio },
     setup() {
       const selectedSm = ref('a');
       const selectedMd = ref('a');
@@ -241,25 +241,25 @@ export const Sizes: Story = {
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">size="sm"</p>
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <Radio size="sm" variant="default" value="a" label="選項 A (sm)" v-model="selectedSm" />
-            <Radio size="sm" variant="default" value="b" label="選項 B (sm)" v-model="selectedSm" />
-            <Radio size="sm" variant="default" value="c" label="選項 C (sm)" v-model="selectedSm" />
+            <LiquidRadio size="sm" variant="default" value="a" label="選項 A (sm)" v-model="selectedSm" />
+            <LiquidRadio size="sm" variant="default" value="b" label="選項 B (sm)" v-model="selectedSm" />
+            <LiquidRadio size="sm" variant="default" value="c" label="選項 C (sm)" v-model="selectedSm" />
           </div>
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">size="md" (default)</p>
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <Radio size="md" variant="default" value="a" label="選項 A (md)" v-model="selectedMd" />
-            <Radio size="md" variant="default" value="b" label="選項 B (md)" v-model="selectedMd" />
-            <Radio size="md" variant="default" value="c" label="選項 C (md)" v-model="selectedMd" />
+            <LiquidRadio size="md" variant="default" value="a" label="選項 A (md)" v-model="selectedMd" />
+            <LiquidRadio size="md" variant="default" value="b" label="選項 B (md)" v-model="selectedMd" />
+            <LiquidRadio size="md" variant="default" value="c" label="選項 C (md)" v-model="selectedMd" />
           </div>
         </div>
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">size="lg"</p>
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <Radio size="lg" variant="default" value="a" label="選項 A (lg)" v-model="selectedLg" />
-            <Radio size="lg" variant="default" value="b" label="選項 B (lg)" v-model="selectedLg" />
-            <Radio size="lg" variant="default" value="c" label="選項 C (lg)" v-model="selectedLg" />
+            <LiquidRadio size="lg" variant="default" value="a" label="選項 A (lg)" v-model="selectedLg" />
+            <LiquidRadio size="lg" variant="default" value="b" label="選項 B (lg)" v-model="selectedLg" />
+            <LiquidRadio size="lg" variant="default" value="c" label="選項 C (lg)" v-model="selectedLg" />
           </div>
         </div>
       </div>
@@ -270,7 +270,7 @@ export const Sizes: Story = {
 // Disabled 狀態
 export const Disabled: Story = {
   render: () => ({
-    components: { Radio, GlassFilterProvider },
+    components: { LiquidRadio, GlassFilterProvider },
     setup() {
       const selectedDefault = ref('a');
       const selectedGlass = ref('a');
@@ -281,8 +281,8 @@ export const Disabled: Story = {
         <div>
           <p style="color: #666; font-size: 12px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">Default — disabled</p>
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <Radio variant="default" value="a" label="選項 A (已選取 + 停用)" v-model="selectedDefault" disabled />
-            <Radio variant="default" value="b" label="選項 B (未選取 + 停用)" v-model="selectedDefault" disabled />
+            <LiquidRadio variant="default" value="a" label="選項 A (已選取 + 停用)" v-model="selectedDefault" disabled />
+            <LiquidRadio variant="default" value="b" label="選項 B (未選取 + 停用)" v-model="selectedDefault" disabled />
           </div>
         </div>
         <GlassFilterProvider>
@@ -293,8 +293,8 @@ export const Disabled: Story = {
           ">
             <p style="color: rgba(255,255,255,0.7); font-size: 12px; margin: 0 0 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;">Glass CSS Only — disabled</p>
             <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-              <Radio variant="glass-css-only" value="a" label="選項 A (已選取 + 停用)" v-model="selectedGlass" disabled />
-              <Radio variant="glass-css-only" value="b" label="選項 B (未選取 + 停用)" v-model="selectedGlass" disabled />
+              <LiquidRadio variant="glass-css-only" value="a" label="選項 A (已選取 + 停用)" v-model="selectedGlass" disabled />
+              <LiquidRadio variant="glass-css-only" value="b" label="選項 B (未選取 + 停用)" v-model="selectedGlass" disabled />
             </div>
           </div>
         </GlassFilterProvider>
