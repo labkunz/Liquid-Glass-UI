@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, useCssModule } from 'vue';
+
 export interface ButtonProps {
   /**
    * 按鈕樣式變體
@@ -31,15 +33,22 @@ const handleClick = () => {
     emit('click');
   }
 };
+
+const style = useCssModule();
+
+const toCamelCase = (str: string) =>
+  str.replace(/[-]+([a-z])/g, (_, letter) => letter.toUpperCase());
+
+const classes = computed(() => [
+  style[toCamelCase('liquid-button')],
+  style[toCamelCase(`liquid-button--${props.variant}`)],
+  style[toCamelCase(`liquid-button--${props.size}`)],
+]);
 </script>
 
 <template>
   <button
-    :class="[
-      'liquid-button',
-      `liquid-button--${variant}`,
-      `liquid-button--${size}`
-    ]"
+    :class="classes"
     :disabled="disabled"
     @click="handleClick"
   >
@@ -47,4 +56,4 @@ const handleClick = () => {
   </button>
 </template>
 
-<style src="./Button.module.css" scoped></style>
+<style src="./Button.module.css" module></style>

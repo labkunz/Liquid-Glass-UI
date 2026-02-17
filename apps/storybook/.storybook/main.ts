@@ -34,6 +34,12 @@ const config: StorybookConfig = {
           '@liquid/tokens': path.resolve(__dirname, '../../../packages/tokens/src'),
         },
       },
+      css: {
+        modules: {
+          // 與 packages/ui/vite.config.ts 保持一致，確保 CSS Module key 格式相同
+          localsConvention: 'camelCase',
+        },
+      },
     });
   },
 
