@@ -1,0 +1,158 @@
+/* Vue Transition */
+:global(.tooltip-enter-active) { transition: opacity 0.15s ease, transform 0.15s ease; }
+:global(.tooltip-leave-active) { transition: opacity 0.1s ease, transform 0.1s ease; }
+:global(.tooltip-enter-from) { opacity: 0; transform: scale(0.95); }
+:global(.tooltip-leave-to) { opacity: 0; transform: scale(0.95); }
+
+/* Wrapper */
+.liquid-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Tooltip panel */
+.liquid-tooltip {
+  position: absolute;
+  z-index: 1200;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Placements */
+.liquid-tooltip--top {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.liquid-tooltip--bottom {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.liquid-tooltip--left {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.liquid-tooltip--right {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Arrow */
+.liquid-tooltip-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+.liquid-tooltip-arrow--top {
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  /* border-top set per variant */
+}
+.liquid-tooltip-arrow--bottom {
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  /* border-bottom set per variant */
+}
+.liquid-tooltip-arrow--left {
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  /* border-left set per variant */
+}
+.liquid-tooltip-arrow--right {
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  /* border-right set per variant */
+}
+
+/* ===== Default variant ===== */
+.liquid-tooltip--default {
+  background: #1a1a2e;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.liquid-tooltip--default .liquid-tooltip-arrow--top { border-top: 5px solid #1a1a2e; }
+.liquid-tooltip--default .liquid-tooltip-arrow--bottom { border-bottom: 5px solid #1a1a2e; }
+.liquid-tooltip--default .liquid-tooltip-arrow--left { border-left: 5px solid #1a1a2e; }
+.liquid-tooltip--default .liquid-tooltip-arrow--right { border-right: 5px solid #1a1a2e; }
+
+/* ===== glass-css-only variant ===== */
+.liquid-tooltip--glass-css-only {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+.liquid-tooltip--glass-css-only::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Arrow for glass-css-only */
+.liquid-tooltip--glass-css-only .liquid-tooltip-arrow--top { border-top: 5px solid rgba(255, 255, 255, 0.35); }
+.liquid-tooltip--glass-css-only .liquid-tooltip-arrow--bottom { border-bottom: 5px solid rgba(255, 255, 255, 0.35); }
+.liquid-tooltip--glass-css-only .liquid-tooltip-arrow--left { border-left: 5px solid rgba(255, 255, 255, 0.35); }
+.liquid-tooltip--glass-css-only .liquid-tooltip-arrow--right { border-right: 5px solid rgba(255, 255, 255, 0.35); }
+
+/* ===== glass-highlight-layered variant ===== */
+.liquid-tooltip--glass-highlight-layered {
+  position: absolute;
+  background: transparent;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.liquid-tooltip--glass-highlight-layered::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.12);
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: -1;
+}
+.liquid-tooltip--glass-highlight-layered::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 65%);
+  pointer-events: none;
+  z-index: -1;
+}
+/* Arrow for glass-highlight-layered */
+.liquid-tooltip--glass-highlight-layered .liquid-tooltip-arrow--top { border-top: 5px solid rgba(255, 255, 255, 0.3); }
+.liquid-tooltip--glass-highlight-layered .liquid-tooltip-arrow--bottom { border-bottom: 5px solid rgba(255, 255, 255, 0.3); }
+.liquid-tooltip--glass-highlight-layered .liquid-tooltip-arrow--left { border-left: 5px solid rgba(255, 255, 255, 0.3); }
+.liquid-tooltip--glass-highlight-layered .liquid-tooltip-arrow--right { border-right: 5px solid rgba(255, 255, 255, 0.3); }

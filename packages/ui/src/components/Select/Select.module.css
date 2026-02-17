@@ -1,0 +1,311 @@
+/* ============================================================
+   BASE WRAPPER
+   ============================================================ */
+.liquid-select {
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
+}
+
+/* ============================================================
+   TRIGGER BUTTON (BASE)
+   ============================================================ */
+.liquid-select-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+  font-family: inherit;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.liquid-select-trigger--placeholder {
+  opacity: 0.6;
+}
+
+/* ============================================================
+   VALUE AND ARROW
+   ============================================================ */
+.liquid-select-value {
+  flex: 1;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.liquid-select-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.liquid-select-arrow--open {
+  transform: rotate(180deg);
+}
+
+/* ============================================================
+   DROPDOWN PANEL (BASE)
+   ============================================================ */
+.liquid-select-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ============================================================
+   OPTION BUTTON (BASE)
+   ============================================================ */
+.liquid-select-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+  border: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.liquid-select-option--selected {
+  /* variant-specific styles override below */
+}
+
+.liquid-select-option--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ============================================================
+   DISABLED WRAPPER
+   ============================================================ */
+.liquid-select--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================================
+   SIZE VARIANTS
+   ============================================================ */
+
+/* sm */
+.liquid-select--sm .liquid-select-trigger {
+  height: 32px;
+  font-size: 13px;
+  padding: 0.4rem 0.75rem;
+}
+
+.liquid-select--sm .liquid-select-option {
+  font-size: 13px;
+  padding: 0.4rem 0.75rem;
+}
+
+/* md */
+.liquid-select--md .liquid-select-trigger {
+  height: 40px;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+}
+
+.liquid-select--md .liquid-select-option {
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+}
+
+/* lg */
+.liquid-select--lg .liquid-select-trigger {
+  height: 48px;
+  font-size: 16px;
+  padding: 0.625rem 1.25rem;
+}
+
+.liquid-select--lg .liquid-select-option {
+  font-size: 16px;
+  padding: 0.625rem 1.25rem;
+}
+
+/* ============================================================
+   DEFAULT VARIANT
+   ============================================================ */
+.liquid-select--default .liquid-select-trigger {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  color: #212529;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.liquid-select--default .liquid-select-trigger:hover:not(:disabled) {
+  border-color: #007bff;
+}
+
+.liquid-select--default.liquid-select--open .liquid-select-trigger {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.liquid-select--default .liquid-select-dropdown {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.liquid-select--default .liquid-select-option {
+  color: #212529;
+  background: transparent;
+}
+
+.liquid-select--default .liquid-select-option:hover:not(:disabled) {
+  background: #f8f9fa;
+}
+
+.liquid-select--default .liquid-select-option--selected {
+  background: #e8f0fe;
+  color: #007bff;
+  font-weight: 500;
+}
+
+/* ============================================================
+   GLASS CSS ONLY VARIANT
+   ============================================================ */
+
+/* TRIGGER */
+.liquid-select--glass-css-only .liquid-select-trigger {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.liquid-select--glass-css-only .liquid-select-trigger::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-select--glass-css-only .liquid-select-value,
+.liquid-select--glass-css-only .liquid-select-arrow {
+  position: relative;
+  z-index: 1;
+}
+
+.liquid-select--glass-css-only.liquid-select--open .liquid-select-trigger {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+/* DROPDOWN */
+.liquid-select--glass-css-only .liquid-select-dropdown {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.liquid-select--glass-css-only .liquid-select-option {
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+}
+
+.liquid-select--glass-css-only .liquid-select-option:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.liquid-select--glass-css-only .liquid-select-option--selected {
+  background: rgba(59, 130, 246, 0.3);
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+}
+
+/* ============================================================
+   GLASS HIGHLIGHT LAYERED VARIANT
+   ============================================================ */
+
+/* TRIGGER */
+.liquid-select--glass-highlight-layered .liquid-select-trigger {
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.liquid-select--glass-highlight-layered .liquid-select-trigger::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.15);
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-select--glass-highlight-layered .liquid-select-trigger::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquid-select--glass-highlight-layered .liquid-select-value,
+.liquid-select--glass-highlight-layered .liquid-select-arrow {
+  position: relative;
+  z-index: 2;
+}
+
+/* DROPDOWN */
+.liquid-select--glass-highlight-layered .liquid-select-dropdown {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.liquid-select--glass-highlight-layered .liquid-select-option {
+  color: rgba(255, 255, 255, 0.9);
+  background: transparent;
+}
+
+.liquid-select--glass-highlight-layered .liquid-select-option:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.liquid-select--glass-highlight-layered .liquid-select-option--selected {
+  background: rgba(59, 130, 246, 0.25);
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+}

@@ -1,0 +1,201 @@
+/* ============================================================
+   Block: liquid-input
+   ============================================================ */
+.liquidInput {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* ============================================================
+   Element: liquid-input-field (the native <input>)
+   ============================================================ */
+.liquidInputField {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.liquidInputField::placeholder {
+  opacity: 0.5;
+}
+
+/* ============================================================
+   Size modifiers
+   ============================================================ */
+.liquidInput--sm {
+  height: 32px;
+  font-size: 13px;
+  padding: 0.4rem 0.75rem;
+}
+
+.liquidInput--md {
+  height: 40px;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+}
+
+.liquidInput--lg {
+  height: 48px;
+  font-size: 16px;
+  padding: 0.625rem 1.25rem;
+}
+
+/* ============================================================
+   Variant: default
+   ============================================================ */
+.liquidInput--default {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #212529;
+}
+
+.liquidInput--default:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.liquidInput--default .liquidInputField::placeholder {
+  color: #adb5bd;
+  opacity: 1;
+}
+
+/* ============================================================
+   Variant: glass-css-only
+   Pure CSS glassmorphism — no SVG filter needed
+   ============================================================ */
+.liquidInput--glassCssOnly {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.liquidInput--glassCssOnly:focus-within {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.liquidInput--glassCssOnly::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquidInput--glassCssOnly::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse at 50% -10%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquidInput--glassCssOnly > * {
+  position: relative;
+  z-index: 1;
+}
+
+.liquidInput--glassCssOnly .liquidInputField::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+  opacity: 1;
+}
+
+/* ============================================================
+   Variant: glass-highlight-layered
+   CSS + SVG filter on ::before pseudo-element
+   ============================================================ */
+.liquidInput--glassHighlightLayered {
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.liquidInput--glassHighlightLayered:focus-within {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.liquidInput--glassHighlightLayered::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.15);
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquidInput--glassHighlightLayered::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0) 65%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquidInput--glassHighlightLayered > * {
+  position: relative;
+  z-index: 2;
+}
+
+.liquidInput--glassHighlightLayered .liquidInputField::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+  opacity: 1;
+}
+
+/* ============================================================
+   Disabled state
+   ============================================================ */
+.liquidInput--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.liquidInput--disabled .liquidInputField {
+  cursor: not-allowed;
+}

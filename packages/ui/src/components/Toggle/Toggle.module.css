@@ -1,0 +1,195 @@
+/* ============================================================
+   Toggle (Switch) — Liquid Glass UI
+   ============================================================ */
+
+/* ── Wrapper label ─────────────────────────────────────────── */
+.liquid-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ── Hidden native input ───────────────────────────────────── */
+.liquid-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* ── Track (pill background) ───────────────────────────────── */
+.liquid-toggle-track {
+  position: relative;
+  border-radius: 9999px;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+/* ── Thumb (sliding circle) ────────────────────────────────── */
+.liquid-toggle-thumb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  transition: all 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Label text ────────────────────────────────────────────── */
+.liquid-toggle-label {
+  font-size: 14px;
+}
+
+/* ============================================================
+   Sizes
+   ============================================================ */
+
+/* sm — track 28×16, thumb 12px */
+.liquid-toggle--sm .liquid-toggle-track {
+  width: 28px;
+  height: 16px;
+}
+.liquid-toggle--sm .liquid-toggle-thumb {
+  width: 12px;
+  height: 12px;
+  left: 2px;
+}
+.liquid-toggle--sm .liquid-toggle-thumb--on {
+  transform: translateX(12px) translateY(-50%);
+}
+
+/* md — track 44×24, thumb 18px */
+.liquid-toggle--md .liquid-toggle-track {
+  width: 44px;
+  height: 24px;
+}
+.liquid-toggle--md .liquid-toggle-thumb {
+  width: 18px;
+  height: 18px;
+  left: 3px;
+}
+.liquid-toggle--md .liquid-toggle-thumb--on {
+  transform: translateX(20px) translateY(-50%);
+}
+
+/* lg — track 56×32, thumb 24px */
+.liquid-toggle--lg .liquid-toggle-track {
+  width: 56px;
+  height: 32px;
+}
+.liquid-toggle--lg .liquid-toggle-thumb {
+  width: 24px;
+  height: 24px;
+  left: 4px;
+}
+.liquid-toggle--lg .liquid-toggle-thumb--on {
+  transform: translateX(24px) translateY(-50%);
+}
+
+/* ============================================================
+   Variant: default
+   ============================================================ */
+.liquid-toggle--default .liquid-toggle-track {
+  background: #dee2e6;
+}
+.liquid-toggle--default .liquid-toggle-track--on {
+  background: #007bff;
+}
+.liquid-toggle--default .liquid-toggle-thumb {
+  background: #ffffff;
+}
+.liquid-toggle--default .liquid-toggle-label {
+  color: #212529;
+  font-size: 14px;
+}
+
+/* ============================================================
+   Variant: glass-css-only
+   ============================================================ */
+.liquid-toggle--glass-css-only .liquid-toggle-track {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+.liquid-toggle--glass-css-only .liquid-toggle-track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.liquid-toggle--glass-css-only .liquid-toggle-track--on {
+  background: rgba(59, 130, 246, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.liquid-toggle--glass-css-only .liquid-toggle-thumb {
+  background: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 1;
+}
+.liquid-toggle--glass-css-only .liquid-toggle-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+/* ============================================================
+   Variant: glass-highlight-layered
+   ============================================================ */
+.liquid-toggle--glass-highlight-layered .liquid-toggle-track {
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.liquid-toggle--glass-highlight-layered .liquid-toggle-track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.15);
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: 0;
+}
+.liquid-toggle--glass-highlight-layered .liquid-toggle-track::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+.liquid-toggle--glass-highlight-layered .liquid-toggle-track--on {
+  background: rgba(59, 130, 246, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.liquid-toggle--glass-highlight-layered .liquid-toggle-thumb {
+  background: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 2;
+}
+.liquid-toggle--glass-highlight-layered .liquid-toggle-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+/* ============================================================
+   Disabled state
+   ============================================================ */
+.liquid-toggle--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

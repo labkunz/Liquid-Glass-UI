@@ -1,0 +1,150 @@
+/* Wrapper (handles glass effect) */
+.liquid-table-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Table */
+.liquid-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+/* Header */
+.liquid-table-thead {}
+.liquid-table-th {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+.liquid-table-th--left { text-align: left; }
+.liquid-table-th--center { text-align: center; }
+.liquid-table-th--right { text-align: right; }
+
+/* Body */
+.liquid-table-tbody {}
+.liquid-table-tr {}
+.liquid-table-td {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+.liquid-table-td--left { text-align: left; }
+.liquid-table-td--center { text-align: center; }
+.liquid-table-td--right { text-align: right; }
+
+/* Empty state */
+.liquid-table-empty {
+  padding: 2rem;
+  text-align: center;
+  opacity: 0.5;
+}
+
+/* ===== Default variant ===== */
+.liquid-table-wrapper--default {
+  border: 1px solid #dee2e6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.liquid-table-wrapper--default .liquid-table-thead {
+  background: #f8f9fa;
+}
+.liquid-table-wrapper--default .liquid-table-th {
+  color: #6c757d;
+  border-bottom: 2px solid #dee2e6;
+}
+.liquid-table-wrapper--default .liquid-table-td {
+  color: #212529;
+  border-bottom: 1px solid #f1f3f5;
+}
+.liquid-table-wrapper--default .liquid-table--striped .liquid-table-tbody .liquid-table-tr:nth-child(even) td {
+  background: #f8f9fa;
+}
+.liquid-table-wrapper--default .liquid-table--hoverable .liquid-table-tbody .liquid-table-tr:hover td {
+  background: #e8f0fe;
+}
+
+/* ===== glass-css-only variant ===== */
+.liquid-table-wrapper--glass-css-only {
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+.liquid-table-wrapper--glass-css-only .liquid-table-thead {
+  background: rgba(255, 255, 255, 0.1);
+}
+.liquid-table-wrapper--glass-css-only .liquid-table-th {
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.liquid-table-wrapper--glass-css-only .liquid-table-td {
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.liquid-table-wrapper--glass-css-only .liquid-table--hoverable .liquid-table-tbody .liquid-table-tr:hover td {
+  background: rgba(255, 255, 255, 0.1);
+}
+.liquid-table-wrapper--glass-css-only .liquid-table--striped .liquid-table-tbody .liquid-table-tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.05);
+}
+.liquid-table-wrapper--glass-css-only .liquid-table-empty {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== glass-highlight-layered variant ===== */
+.liquid-table-wrapper--glass-highlight-layered {
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+.liquid-table-wrapper--glass-highlight-layered::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.12);
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: 0;
+}
+.liquid-table-wrapper--glass-highlight-layered::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.liquid-table-wrapper--glass-highlight-layered > * {
+  position: relative;
+  z-index: 2;
+}
+.liquid-table-wrapper--glass-highlight-layered .liquid-table-thead {
+  background: rgba(255, 255, 255, 0.08);
+}
+.liquid-table-wrapper--glass-highlight-layered .liquid-table-th {
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.liquid-table-wrapper--glass-highlight-layered .liquid-table-td {
+  color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.liquid-table-wrapper--glass-highlight-layered .liquid-table--hoverable .liquid-table-tbody .liquid-table-tr:hover td {
+  background: rgba(255, 255, 255, 0.08);
+}
+.liquid-table-wrapper--glass-highlight-layered .liquid-table--striped .liquid-table-tbody .liquid-table-tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.04);
+}

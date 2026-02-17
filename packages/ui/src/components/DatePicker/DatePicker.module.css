@@ -1,0 +1,173 @@
+/* ================================================================
+   DatePicker 基礎樣式
+   ================================================================ */
+.liquid-datepicker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: 220px;
+  box-sizing: border-box;
+}
+
+/* ================================================================
+   Field (input) 基礎樣式
+   ================================================================ */
+.liquid-datepicker-field {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+/* ================================================================
+   Size 變體
+   ================================================================ */
+.liquid-datepicker--sm {
+  height: 32px;
+  font-size: 13px;
+  padding: 0.4rem 0.75rem;
+}
+
+.liquid-datepicker--md {
+  height: 40px;
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+}
+
+.liquid-datepicker--lg {
+  height: 48px;
+  font-size: 16px;
+  padding: 0.625rem 1.25rem;
+}
+
+/* ================================================================
+   Default 變體
+   ================================================================ */
+.liquid-datepicker--default {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #212529;
+}
+
+.liquid-datepicker--default:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* ================================================================
+   glass-css-only 變體 — 純 CSS，不依賴 SVG Filter
+   ================================================================ */
+.liquid-datepicker--glass-css-only {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.liquid-datepicker--glass-css-only:focus-within {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.liquid-datepicker--glass-css-only::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-datepicker--glass-css-only::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 50% -10%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-datepicker--glass-css-only > * {
+  position: relative;
+  z-index: 1;
+}
+
+.liquid-datepicker--glass-css-only .liquid-datepicker-field {
+  color-scheme: dark;
+}
+
+/* ================================================================
+   glass-highlight-layered 變體 — 分層，::before 套用 SVG 有機高光
+   ================================================================ */
+.liquid-datepicker--glass-highlight-layered {
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.liquid-datepicker--glass-highlight-layered:focus-within {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.liquid-datepicker--glass-highlight-layered::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.15);
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-datepicker--glass-highlight-layered::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquid-datepicker--glass-highlight-layered > * {
+  position: relative;
+  z-index: 2;
+}
+
+.liquid-datepicker--glass-highlight-layered .liquid-datepicker-field {
+  color-scheme: dark;
+}
+
+/* ================================================================
+   Disabled 狀態
+   ================================================================ */
+.liquid-datepicker--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

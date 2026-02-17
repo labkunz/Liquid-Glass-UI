@@ -1,0 +1,180 @@
+/* ============================================================
+   Block: liquid-textarea
+   ============================================================ */
+.liquidTextarea {
+  display: block;
+  width: 100%;
+}
+
+/* ============================================================
+   Element: liquid-textarea-field
+   ============================================================ */
+.liquidTextareaField {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: 1.6;
+  display: block;
+}
+
+/* ============================================================
+   Size modifiers
+   ============================================================ */
+.liquidTextarea--sm {
+  font-size: 13px;
+  padding: 0.4rem 0.75rem;
+}
+
+.liquidTextarea--md {
+  font-size: 14px;
+  padding: 0.5rem 1rem;
+}
+
+.liquidTextarea--lg {
+  font-size: 16px;
+  padding: 0.625rem 1.25rem;
+}
+
+/* ============================================================
+   Variant: default
+   ============================================================ */
+.liquidTextarea--default {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #212529;
+}
+
+.liquidTextarea--default:focus-within {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* ============================================================
+   Variant: glass-css-only
+   ============================================================ */
+.liquidTextarea--glassCssOnly {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.liquidTextarea--glassCssOnly:focus-within {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.liquidTextarea--glassCssOnly::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquidTextarea--glassCssOnly::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse at 50% -10%,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquidTextarea--glassCssOnly > * {
+  position: relative;
+  z-index: 1;
+}
+
+.liquidTextarea--glassCssOnly .liquidTextareaField::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   Variant: glass-highlight-layered
+   ============================================================ */
+.liquidTextarea--glassHighlightLayered {
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.liquidTextarea--glassHighlightLayered:focus-within {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.liquidTextarea--glassHighlightLayered::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.15);
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquidTextarea--glassHighlightLayered::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0) 65%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquidTextarea--glassHighlightLayered > * {
+  position: relative;
+  z-index: 2;
+}
+
+.liquidTextarea--glassHighlightLayered .liquidTextareaField::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ============================================================
+   Disabled state
+   ============================================================ */
+.liquidTextarea--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

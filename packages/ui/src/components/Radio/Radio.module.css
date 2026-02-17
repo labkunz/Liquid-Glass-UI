@@ -1,0 +1,215 @@
+/* ============================
+   Base: liquid-radio wrapper
+   ============================ */
+.liquid-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+/* ============================
+   Hidden native input
+   ============================ */
+.liquid-radio-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* ============================
+   Visual radio dot
+   ============================ */
+.liquid-radio-dot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+/* ============================
+   Inner filled circle
+   ============================ */
+.liquid-radio-dot-inner {
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+/* ============================
+   Label text
+   ============================ */
+.liquid-radio-label {
+  user-select: none;
+}
+
+/* ============================
+   Sizes
+   ============================ */
+
+/* sm */
+.liquid-radio--sm .liquid-radio-dot {
+  width: 14px;
+  height: 14px;
+}
+
+.liquid-radio--sm .liquid-radio-dot-inner {
+  width: 6px;
+  height: 6px;
+}
+
+.liquid-radio--sm .liquid-radio-label {
+  font-size: 13px;
+}
+
+/* md */
+.liquid-radio--md .liquid-radio-dot {
+  width: 18px;
+  height: 18px;
+}
+
+.liquid-radio--md .liquid-radio-dot-inner {
+  width: 8px;
+  height: 8px;
+}
+
+.liquid-radio--md .liquid-radio-label {
+  font-size: 14px;
+}
+
+/* lg */
+.liquid-radio--lg .liquid-radio-dot {
+  width: 22px;
+  height: 22px;
+}
+
+.liquid-radio--lg .liquid-radio-dot-inner {
+  width: 10px;
+  height: 10px;
+}
+
+.liquid-radio--lg .liquid-radio-label {
+  font-size: 16px;
+}
+
+/* ============================
+   Disabled state
+   ============================ */
+.liquid-radio--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================
+   Default variant
+   ============================ */
+.liquid-radio--default .liquid-radio-dot {
+  background: #ffffff;
+  border: 2px solid #dee2e6;
+}
+
+.liquid-radio--default .liquid-radio-dot--checked {
+  border-color: #007bff;
+}
+
+.liquid-radio--default .liquid-radio-dot-inner {
+  background: #007bff;
+}
+
+.liquid-radio--default:hover .liquid-radio-dot {
+  border-color: #007bff;
+}
+
+.liquid-radio--default .liquid-radio-label {
+  color: #212529;
+}
+
+/* ============================
+   glass-css-only variant
+   ============================ */
+.liquid-radio--glass-css-only .liquid-radio-dot {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.liquid-radio--glass-css-only .liquid-radio-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-radio--glass-css-only .liquid-radio-dot--checked {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(59, 130, 246, 0.3);
+}
+
+.liquid-radio--glass-css-only .liquid-radio-dot-inner {
+  background: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 1;
+}
+
+.liquid-radio--glass-css-only .liquid-radio-label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ============================
+   glass-highlight-layered variant
+   ============================ */
+.liquid-radio--glass-highlight-layered .liquid-radio-dot {
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.liquid-radio--glass-highlight-layered .liquid-radio-dot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.15);
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-radio--glass-highlight-layered .liquid-radio-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquid-radio--glass-highlight-layered .liquid-radio-dot--checked {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.liquid-radio--glass-highlight-layered .liquid-radio-dot-inner {
+  background: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 2;
+}
+
+.liquid-radio--glass-highlight-layered .liquid-radio-label {
+  color: rgba(255, 255, 255, 0.9);
+}

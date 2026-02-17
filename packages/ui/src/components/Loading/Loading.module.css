@@ -1,0 +1,167 @@
+/* Spinner animation */
+@keyframes liquid-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes liquid-dot-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes liquid-pulse-scale {
+  0%, 100% { transform: scale(0.8); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* Base */
+.liquid-loading {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Overlay mode */
+.liquid-loading--overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0;
+  gap: 0.75rem;
+}
+
+/* Spinner element */
+.liquid-loading-spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Spinner type SVG animation */
+.liquid-loading-spinner--spinner svg {
+  animation: liquid-spin 0.8s linear infinite;
+}
+
+/* Dots type */
+.liquid-loading-spinner--dots {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.liquid-loading-dot {
+  display: inline-block;
+  border-radius: 50%;
+  animation: liquid-dot-bounce 1.2s infinite ease-in-out;
+}
+.liquid-loading-dot:nth-child(1) { animation-delay: -0.4s; }
+.liquid-loading-dot:nth-child(2) { animation-delay: -0.2s; }
+.liquid-loading-dot:nth-child(3) { animation-delay: 0s; }
+
+/* Pulse type */
+.liquid-loading-spinner--pulse {
+  border-radius: 50%;
+  animation: liquid-pulse-scale 1s infinite ease-in-out;
+}
+
+/* Label */
+.liquid-loading-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Sizes */
+.liquid-loading--sm .liquid-loading-spinner { width: 20px; height: 20px; }
+.liquid-loading--sm .liquid-loading-spinner--spinner svg { width: 20px; height: 20px; }
+.liquid-loading--sm .liquid-loading-spinner--pulse { width: 20px; height: 20px; }
+.liquid-loading--sm .liquid-loading-dot { width: 6px; height: 6px; }
+.liquid-loading--sm .liquid-loading-label { font-size: 12px; }
+
+.liquid-loading--md .liquid-loading-spinner { width: 32px; height: 32px; }
+.liquid-loading--md .liquid-loading-spinner--spinner svg { width: 32px; height: 32px; }
+.liquid-loading--md .liquid-loading-spinner--pulse { width: 32px; height: 32px; }
+.liquid-loading--md .liquid-loading-dot { width: 8px; height: 8px; }
+
+.liquid-loading--lg .liquid-loading-spinner { width: 48px; height: 48px; }
+.liquid-loading--lg .liquid-loading-spinner--spinner svg { width: 48px; height: 48px; }
+.liquid-loading--lg .liquid-loading-spinner--pulse { width: 48px; height: 48px; }
+.liquid-loading--lg .liquid-loading-dot { width: 10px; height: 10px; }
+.liquid-loading--lg .liquid-loading-label { font-size: 16px; }
+
+.liquid-loading--xl .liquid-loading-spinner { width: 64px; height: 64px; }
+.liquid-loading--xl .liquid-loading-spinner--spinner svg { width: 64px; height: 64px; }
+.liquid-loading--xl .liquid-loading-spinner--pulse { width: 64px; height: 64px; }
+.liquid-loading--xl .liquid-loading-dot { width: 12px; height: 12px; }
+.liquid-loading--xl .liquid-loading-label { font-size: 18px; }
+
+/* Default variant */
+.liquid-loading--default { color: #007bff; }
+.liquid-loading--default .liquid-loading-dot { background: #007bff; }
+.liquid-loading--default .liquid-loading-spinner--pulse { background: #007bff; }
+.liquid-loading--default .liquid-loading-label { color: #495057; }
+
+/* glass-css-only variant */
+.liquid-loading--glass-css-only {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+.liquid-loading--glass-css-only::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.liquid-loading--glass-css-only > * { position: relative; z-index: 1; }
+.liquid-loading--glass-css-only .liquid-loading-dot { background: rgba(255, 255, 255, 0.9); }
+.liquid-loading--glass-css-only .liquid-loading-spinner--pulse { background: rgba(255, 255, 255, 0.7); }
+.liquid-loading--glass-css-only .liquid-loading-label { color: rgba(255, 255, 255, 0.9); }
+
+/* glass-highlight-layered variant */
+.liquid-loading--glass-highlight-layered {
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.liquid-loading--glass-highlight-layered::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.12);
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: 0;
+}
+.liquid-loading--glass-highlight-layered::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+.liquid-loading--glass-highlight-layered > * { position: relative; z-index: 2; }
+.liquid-loading--glass-highlight-layered .liquid-loading-dot { background: rgba(255, 255, 255, 0.9); }
+.liquid-loading--glass-highlight-layered .liquid-loading-spinner--pulse { background: rgba(255, 255, 255, 0.7); }
+.liquid-loading--glass-highlight-layered .liquid-loading-label { color: rgba(255, 255, 255, 0.9); }

@@ -1,0 +1,217 @@
+/* Vue Transition classes — rendered outside scoped component via Teleport */
+:global(.modal-enter-active) {
+  transition: opacity 0.25s ease;
+}
+:global(.modal-leave-active) {
+  transition: opacity 0.2s ease;
+}
+:global(.modal-enter-from) {
+  opacity: 0;
+}
+:global(.modal-leave-to) {
+  opacity: 0;
+}
+
+/* Overlay */
+.liquid-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+/* Modal panel */
+.liquid-modal {
+  position: relative;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Sizes */
+.liquid-modal--sm { max-width: 400px; }
+.liquid-modal--md { max-width: 560px; }
+.liquid-modal--lg { max-width: 720px; }
+.liquid-modal--xl { max-width: 960px; }
+
+/* Header */
+.liquid-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem 0;
+  flex-shrink: 0;
+}
+
+.liquid-modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.liquid-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Body */
+.liquid-modal-body {
+  padding: 1.25rem 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Footer */
+.liquid-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0 1.5rem 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ===== Default variant ===== */
+.liquid-modal--default {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.liquid-modal--default .liquid-modal-title {
+  color: #212529;
+}
+
+.liquid-modal--default .liquid-modal-close {
+  color: #6c757d;
+}
+
+.liquid-modal--default .liquid-modal-close:hover {
+  background: #f1f3f5;
+  color: #212529;
+}
+
+/* ===== glass-css-only variant ===== */
+.liquid-modal--glass-css-only {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.liquid-modal--glass-css-only::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-modal--glass-css-only > * {
+  position: relative;
+  z-index: 1;
+}
+
+.liquid-modal--glass-css-only .liquid-modal-title {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.liquid-modal--glass-css-only .liquid-modal-close {
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.liquid-modal--glass-css-only .liquid-modal-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.liquid-modal--glass-css-only .liquid-modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.liquid-modal--glass-css-only .liquid-modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ===== glass-highlight-layered variant ===== */
+.liquid-modal--glass-highlight-layered {
+  position: relative;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.liquid-modal--glass-highlight-layered::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.12);
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.liquid-modal--glass-highlight-layered::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 55%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquid-modal--glass-highlight-layered > * {
+  position: relative;
+  z-index: 2;
+}
+
+.liquid-modal--glass-highlight-layered .liquid-modal-title {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.liquid-modal--glass-highlight-layered .liquid-modal-close {
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.liquid-modal--glass-highlight-layered .liquid-modal-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.liquid-modal--glass-highlight-layered .liquid-modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.liquid-modal--glass-highlight-layered .liquid-modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
