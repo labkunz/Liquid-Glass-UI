@@ -1,9 +1,8 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./dist",
-    "composite": true
+    "outDir": "./dist"
   },
-  "include": ["core/**/*", "vue/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["dist", "node_modules", "**/*.spec.ts"]
 }

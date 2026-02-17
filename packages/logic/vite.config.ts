@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     vue(),
     dts({
-      include: ['core', 'vue'],
+      include: ['src'],
       outDir: 'dist',
       rollupTypes: true
     })
@@ -16,10 +16,8 @@ export default defineConfig({
     lib: {
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
-        core: resolve(__dirname, 'core/index.ts'),
-        vue: resolve(__dirname, 'vue/index.ts')
       },
-      name: 'LiquidEngine',
+      name: 'LiquidLogic',
       formats: ['es']
     },
     rollupOptions: {

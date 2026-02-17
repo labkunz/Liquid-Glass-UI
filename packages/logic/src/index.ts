@@ -1,4 +1,11 @@
-// Form Engine & Table Engine
-// 此套件提供 Schema-Driven 的表單引擎和表格引擎
+// @liquid/logic — 主入口
+// 統一 re-export 所有子模組
 
-export {};
+// Form Engine（core + Vue）
+export * from './form/index'
+
+// Table Engine（待實作）
+// export * from './table/index'
+
+// Composables（待實作）
+// export * from './composables/index'
