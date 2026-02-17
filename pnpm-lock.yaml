@@ -29,9 +29,9 @@ importers:
 
   apps/admin:
     dependencies:
-      '@liquid/engine':
+      '@liquid/logic':
         specifier: workspace:*
-        version: link:../../packages/engine
+        version: link:../../packages/logic
       '@liquid/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
@@ -146,7 +146,7 @@ importers:
         specifier: ^8.0.0
         version: 8.6.15
 
-  packages/engine:
+  packages/logic:
     dependencies:
       '@liquid/ui':
         specifier: workspace:*

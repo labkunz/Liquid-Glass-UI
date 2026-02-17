@@ -1,7 +1,7 @@
 {
-  "name": "@liquid/engine",
+  "name": "@liquid/logic",
   "version": "0.0.1",
-  "description": "Schema-Driven Form Engine & Table Engine",
+  "description": "Schema-Driven Form & Table Engine, and UI Composables",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -45,6 +45,7 @@
     "form-engine",
     "table-engine",
     "schema-driven",
+    "composables",
     "vue"
   ],
   "publishConfig": {

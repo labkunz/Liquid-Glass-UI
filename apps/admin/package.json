@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@liquid/engine": "workspace:*",
+    "@liquid/logic": "workspace:*",
     "@liquid/tokens": "workspace:*",
     "@liquid/ui": "workspace:*",
     "vue": "^3.5.28",
