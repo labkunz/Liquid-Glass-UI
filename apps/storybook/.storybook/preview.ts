@@ -3,13 +3,15 @@ import { setup } from '@storybook/vue3';
 
 // 引入 Design Tokens (CSS Variables)
 import '@liquid/tokens/colors.css';
+import '@liquid/tokens/glass.css';
 
-// Vue 全域配置（如需要）
+// 引入 GlassFilterProvider
+import { GlassFilterProvider } from '@liquid/ui';
+
+// Vue 全域配置
 setup((app) => {
-  // 可以在這裡註冊全域元件或插件
-  // 例如：
-  // app.use(SomePlugin);
-  // app.component('GlobalComponent', GlobalComponent);
+  // 註冊 GlassFilterProvider 為全域元件
+  app.component('GlassFilterProvider', GlassFilterProvider);
 });
 
 const preview: Preview = {

@@ -3,7 +3,7 @@ export interface ButtonProps {
   /**
    * 按鈕樣式變體
    */
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'glass' | 'glass-intense';
 
   /**
    * 按鈕尺寸

@@ -1,0 +1,122 @@
+/**
+ * Liquid Glass Design Tokens
+ * 液態玻璃效果的設計變數
+ */
+
+:root {
+  /* ==================== Glass 基礎效果 ==================== */
+
+  /* 模糊強度 */
+  --glass-blur: 12px;
+  --glass-blur-strong: 16px;
+  --glass-blur-subtle: 8px;
+
+  /* 背景透明度 */
+  --glass-opacity: 0.15;
+  --glass-opacity-strong: 0.2;
+  --glass-opacity-subtle: 0.1;
+
+  /* 邊框透明度 */
+  --glass-border-opacity: 0.3;
+  --glass-border-opacity-strong: 0.4;
+  --glass-border-opacity-subtle: 0.2;
+
+  /* 陰影透明度 */
+  --glass-shadow-opacity: 0.2;
+  --glass-shadow-opacity-strong: 0.25;
+  --glass-shadow-opacity-subtle: 0.15;
+
+  /* ==================== Glass 背景顏色 ==================== */
+
+  /* 基礎玻璃背景（白色基底） */
+  --glass-bg: rgba(255, 255, 255, var(--glass-opacity));
+  --glass-bg-strong: rgba(255, 255, 255, var(--glass-opacity-strong));
+  --glass-bg-subtle: rgba(255, 255, 255, var(--glass-opacity-subtle));
+
+  /* 有色玻璃背景 - Primary */
+  --glass-bg-primary: rgba(0, 123, 255, 0.15);
+  --glass-bg-primary-strong: rgba(0, 123, 255, 0.25);
+
+  /* 有色玻璃背景 - Secondary */
+  --glass-bg-secondary: rgba(108, 117, 125, 0.15);
+  --glass-bg-secondary-strong: rgba(108, 117, 125, 0.25);
+
+  /* ==================== Glass 邊框 ==================== */
+
+  --glass-border: 1px solid rgba(255, 255, 255, var(--glass-border-opacity));
+  --glass-border-strong: 1px solid rgba(255, 255, 255, var(--glass-border-opacity-strong));
+  --glass-border-subtle: 1px solid rgba(255, 255, 255, var(--glass-border-opacity-subtle));
+
+  /* ==================== Glass 陰影 ==================== */
+
+  /* 外陰影 - 營造深度 */
+  --glass-shadow-sm: 0 2px 8px rgba(0, 0, 0, var(--glass-shadow-opacity-subtle));
+  --glass-shadow-md: 0 8px 32px rgba(0, 0, 0, var(--glass-shadow-opacity));
+  --glass-shadow-lg: 0 16px 48px rgba(0, 0, 0, var(--glass-shadow-opacity-strong));
+
+  /* 內陰影 - 營造內光 */
+  --glass-inset-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  --glass-inset-shadow-strong: inset 0 2px 4px rgba(255, 255, 255, 0.5);
+
+  /* ==================== Glass 高光效果 ==================== */
+
+  /* 高光強度 */
+  --glass-highlight-intensity: 0.6;
+  --glass-highlight-angle: 135deg;
+
+  /* 高光漸層（用於 ::after 偽元素） */
+  --glass-highlight-gradient: linear-gradient(
+    var(--glass-highlight-angle),
+    rgba(255, 255, 255, var(--glass-highlight-intensity)) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+
+  /* ==================== SVG Filter 參數 ==================== */
+
+  /* 折射強度（用於 feDisplacementMap） */
+  --glass-refraction-scale-subtle: 3;
+  --glass-refraction-scale-medium: 8;
+  --glass-refraction-scale-strong: 15;
+
+  /* 噪點頻率（用於 feTurbulence） */
+  --glass-refraction-frequency: 0.008;
+  --glass-refraction-frequency-fine: 0.01;
+  --glass-refraction-frequency-coarse: 0.005;
+
+  /* 高光反射強度（用於 feSpecularLighting） */
+  --glass-specular-intensity: 0.6;
+  --glass-specular-exponent: 20;
+}
+
+/* ==================== 暗色主題調整 ==================== */
+
+[data-theme="dark"] {
+  /* 暗色背景下，玻璃效果需要調整 */
+  --glass-opacity: 0.1;
+  --glass-opacity-strong: 0.15;
+  --glass-opacity-subtle: 0.05;
+
+  --glass-blur: 16px;
+  --glass-blur-strong: 20px;
+  --glass-blur-subtle: 12px;
+
+  --glass-border-opacity: 0.15;
+  --glass-border-opacity-strong: 0.25;
+  --glass-border-opacity-subtle: 0.1;
+
+  --glass-shadow-opacity: 0.4;
+  --glass-shadow-opacity-strong: 0.5;
+  --glass-shadow-opacity-subtle: 0.3;
+
+  /* 暗色主題下的玻璃背景 */
+  --glass-bg: rgba(255, 255, 255, var(--glass-opacity));
+  --glass-bg-strong: rgba(255, 255, 255, var(--glass-opacity-strong));
+  --glass-bg-subtle: rgba(255, 255, 255, var(--glass-opacity-subtle));
+
+  /* 暗色有色玻璃 */
+  --glass-bg-primary: rgba(59, 130, 246, 0.2);
+  --glass-bg-primary-strong: rgba(59, 130, 246, 0.3);
+
+  --glass-bg-secondary: rgba(156, 163, 175, 0.2);
+  --glass-bg-secondary-strong: rgba(156, 163, 175, 0.3);
+}
