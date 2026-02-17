@@ -143,7 +143,59 @@
         />
       </filter>
 
-      <!-- ==================== Filter 3: Background Refraction Only ==================== -->
+      <!-- ==================== Filter 3: Highlight Only (只有高光，無位移) ==================== -->
+      <!-- 移除 feDisplacementMap，只保留有機高光效果，元素形狀不會被扭曲 -->
+      <!-- 適用於 glass-highlight-only 和 glass-highlight-layered variant -->
+      <filter id="glass-highlight-only" x="-20%" y="-20%" width="140%" height="140%">
+        <!-- 產生噪點做為光照法線圖 -->
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.012"
+          numOctaves="2"
+          seed="3"
+          result="turbulence"
+        />
+
+        <!-- 模糊噪點，讓高光更柔和 -->
+        <feGaussianBlur
+          in="turbulence"
+          stdDeviation="1"
+          result="blurred"
+        />
+
+        <!-- 有機高光計算（無 feDisplacementMap，不扭曲形狀） -->
+        <feSpecularLighting
+          in="blurred"
+          surfaceScale="2.5"
+          specularConstant="0.7"
+          specularExponent="22"
+          lighting-color="#ffffff"
+          result="specular"
+        >
+          <fePointLight x="120" y="80" z="180" />
+        </feSpecularLighting>
+
+        <!-- 把高光限制在原始圖形範圍內 -->
+        <feComposite
+          in="specular"
+          in2="SourceGraphic"
+          operator="in"
+          result="highlight"
+        />
+
+        <!-- 將有機高光疊加到原始圖形上，k3 控制高光強度 -->
+        <feComposite
+          in="SourceGraphic"
+          in2="highlight"
+          operator="arithmetic"
+          k1="0"
+          k2="1"
+          k3="0.35"
+          k4="0"
+        />
+      </filter>
+
+      <!-- ==================== Filter 4: Background Refraction Only ==================== -->
       <!-- 僅對背景層套用，文字層保持清晰 -->
       <filter id="glass-backdrop" x="-30%" y="-30%" width="160%" height="160%">
         <feTurbulence

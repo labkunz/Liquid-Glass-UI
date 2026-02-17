@@ -5,7 +5,12 @@ export interface ButtonProps {
   /**
    * 按鈕樣式變體
    */
-  variant?: 'primary' | 'secondary' | 'outline' | 'glass' | 'glass-intense';
+  variant?: 'primary' | 'secondary' | 'outline'
+          | 'glass' | 'glass-intense'
+          | 'glass-css-only'
+          | 'glass-highlight-only'
+          | 'glass-layered'
+          | 'glass-highlight-layered';
 
   /**
    * 按鈕尺寸

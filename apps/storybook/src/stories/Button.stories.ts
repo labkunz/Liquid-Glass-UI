@@ -9,10 +9,14 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'outline', 'glass', 'glass-intense'],
+      options: [
+        'primary', 'secondary', 'outline',
+        'glass', 'glass-intense',
+        'glass-css-only', 'glass-highlight-only', 'glass-layered', 'glass-highlight-layered',
+      ],
       description: '按鈕樣式變體',
       table: {
-        type: { summary: "'primary' | 'secondary' | 'outline' | 'glass' | 'glass-intense'" },
+        type: { summary: "'primary' | 'secondary' | 'outline' | 'glass' | 'glass-intense' | 'glass-css-only' | 'glass-highlight-only' | 'glass-layered' | 'glass-highlight-layered'" },
         defaultValue: { summary: 'primary' },
       },
     },
@@ -407,6 +411,165 @@ export const AllVariants: Story = {
               <Button variant="glass" disabled>Glass Disabled</Button>
             </div>
           </div>
+        </div>
+      </GlassFilterProvider>
+    `,
+  }),
+};
+
+// ================================================================
+// 實驗組：四種技術方案
+// ================================================================
+
+// 1. 純 CSS 效果（無任何 SVG Filter）
+export const GlassCssOnly: Story = {
+  args: { variant: 'glass-css-only' },
+  render: (args) => ({
+    components: { Button, GlassFilterProvider },
+    setup() { return { args }; },
+    template: `
+      <GlassFilterProvider>
+        <div style="padding: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px;">
+          <Button v-bind="args">CSS Only Button</Button>
+        </div>
+      </GlassFilterProvider>
+    `,
+  }),
+};
+
+// 2. 只保留高光（整個元素套用，無位移）
+export const GlassHighlightOnly: Story = {
+  args: { variant: 'glass-highlight-only' },
+  render: (args) => ({
+    components: { Button, GlassFilterProvider },
+    setup() { return { args }; },
+    template: `
+      <GlassFilterProvider>
+        <div style="padding: 3rem; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 8px;">
+          <Button v-bind="args">Highlight Only Button</Button>
+        </div>
+      </GlassFilterProvider>
+    `,
+  }),
+};
+
+// 3. 多層分離（::before 套用含位移的 filter）
+export const GlassLayered: Story = {
+  args: { variant: 'glass-layered' },
+  render: (args) => ({
+    components: { Button, GlassFilterProvider },
+    setup() { return { args }; },
+    template: `
+      <GlassFilterProvider>
+        <div style="padding: 3rem; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 8px;">
+          <Button v-bind="args">Layered Button</Button>
+        </div>
+      </GlassFilterProvider>
+    `,
+  }),
+};
+
+// 4. 合體版（::before 套用只有高光的 filter）
+export const GlassHighlightLayered: Story = {
+  args: { variant: 'glass-highlight-layered' },
+  render: (args) => ({
+    components: { Button, GlassFilterProvider },
+    setup() { return { args }; },
+    template: `
+      <GlassFilterProvider>
+        <div style="padding: 3rem; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); border-radius: 8px;">
+          <Button v-bind="args">Highlight + Layered Button</Button>
+        </div>
+      </GlassFilterProvider>
+    `,
+  }),
+};
+
+// 六種方案完整對比
+export const GlassFullComparison: Story = {
+  render: () => ({
+    components: { Button, GlassFilterProvider },
+    template: `
+      <GlassFilterProvider>
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; min-width: 700px;">
+
+          <!-- 背景說明 -->
+          <p style="color: #555; font-size: 13px; margin: 0;">
+            每種方案使用相同的漸層背景，觀察邊框直線度、文字清晰度、高光有機感的差異
+          </p>
+
+          <!-- 對照組 A：glass（原有，整體含位移） -->
+          <div>
+            <p style="color: #333; font-size: 12px; font-weight: 700; margin: 0 0 8px; letter-spacing: 0.5px;">
+              對照組 A：glass（整體套用，位移 scale=3）
+            </p>
+            <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
+              <Button variant="glass" size="sm">Small</Button>
+              <Button variant="glass" size="md">Medium</Button>
+              <Button variant="glass" size="lg">Large</Button>
+            </div>
+          </div>
+
+          <!-- 對照組 B：glass-intense（原有，整體強位移） -->
+          <div>
+            <p style="color: #333; font-size: 12px; font-weight: 700; margin: 0 0 8px; letter-spacing: 0.5px;">
+              對照組 B：glass-intense（整體套用，位移 scale=12）
+            </p>
+            <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
+              <Button variant="glass-intense" size="sm">Small</Button>
+              <Button variant="glass-intense" size="md">Medium</Button>
+              <Button variant="glass-intense" size="lg">Large</Button>
+            </div>
+          </div>
+
+          <!-- 實驗 1：glass-css-only（純 CSS） -->
+          <div>
+            <p style="color: #333; font-size: 12px; font-weight: 700; margin: 0 0 8px; letter-spacing: 0.5px;">
+              實驗 1：glass-css-only（純 CSS，無 SVG Filter）
+            </p>
+            <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
+              <Button variant="glass-css-only" size="sm">Small</Button>
+              <Button variant="glass-css-only" size="md">Medium</Button>
+              <Button variant="glass-css-only" size="lg">Large</Button>
+            </div>
+          </div>
+
+          <!-- 實驗 2：glass-highlight-only（整體高光，無位移） -->
+          <div>
+            <p style="color: #333; font-size: 12px; font-weight: 700; margin: 0 0 8px; letter-spacing: 0.5px;">
+              實驗 2：glass-highlight-only（整體套用，只有高光，無位移）
+            </p>
+            <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
+              <Button variant="glass-highlight-only" size="sm">Small</Button>
+              <Button variant="glass-highlight-only" size="md">Medium</Button>
+              <Button variant="glass-highlight-only" size="lg">Large</Button>
+            </div>
+          </div>
+
+          <!-- 實驗 3：glass-layered（::before 分離，含位移） -->
+          <div>
+            <p style="color: #333; font-size: 12px; font-weight: 700; margin: 0 0 8px; letter-spacing: 0.5px;">
+              實驗 3：glass-layered（::before 分離，位移在底層，邊框直線）
+            </p>
+            <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
+              <Button variant="glass-layered" size="sm">Small</Button>
+              <Button variant="glass-layered" size="md">Medium</Button>
+              <Button variant="glass-layered" size="lg">Large</Button>
+            </div>
+          </div>
+
+          <!-- 實驗 4：glass-highlight-layered（::before 分離，只有高光） -->
+          <div>
+            <p style="color: #333; font-size: 12px; font-weight: 700; margin: 0 0 8px; letter-spacing: 0.5px;">
+              實驗 4：glass-highlight-layered（::before 分離，只有高光，無任何位移）
+            </p>
+            <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 6px; display: flex; gap: 1rem;">
+              <Button variant="glass-highlight-layered" size="sm">Small</Button>
+              <Button variant="glass-highlight-layered" size="md">Medium</Button>
+              <Button variant="glass-highlight-layered" size="lg">Large</Button>
+            </div>
+          </div>
+
         </div>
       </GlassFilterProvider>
     `,
