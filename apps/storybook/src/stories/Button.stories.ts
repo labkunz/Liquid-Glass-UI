@@ -11,13 +11,23 @@ const meta = {
       control: 'select',
       options: [
         'primary', 'secondary', 'outline',
+        'ghost', 'danger',
         'glass', 'glass-intense',
         'glass-css-only', 'glass-highlight-only', 'glass-layered', 'glass-highlight-layered',
       ],
       description: '按鈕樣式變體',
       table: {
-        type: { summary: "'primary' | 'secondary' | 'outline' | 'glass' | 'glass-intense' | 'glass-css-only' | 'glass-highlight-only' | 'glass-layered' | 'glass-highlight-layered'" },
+        type: { summary: "'primary' | 'secondary' | 'outline' | 'ghost' | 'danger' | 'glass' | ..." },
         defaultValue: { summary: 'primary' },
+      },
+    },
+    type: {
+      control: 'select',
+      options: ['button', 'submit', 'reset'],
+      description: '原生 button type（表單送出等情境）',
+      table: {
+        type: { summary: "'button' | 'submit' | 'reset'" },
+        defaultValue: { summary: 'button' },
       },
     },
     size: {
@@ -377,6 +387,95 @@ export const GlassOnDifferentBackgrounds: Story = {
   }),
 };
 
+// Ghost 變體（暗色背景用）
+export const Ghost: Story = {
+  args: { variant: 'ghost' },
+  render: (args) => ({
+    components: { LiquidButton },
+    setup() { return { args }; },
+    template: `
+      <div style="padding: 2rem; background: #0f1117; border-radius: 8px; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        <LiquidButton v-bind="args">Ghost Button</LiquidButton>
+        <LiquidButton variant="ghost" size="sm">Ghost SM</LiquidButton>
+        <LiquidButton variant="ghost" disabled>Disabled</LiquidButton>
+      </div>
+    `,
+  }),
+};
+
+// Danger 變體（刪除等破壞性操作）
+export const Danger: Story = {
+  args: { variant: 'danger' },
+  render: (args) => ({
+    components: { LiquidButton },
+    setup() { return { args }; },
+    template: `
+      <div style="padding: 2rem; background: #0f1117; border-radius: 8px; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+        <LiquidButton v-bind="args">刪除</LiquidButton>
+        <LiquidButton variant="danger" size="sm">刪除 SM</LiquidButton>
+        <LiquidButton variant="danger" disabled>Disabled</LiquidButton>
+      </div>
+    `,
+  }),
+};
+
+// type="submit" 表單送出示範
+export const SubmitType: Story = {
+  render: () => ({
+    components: { LiquidButton },
+    setup() {
+      const handleSubmit = (e: Event) => {
+        e.preventDefault();
+        alert('Form submitted!');
+      };
+      return { handleSubmit };
+    },
+    template: `
+      <form style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;" @submit="handleSubmit">
+        <input style="padding: 0.5rem; border: 1px solid #dee2e6; border-radius: 8px;" placeholder="Name" />
+        <div style="display: flex; gap: 0.5rem;">
+          <LiquidButton type="submit" variant="primary">送出（type=submit）</LiquidButton>
+          <LiquidButton type="reset" variant="ghost">重置（type=reset）</LiquidButton>
+        </div>
+      </form>
+    `,
+  }),
+};
+
+// 暗色背景完整展示（Ghost + Danger 使用情境）
+export const DarkThemeVariants: Story = {
+  render: () => ({
+    components: { LiquidButton },
+    template: `
+      <div style="padding: 2rem; background: #0f1117; border-radius: 12px; display: flex; flex-direction: column; gap: 1.5rem;">
+        <div>
+          <p style="color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.75rem;">Primary Actions</p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+            <LiquidButton variant="primary">新增職缺</LiquidButton>
+            <LiquidButton variant="primary" size="sm">新增</LiquidButton>
+          </div>
+        </div>
+        <div>
+          <p style="color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.75rem;">Secondary Actions</p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+            <LiquidButton variant="ghost">取消</LiquidButton>
+            <LiquidButton variant="ghost" size="sm">編輯</LiquidButton>
+            <LiquidButton variant="ghost" disabled>停用中</LiquidButton>
+          </div>
+        </div>
+        <div>
+          <p style="color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.75rem;">Destructive Actions</p>
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+            <LiquidButton variant="danger">刪除</LiquidButton>
+            <LiquidButton variant="danger" size="sm">刪除 SM</LiquidButton>
+            <LiquidButton variant="danger" disabled>停用中</LiquidButton>
+          </div>
+        </div>
+      </div>
+    `,
+  }),
+};
+
 // 所有變體展示
 export const AllVariants: Story = {
   render: () => ({
@@ -392,6 +491,15 @@ export const AllVariants: Story = {
               <LiquidButton variant="secondary">Secondary</LiquidButton>
               <LiquidButton variant="outline">Outline</LiquidButton>
               <LiquidButton variant="primary" disabled>Disabled</LiquidButton>
+            </div>
+          </div>
+
+          <!-- 暗色主題變體 -->
+          <div>
+            <h3 style="margin-bottom: 1rem; color: #333;">Dark Theme Variants</h3>
+            <div style="padding: 2rem; background: #0f1117; border-radius: 8px; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+              <LiquidButton variant="ghost">Ghost</LiquidButton>
+              <LiquidButton variant="danger">Danger</LiquidButton>
             </div>
           </div>
 

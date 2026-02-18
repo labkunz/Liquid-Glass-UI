@@ -34,11 +34,21 @@ const meta = {
         defaultValue: { summary: 'default' },
       },
     },
+    shape: {
+      control: 'select',
+      options: ['pill', 'rounded'],
+      description: 'LiquidBadge 形狀：pill（膠囊，預設）或 rounded（小圓角，適合 Tag 效果）',
+      table: {
+        type: { summary: "'pill' | 'rounded'" },
+        defaultValue: { summary: 'pill' },
+      },
+    },
   },
   args: {
     variant: 'default',
     size: 'md',
     color: 'default',
+    shape: 'pill',
   },
 } satisfies Meta<typeof LiquidBadge>;
 
@@ -284,6 +294,75 @@ export const AllColors: Story = {
           <LiquidBadge variant="default" color="danger">危險 (danger)</LiquidBadge>
           <LiquidBadge variant="default" color="info">資訊 (info)</LiquidBadge>
         </div>
+      </div>
+    `,
+  }),
+};
+
+// Shape — pill vs rounded（Tag 效果）
+export const Shape: Story = {
+  render: () => ({
+    components: { LiquidBadge, GlassFilterProvider },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 2rem;">
+
+        <!-- Pill vs Rounded 對比 -->
+        <div style="padding: 2rem; background: #f8f9fa; border-radius: 12px;">
+          <p style="color: #888; font-size: 12px; margin: 0 0 1.25rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">shape 對比 — default variant</p>
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <p style="color: #aaa; font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">shape="pill"（預設，膠囊形）</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                <LiquidBadge variant="default" color="default" shape="pill">前端開發</LiquidBadge>
+                <LiquidBadge variant="default" color="primary" shape="pill">Vue.js</LiquidBadge>
+                <LiquidBadge variant="default" color="success" shape="pill">已發布</LiquidBadge>
+                <LiquidBadge variant="default" color="info" shape="pill">TypeScript</LiquidBadge>
+              </div>
+            </div>
+            <div>
+              <p style="color: #aaa; font-size: 11px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">shape="rounded"（小圓角，Tag 風格）</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                <LiquidBadge variant="default" color="default" shape="rounded">前端開發</LiquidBadge>
+                <LiquidBadge variant="default" color="primary" shape="rounded">Vue.js</LiquidBadge>
+                <LiquidBadge variant="default" color="success" shape="rounded">已發布</LiquidBadge>
+                <LiquidBadge variant="default" color="info" shape="rounded">TypeScript</LiquidBadge>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- rounded 在 glass 場景下當 Tag 使用 -->
+        <div>
+          <GlassFilterProvider>
+            <div style="
+              padding: 2rem;
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              border-radius: 12px;
+            ">
+              <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">shape="rounded" 作為 Tag — glass-css-only（暗色背景）</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                <LiquidBadge variant="glass-css-only" color="default" shape="rounded" size="sm">前端開發</LiquidBadge>
+                <LiquidBadge variant="glass-css-only" color="primary" shape="rounded" size="sm">Vue.js</LiquidBadge>
+                <LiquidBadge variant="glass-css-only" color="success" shape="rounded" size="sm">TypeScript</LiquidBadge>
+                <LiquidBadge variant="glass-css-only" color="warning" shape="rounded" size="sm">CSS</LiquidBadge>
+                <LiquidBadge variant="glass-css-only" color="info" shape="rounded" size="sm">效能優化</LiquidBadge>
+              </div>
+            </div>
+          </GlassFilterProvider>
+        </div>
+
+        <!-- rounded 在亮色背景當 Tag 使用 -->
+        <div style="padding: 2rem; background: linear-gradient(135deg, #f0f4ff 0%, #f5f0ff 100%); border-radius: 12px;">
+          <p style="color: #888; font-size: 12px; margin: 0 0 1rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">shape="rounded" 作為 Tag — default（亮色背景）</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+            <LiquidBadge variant="default" color="default" shape="rounded" size="sm">前端開發</LiquidBadge>
+            <LiquidBadge variant="default" color="primary" shape="rounded" size="sm">Vue.js</LiquidBadge>
+            <LiquidBadge variant="default" color="success" shape="rounded" size="sm">TypeScript</LiquidBadge>
+            <LiquidBadge variant="default" color="warning" shape="rounded" size="sm">CSS</LiquidBadge>
+            <LiquidBadge variant="default" color="info" shape="rounded" size="sm">效能優化</LiquidBadge>
+          </div>
+        </div>
+
       </div>
     `,
   }),
