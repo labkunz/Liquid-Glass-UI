@@ -6,6 +6,7 @@ export interface ButtonProps {
    * 按鈕樣式變體
    */
   variant?: 'primary' | 'secondary' | 'outline'
+          | 'ghost' | 'danger'
           | 'glass' | 'glass-intense'
           | 'glass-css-only'
           | 'glass-highlight-only'
@@ -21,12 +22,18 @@ export interface ButtonProps {
    * 是否禁用
    */
   disabled?: boolean;
+
+  /**
+   * 原生 button type（用於表單送出等情境）
+   */
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   variant: 'primary',
   size: 'md',
-  disabled: false
+  disabled: false,
+  type: 'button',
 });
 
 const emit = defineEmits<{
@@ -53,6 +60,7 @@ const classes = computed(() => [
 
 <template>
   <button
+    :type="type"
     :class="classes"
     :disabled="disabled"
     @click="handleClick"
