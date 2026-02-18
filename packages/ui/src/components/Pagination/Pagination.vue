@@ -2,7 +2,7 @@
 import { computed, useCssModule } from 'vue';
 
 export interface PaginationProps {
-  variant?: 'default' | 'glass-css-only' | 'glass-highlight-layered';
+  variant?: 'default' | 'glass-css-only' | 'glass-highlight-layered' | 'glass-light';
   size?: 'sm' | 'md' | 'lg';
   currentPage: number;
   totalPages: number;
