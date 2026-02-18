@@ -3,8 +3,8 @@
    ============================================================ */
 .liquid-select {
   position: relative;
-  display: inline-block;
-  min-width: 200px;
+  display: block;
+  width: 100%;
 }
 
 /* ============================================================

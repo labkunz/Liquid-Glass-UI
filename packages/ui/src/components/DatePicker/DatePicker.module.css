@@ -3,9 +3,8 @@
    ================================================================ */
 .liquid-datepicker {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  width: 220px;
+  display: block;
+  width: 100%;
   box-sizing: border-box;
 }
 
