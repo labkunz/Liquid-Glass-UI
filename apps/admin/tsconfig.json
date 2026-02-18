@@ -7,7 +7,7 @@
   "include": ["src/**/*"],
   "references": [
     { "path": "../../packages/ui" },
-    { "path": "../../packages/engine" },
+    { "path": "../../packages/logic" },
     { "path": "../../packages/tokens" }
   ]
 }
