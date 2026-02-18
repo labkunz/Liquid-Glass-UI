@@ -93,10 +93,10 @@ function handleSubmit() {
       @update:model-value="handleFieldUpdate(field.key, $event)"
     />
 
-    <!-- 送出按鈕 -->
-    <div v-if="showSubmit" class="form-engine__actions">
+    <!-- 送出按鈕：有自訂 #actions slot 或 showSubmit=true 時才渲染容器 -->
+    <div v-if="showSubmit || $slots['actions']" class="form-engine__actions">
       <slot name="actions">
-        <button type="submit" class="form-engine__submit">
+        <button v-if="showSubmit" type="submit" class="form-engine__submit">
           {{ submitLabel }}
         </button>
       </slot>
