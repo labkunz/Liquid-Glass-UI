@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 import AdminLayout from '../components/layout/AdminLayout.vue'
+import { LiquidButton } from '@liquid/ui'
 import { useJobsStore } from '../stores/jobs'
 import { useCandidatesStore } from '../stores/candidates'
 import { candidateStatusLabels } from '../stores/candidates'
 
+const router = useRouter()
 const jobsStore = useJobsStore()
 const candidatesStore = useCandidatesStore()
 
@@ -138,10 +141,10 @@ const candidateStages = computed(() => {
       <section class="dashboard__quick-actions stat-card">
         <h3 class="dashboard__chart-title">快速操作</h3>
         <div class="dashboard__action-grid">
-          <RouterLink to="/jobs/create" class="btn btn--primary">新增職缺</RouterLink>
-          <RouterLink to="/candidates/create" class="btn btn--ghost">新增應徵者</RouterLink>
-          <RouterLink to="/jobs" class="btn btn--ghost">查看所有職缺</RouterLink>
-          <RouterLink to="/candidates" class="btn btn--ghost">查看所有應徵者</RouterLink>
+          <LiquidButton variant="primary" @click="router.push('/jobs/create')">新增職缺</LiquidButton>
+          <LiquidButton variant="ghost" @click="router.push('/candidates/create')">新增應徵者</LiquidButton>
+          <LiquidButton variant="ghost" @click="router.push('/jobs')">查看所有職缺</LiquidButton>
+          <LiquidButton variant="ghost" @click="router.push('/candidates')">查看所有應徵者</LiquidButton>
         </div>
       </section>
     </div>

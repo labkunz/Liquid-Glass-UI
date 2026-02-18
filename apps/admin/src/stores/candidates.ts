@@ -86,7 +86,7 @@ export const useCandidatesStore = defineStore('candidates', () => {
 
   // 取得職位名稱
   function getJobTitle(jobId: string): string {
-    return jobsStore.jobById.value(jobId)?.title ?? '未知職位'
+    return jobsStore.jobById(jobId)?.title ?? '未知職位'
   }
 
   // ---- Actions ----
@@ -99,7 +99,7 @@ export const useCandidatesStore = defineStore('candidates', () => {
     candidates.value.push(newCandidate)
     // 更新對應 job 的應徵人數
     jobsStore.updateJob(data.jobId, {
-      applicantCount: (jobsStore.jobById.value(data.jobId)?.applicantCount ?? 0) + 1,
+      applicantCount: (jobsStore.jobById(data.jobId)?.applicantCount ?? 0) + 1,
     })
     saveToStorage(candidates.value)
     return newCandidate

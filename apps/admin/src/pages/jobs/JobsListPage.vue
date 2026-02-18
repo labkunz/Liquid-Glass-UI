@@ -5,7 +5,7 @@ import AdminLayout from '../../components/layout/AdminLayout.vue'
 import DeleteModal from '../../components/shared/DeleteModal.vue'
 import { TableEngine } from '@liquid/logic'
 import type { ColumnSchema } from '@liquid/logic'
-import { LiquidBadge } from '@liquid/ui'
+import { LiquidBadge, LiquidButton, LiquidCard } from '@liquid/ui'
 import { useJobsStore } from '../../stores/jobs'
 import { useToast } from '@liquid/logic'
 
@@ -103,11 +103,11 @@ async function confirmDelete() {
           <h2 class="list-page__title">職缺管理</h2>
           <p class="list-page__subtitle">共 {{ jobsStore.totalJobs }} 個職缺，{{ jobsStore.openJobsCount }} 個開放中</p>
         </div>
-        <RouterLink to="/jobs/create" class="btn btn--primary">+ 新增職缺</RouterLink>
+        <LiquidButton variant="primary" @click="router.push('/jobs/create')">+ 新增職缺</LiquidButton>
       </div>
 
       <!-- Table -->
-      <div class="glass-panel list-page__table">
+      <LiquidCard variant="glass-css-only" padding="none" overflow="visible" class="list-page__table">
         <TableEngine
           :columns="columns"
           :rows="rows"
@@ -128,16 +128,16 @@ async function confirmDelete() {
           <!-- Actions -->
           <template #cell-_id="{ value }">
             <div class="list-page__row-actions">
-              <button class="btn btn--ghost btn--sm" @click="handleEdit(value as string)">
+              <LiquidButton variant="ghost" size="sm" @click="handleEdit(value as string)">
                 編輯
-              </button>
-              <button class="btn btn--danger btn--sm" @click="handleDelete(value as string)">
+              </LiquidButton>
+              <LiquidButton variant="danger" size="sm" @click="handleDelete(value as string)">
                 刪除
-              </button>
+              </LiquidButton>
             </div>
           </template>
         </TableEngine>
-      </div>
+      </LiquidCard>
     </div>
 
     <!-- Delete Modal -->

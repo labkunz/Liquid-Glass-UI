@@ -18,7 +18,7 @@ const pageTitle = computed(() => {
 </script>
 
 <template>
-  <header class="admin-navbar glass-panel">
+  <header class="admin-navbar">
     <div class="admin-navbar__inner">
       <h1 class="admin-navbar__title">{{ pageTitle }}</h1>
       <div class="admin-navbar__actions">
@@ -44,7 +44,7 @@ const pageTitle = computed(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 56px;
+  height: var(--navbar-height);
   padding: 0 1.5rem;
 }
 

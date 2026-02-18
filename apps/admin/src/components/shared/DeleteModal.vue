@@ -39,13 +39,13 @@ function confirm() {
 
     <template #footer>
       <div class="delete-modal__actions">
-        <button class="btn btn--ghost" :disabled="loading" @click="close">
+        <LiquidButton variant="ghost" :disabled="loading" @click="close">
           取消
-        </button>
-        <button class="btn btn--danger" :disabled="loading" @click="confirm">
+        </LiquidButton>
+        <LiquidButton variant="danger" :disabled="loading" @click="confirm">
           <span v-if="loading">刪除中…</span>
           <span v-else>確認刪除</span>
-        </button>
+        </LiquidButton>
       </div>
     </template>
   </LiquidModal>

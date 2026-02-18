@@ -4,6 +4,7 @@ import { useRoute, useRouter } from 'vue-router'
 import AdminLayout from '../../components/layout/AdminLayout.vue'
 import { FormEngine } from '@liquid/logic'
 import type { FieldSchema } from '@liquid/logic'
+import { LiquidButton, LiquidCard } from '@liquid/ui'
 import { useJobsStore } from '../../stores/jobs'
 import { useToast } from '@liquid/logic'
 
@@ -178,7 +179,7 @@ function handleCancel() {
         <h2 class="form-page__title">{{ isEdit ? '編輯職缺' : '新增職缺' }}</h2>
       </div>
 
-      <div class="glass-panel form-page__card">
+      <LiquidCard variant="glass-css-only" padding="none" overflow="visible" class="form-page__card">
         <FormEngine
           v-model="formData"
           :schema="schema"
@@ -187,16 +188,16 @@ function handleCancel() {
         >
           <template #actions>
             <div class="form-page__actions">
-              <button type="button" class="btn btn--ghost" @click="handleCancel">
+              <LiquidButton variant="ghost" @click="handleCancel">
                 取消
-              </button>
-              <button type="submit" class="btn btn--primary">
+              </LiquidButton>
+              <LiquidButton type="submit" variant="primary">
                 {{ isEdit ? '儲存變更' : '新增職缺' }}
-              </button>
+              </LiquidButton>
             </div>
           </template>
         </FormEngine>
-      </div>
+      </LiquidCard>
     </div>
   </AdminLayout>
 </template>
@@ -206,7 +207,6 @@ function handleCancel() {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  max-width: 640px;
 }
 
 .form-page__header {

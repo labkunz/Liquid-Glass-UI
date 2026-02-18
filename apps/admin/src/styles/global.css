@@ -65,15 +65,23 @@ a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* ---- Glass (dark theme) ---- */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
+/* ---- Layout Variables ---- */
+:root {
+  --navbar-height: 56px;
+
+  /* LiquidButton primary 主色對齊 admin 藍 */
+  --liquid-color-primary: #3b82f6;
+  --liquid-color-primary-dark: #2563eb;
+
+  /* LiquidCard glass-css-only 暗色主題覆蓋
+     讓 LiquidCard variant="glass-css-only" 在 Admin 深色背景下呈現正確效果 */
+  --liquid-card-glass-bg: rgba(255, 255, 255, 0.05);
+  --liquid-card-glass-border-color: rgba(255, 255, 255, 0.08);
+  --liquid-card-glass-shadow:
     0 8px 32px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --liquid-card-glass-highlight-opacity: 0.06;
+  --glass-blur: 16px;
 }
 
 /* ---- Layout ---- */
@@ -115,59 +123,6 @@ a:hover {
   color: #f87171;
 }
 
-/* ---- Button base ---- */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.375rem;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: all 0.15s;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.btn--primary {
-  background: #3b82f6;
-  color: #fff;
-  border-color: #2563eb;
-}
-
-.btn--primary:hover {
-  background: #2563eb;
-}
-
-.btn--ghost {
-  background: rgba(255, 255, 255, 0.06);
-  color: #94a3b8;
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-.btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #e2e8f0;
-}
-
-.btn--danger {
-  background: rgba(239, 68, 68, 0.12);
-  color: #f87171;
-  border-color: rgba(239, 68, 68, 0.3);
-}
-
-.btn--danger:hover {
-  background: rgba(239, 68, 68, 0.2);
-}
-
-.btn--sm {
-  padding: 0.3rem 0.65rem;
-  font-size: 0.8rem;
-}
-
 /* ---- Stat Card ---- */
 .stat-card {
   background: rgba(255, 255, 255, 0.04);
@@ -202,4 +157,61 @@ a:hover {
 .stat-card__sub {
   font-size: 0.8rem;
   color: #475569;
+}
+
+/* ============================================================
+   Form Page — 暗色主題元件覆蓋
+   因為 @liquid/ui 元件使用 CSS Modules（class 名稱 hash），
+   故使用元素選擇器從 global CSS 層覆蓋，統一套用至兩個 Form 頁面。
+   ============================================================ */
+
+/* ---- Input / DatePicker (wrapper div) ---- */
+/* LiquidInput/DatePicker 結構：div[bg=#fff] > input[bg=transparent]
+   白色來自外層 wrapper div，必須鎖定該 div 而非 input 本身。
+   用 :has(> input) 區分 Input/DatePicker wrapper 與 Select wrapper（後者含 button）。 */
+.form-page__card .form-field > div:has(> input) {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  box-shadow: none;
+}
+
+.form-page__card .form-field > div:has(> input):focus-within {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: none;
+}
+
+.form-page__card .form-field input::placeholder {
+  color: #475569;
+  opacity: 1;
+}
+
+/* ---- Textarea (wrapper div) ---- */
+.form-page__card .form-field > div:has(> textarea) {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  box-shadow: none;
+}
+
+.form-page__card .form-field > div:has(> textarea):focus-within {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: none;
+}
+
+.form-page__card .form-field textarea::placeholder {
+  color: #475569;
+  opacity: 1;
+}
+
+/* ---- Select trigger（只限 .form-field 內，避免影響操作按鈕） ---- */
+.form-page__card .form-field button {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+
+.form-page__card .form-field button:focus {
+  border-color: rgba(99, 102, 241, 0.5);
+  outline: none;
 }

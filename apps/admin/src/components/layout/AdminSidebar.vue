@@ -40,7 +40,7 @@ function isActive(path: string) {
 </script>
 
 <template>
-  <aside class="admin-sidebar glass-panel">
+  <aside class="admin-sidebar">
     <!-- Logo -->
     <div class="admin-sidebar__logo">
       <span class="admin-sidebar__logo-icon">◈</span>
@@ -81,6 +81,8 @@ function isActive(path: string) {
   border-right: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 0;
   background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* ---- Logo ---- */
@@ -88,9 +90,10 @@ function isActive(path: string) {
   display: flex;
   align-items: center;
   gap: 0.625rem;
-  padding: 1.25rem 1.25rem 1rem;
+  height: var(--navbar-height);
+  padding: 0 1.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  margin-bottom: 0.5rem;
+  flex-shrink: 0;
 }
 
 .admin-sidebar__logo-icon {
@@ -113,8 +116,8 @@ function isActive(path: string) {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  padding: 0 0.75rem;
+  gap: 0.375rem;
+  padding: 0.75rem 0.75rem 0;
 }
 
 .admin-sidebar__nav-item {
