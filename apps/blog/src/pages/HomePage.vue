@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
-import { LiquidCard, LiquidBadge, LiquidPagination } from '@liquid/ui'
+import { LiquidCard, LiquidBadge, LiquidPagination, LiquidFilterBar } from '@liquid/ui'
 import BlogNavbar from '../components/BlogNavbar.vue'
 import {
   articles,
@@ -63,15 +63,12 @@ function formatDate(dateStr: string) {
 
       <!-- Category Filter -->
       <section class="home-page__filter container">
-        <button
-          v-for="cat in categories"
-          :key="cat"
-          class="home-page__filter-btn"
-          :class="{ 'home-page__filter-btn--active': selectedCategory === cat }"
-          @click="selectCategory(cat as Category | 'All')"
-        >
-          {{ cat === 'All' ? '全部' : cat }}
-        </button>
+        <LiquidFilterBar
+          :options="categories.map(cat => ({ label: cat === 'All' ? '全部' : cat, value: cat }))"
+          :model-value="selectedCategory"
+          variant="glass-light"
+          @update:model-value="selectCategory($event as Category | 'All')"
+        />
       </section>
 
       <!-- Article Grid -->
@@ -113,13 +110,15 @@ function formatDate(dateStr: string) {
 
               <!-- Tags -->
               <div class="home-page__card-tags">
-                <span
+                <LiquidBadge
                   v-for="tag in article.tags.slice(0, 3)"
                   :key="tag"
-                  class="home-page__card-tag"
+                  color="default"
+                  shape="rounded"
+                  size="sm"
                 >
                   {{ tag }}
-                </span>
+                </LiquidBadge>
               </div>
             </div>
           </LiquidCard>
@@ -136,7 +135,7 @@ function formatDate(dateStr: string) {
         <LiquidPagination
           :current-page="currentPage"
           :total-pages="totalPages"
-          variant="glass-css-only"
+          variant="glass-light"
           @update:current-page="currentPage = $event"
         />
       </div>
@@ -193,32 +192,6 @@ function formatDate(dateStr: string) {
   gap: 0.5rem;
   padding: 1rem 1.5rem 2rem;
   justify-content: center;
-}
-
-.home-page__filter-btn {
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #6b7280;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.home-page__filter-btn:hover {
-  background: rgba(255, 255, 255, 0.65);
-  color: #374151;
-}
-
-.home-page__filter-btn--active {
-  background: rgba(124, 58, 237, 0.12);
-  border-color: rgba(124, 58, 237, 0.4);
-  color: #7c3aed;
-  font-weight: 600;
 }
 
 /* ---- Grid ---- */
@@ -286,6 +259,7 @@ function formatDate(dateStr: string) {
   font-weight: 700;
   color: #1a1a2e;
   line-height: 1.4;
+  height: 2.8rem; /* font-size(1rem) × line-height(1.4) × 2 行 */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -312,17 +286,12 @@ function formatDate(dateStr: string) {
 
 .home-page__card-tags {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.375rem;
+  overflow: hidden;
 }
 
-.home-page__card-tag {
-  font-size: 0.75rem;
-  padding: 0.15rem 0.5rem;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
-  color: #6b7280;
-}
+/* .home-page__card-tag → 已由 LiquidBadge color="default" shape="rounded" 接管 */
 
 /* ---- Empty ---- */
 .home-page__empty {

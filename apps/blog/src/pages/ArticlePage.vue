@@ -97,13 +97,15 @@ function formatDate(dateStr: string) {
             </div>
 
             <div class="article-page__tags">
-              <span
+              <LiquidBadge
                 v-for="tag in article.tags"
                 :key="tag"
-                class="article-page__tag"
+                variant="glass-css-only"
+                shape="rounded"
+                size="sm"
               >
                 {{ tag }}
-              </span>
+              </LiquidBadge>
             </div>
           </div>
         </div>
@@ -213,6 +215,7 @@ function formatDate(dateStr: string) {
 .article-page__hero-inner {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1rem;
 }
 
@@ -252,14 +255,7 @@ function formatDate(dateStr: string) {
   gap: 0.375rem;
 }
 
-.article-page__tag {
-  font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
-  border-radius: 4px;
-  color: rgba(255, 255, 255, 0.9);
-}
+/* .article-page__tag → 已由 LiquidBadge variant="glass-css-only" shape="rounded" 接管 */
 
 /* ---- Toolbar ---- */
 .article-page__toolbar {
@@ -267,7 +263,7 @@ function formatDate(dateStr: string) {
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.85);
+  background: #f8f9fc;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
