@@ -1,0 +1,90 @@
+/* ================================================================
+   FilterBar 基礎樣式
+   ================================================================ */
+.liquid-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* ================================================================
+   Button 基礎樣式
+   ================================================================ */
+.liquid-filter-bar-btn {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  line-height: 1;
+}
+
+/* ================================================================
+   Default 變體
+   ================================================================ */
+.liquid-filter-bar--default .liquid-filter-bar-btn {
+  background: #f1f3f5;
+  border: 1px solid #dee2e6;
+  color: #6b7280;
+}
+
+.liquid-filter-bar--default .liquid-filter-bar-btn:hover {
+  background: #e9ecef;
+  color: #374151;
+}
+
+.liquid-filter-bar--default .liquid-filter-bar-btn--active {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: rgba(124, 58, 237, 0.4);
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+/* ================================================================
+   Glass CSS Only 變體（暗色背景）
+   ================================================================ */
+.liquid-filter-bar--glass-css-only .liquid-filter-bar-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.liquid-filter-bar--glass-css-only .liquid-filter-bar-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 1);
+}
+
+.liquid-filter-bar--glass-css-only .liquid-filter-bar-btn--active {
+  background: rgba(99, 102, 241, 0.4);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 1);
+  font-weight: 600;
+}
+
+/* ================================================================
+   Glass Light 變體（亮色背景，如 blog）
+   ================================================================ */
+.liquid-filter-bar--glass-light .liquid-filter-bar-btn {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #6b7280;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.liquid-filter-bar--glass-light .liquid-filter-bar-btn:hover {
+  background: rgba(255, 255, 255, 0.65);
+  color: #374151;
+}
+
+.liquid-filter-bar--glass-light .liquid-filter-bar-btn--active {
+  background: rgba(124, 58, 237, 0.12);
+  border-color: rgba(124, 58, 237, 0.4);
+  color: #7c3aed;
+  font-weight: 600;
+}

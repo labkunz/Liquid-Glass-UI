@@ -1,0 +1,150 @@
+/* ================================================================
+   Navbar 基礎樣式
+   ================================================================ */
+.liquid-navbar {
+  width: 100%;
+  z-index: 100;
+}
+
+.liquid-navbar--sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.liquid-navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  gap: 1.5rem;
+}
+
+.liquid-navbar-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.liquid-navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.liquid-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ================================================================
+   Mobile toggle
+   ================================================================ */
+.liquid-navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.liquid-navbar-toggle span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  transition: transform 0.2s;
+}
+
+/* ================================================================
+   Mobile menu
+   ================================================================ */
+.liquid-navbar-mobile {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1.5rem 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Mobile transition */
+:global(.liquid-navbar-mobile-enter-active),
+:global(.liquid-navbar-mobile-leave-active) {
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+:global(.liquid-navbar-mobile-enter-from),
+:global(.liquid-navbar-mobile-leave-to) {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* ================================================================
+   Default 變體
+   ================================================================ */
+.liquid-navbar--default {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.liquid-navbar--default .liquid-navbar-toggle span {
+  background: #4a5568;
+}
+
+/* ================================================================
+   Glass CSS Only 變體（暗色背景，如 admin）
+   ================================================================ */
+.liquid-navbar--glass-css-only {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.liquid-navbar--glass-css-only .liquid-navbar-toggle span {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* ================================================================
+   Glass Light 變體（亮色背景，如 blog）
+   ================================================================ */
+.liquid-navbar--glass-light {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.liquid-navbar--glass-light .liquid-navbar-toggle span {
+  background: #4a5568;
+}
+
+/* ================================================================
+   Responsive
+   ================================================================ */
+@media (max-width: 640px) {
+  .liquid-navbar-links {
+    display: none;
+  }
+
+  .liquid-navbar-toggle {
+    display: flex;
+  }
+}

@@ -6,6 +6,8 @@ export { default as LiquidContainer } from './components/Container';
 export { default as LiquidStack } from './components/Stack';
 export { default as LiquidCard } from './components/Card';
 export { default as LiquidTabs } from './components/Tabs';
+export { default as LiquidNavbar } from './components/Navbar';
+export { default as LiquidFilterBar } from './components/FilterBar';
 
 // 表單類
 export { default as LiquidButton } from './components/Button';
@@ -36,6 +38,8 @@ export type { CardProps } from './components/Card';
 export type { ContainerProps } from './components/Container';
 export type { StackProps } from './components/Stack';
 export type { TabsProps, TabItem } from './components/Tabs';
+export type { NavbarProps } from './components/Navbar';
+export type { FilterBarProps, FilterBarOption } from './components/FilterBar';
 
 // 表單類
 export type { ButtonProps } from './components/Button';
