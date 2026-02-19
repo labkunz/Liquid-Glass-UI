@@ -1,0 +1,96 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="介紹" />
+
+# Liquid Glass UI Library
+
+一套以 **Liquid Glass（液態玻璃）** 為視覺主張的 Vue 3 元件庫。
+
+所有元件皆基於 CSS Variables + CSS Modules 實作，透過 `backdrop-filter`、SVG Turbulence Filter 與多層疊加技術，實現玻璃質感的 UI 效果，同時不依賴任何 runtime CSS-in-JS。
+
+---
+
+## Glass 效果變體
+
+每個元件支援三種視覺模式：
+
+| Variant | 說明 |
+|---------|------|
+| `default` | 傳統實色背景，適用於一般場景 |
+| `glass-css-only` | 純 CSS backdrop-filter 磨砂玻璃效果 |
+| `glass-highlight-layered` | CSS + SVG 有機高光疊加，玻璃質感最完整 |
+
+> 使用 `glass-highlight-layered` 前，需在 App 根層掛載 `<GlassFilterProvider />`，
+> 此 Storybook 已在全域 preview 中完成設定。
+
+---
+
+## 元件總覽
+
+### 基礎元件
+
+| 元件 | 說明 |
+|------|------|
+| `LiquidButton` | 按鈕，支援多種語意變體與尺寸 |
+| `LiquidBadge` | 標籤徽章，適用於狀態標示與分類 |
+| `LiquidAvatar` | 使用者頭像，支援圖片與文字縮寫 |
+
+### 表單元件
+
+| 元件 | 說明 |
+|------|------|
+| `LiquidInput` | 單行文字輸入框 |
+| `LiquidTextarea` | 多行文字輸入框 |
+| `LiquidSelect` | 下拉選單 |
+| `LiquidCheckbox` | 核取方塊 |
+| `LiquidRadio` | 單選按鈕 |
+| `LiquidToggle` | 開關切換器 |
+| `LiquidDatePicker` | 日期選擇器 |
+
+### 佈局元件
+
+| 元件 | 說明 |
+|------|------|
+| `LiquidContainer` | 響應式內容容器，支援多種最大寬度 |
+| `LiquidStack` | Flex 排版輔助，控制方向、間距與對齊 |
+| `LiquidCard` | 卡片容器，Glass 效果的核心展示元件 |
+| `LiquidNavbar` | 頂部導覽列，支援固定與 Glass 模式 |
+
+### 導覽元件
+
+| 元件 | 說明 |
+|------|------|
+| `LiquidTabs` | 分頁切換元件 |
+| `LiquidPagination` | 分頁控制器 |
+| `LiquidFilterBar` | 篩選標籤列，用於內容過濾場景 |
+
+### 回饋元件
+
+| 元件 | 說明 |
+|------|------|
+| `LiquidToast` | 短暫通知提示，支援 info / success / warning / error |
+| `LiquidModal` | 對話框，支援一般模式與確認模式 |
+| `LiquidTooltip` | 懸浮提示，支援四個方向 |
+| `LiquidLoading` | 載入動畫，支援 spinner / dots / pulse |
+
+### 資料顯示
+
+| 元件 | 說明 |
+|------|------|
+| `LiquidTable` | 基礎資料表格 |
+| `TableEngine` | Schema-Driven 表格引擎，內建排序、篩選、分頁 |
+
+### Composables
+
+| Composable | 說明 |
+|------------|------|
+| `useModal()` | 命令式 Modal 管理，支援 `open()` 與 `confirm()` |
+| `useToast()` | 命令式 Toast 通知，支援多位置與自動消失 |
+
+---
+
+## 設計原則
+
+- **視覺**：Glass 效果優先，可降級至 `default` 模式
+- **架構**：CSS Variables 管理 Design Token，CSS Modules 管理元件樣式，無 runtime 開銷
+- **API**：Props 命名遵循 Vue 慣例，`v-model` 雙向綁定，事件以 `on` 前綴
