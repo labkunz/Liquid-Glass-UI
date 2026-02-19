@@ -32,6 +32,7 @@ const config: StorybookConfig = {
           // 設定別名以正確解析 workspace dependencies
           '@liquid/ui': path.resolve(__dirname, '../../../packages/ui/src'),
           '@liquid/tokens': path.resolve(__dirname, '../../../packages/tokens/src'),
+          '@liquid/logic': path.resolve(__dirname, '../../../packages/logic/src'),
         },
       },
       css: {
