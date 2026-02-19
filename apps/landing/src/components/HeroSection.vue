@@ -33,7 +33,7 @@ const scrollToFeatures = () => {
           <LiquidButton
             variant="glass-css-only"
             size="lg"
-            @click="() => window.open('https://github.com/placeholder/liquid-ui', '_blank')"
+            @click="() => window.open('https://github.com/labkunz/Liquid-Glass-UI', '_blank')"
           >
             View on GitHub
           </LiquidButton>

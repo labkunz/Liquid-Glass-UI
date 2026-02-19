@@ -6,31 +6,31 @@ const entryPoints = [
     icon: '📖',
     label: 'Blog Demo',
     desc: 'Liquid Glass aesthetics in action',
-    url: '#',
+    url: 'https://liquid-blog.vercel.app/',
   },
   {
     icon: '⚙️',
     label: 'Admin Demo',
     desc: 'Form & Table Engine showcase',
-    url: '#',
+    url: 'https://liquid-admin.vercel.app/',
   },
   {
     icon: '📚',
     label: 'Component Docs',
     desc: 'API reference & usage guides',
-    url: '#',
+    url: 'https://liquid-docs.vercel.app/',
   },
   {
     icon: '🎨',
     label: 'Storybook',
     desc: 'Interactive component explorer',
-    url: '#',
+    url: 'https://liquid-storybook.vercel.app/',
   },
   {
     icon: '💻',
     label: 'GitHub',
     desc: 'Source code & contributions',
-    url: 'https://github.com/placeholder/liquid-ui',
+    url: 'https://github.com/labkunz/Liquid-Glass-UI',
   },
 ]
 </script>
@@ -72,11 +72,11 @@ const entryPoints = [
           Built with Vue 3 + Liquid Glass · © 2025
         </span>
         <div class="footer-links">
-          <a href="https://github.com/placeholder/liquid-ui" target="_blank" class="footer-link">
+          <a href="https://github.com/labkunz/Liquid-Glass-UI" target="_blank" rel="noopener noreferrer" class="footer-link">
             GitHub
           </a>
-          <a href="#" class="footer-link">Docs</a>
-          <a href="#" class="footer-link">Storybook</a>
+          <a href="https://liquid-docs.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-link">Docs</a>
+          <a href="https://liquid-storybook.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-link">Storybook</a>
         </div>
       </div>
     </div>

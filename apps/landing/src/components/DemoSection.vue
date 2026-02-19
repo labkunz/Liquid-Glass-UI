@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { LiquidCard, LiquidButton, LiquidBadge } from '@liquid/ui'
 
-const BLOG_URL = '#'
-const ADMIN_URL = '#'
+const BLOG_URL = 'https://liquid-blog.vercel.app/'
+const ADMIN_URL = 'https://liquid-admin.vercel.app/'
 </script>
 
 <template>

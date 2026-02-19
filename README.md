@@ -17,11 +17,11 @@ _A Vue 3 UI component library with **Liquid Glass** aesthetics, featuring a Sche
 
 | 入口 | 說明 | 連結 |
 |------|------|------|
-| Landing Page | 品牌首頁 · Brand homepage | TBD |
-| Component Docs | VitePress 元件文檔 · VitePress documentation | TBD |
-| Storybook | 互動元件展示 · Interactive component explorer | TBD |
-| Blog Demo | Glass 美學展示 · Visual showcase | TBD |
-| Admin Demo | Form & Table Engine 展示 · Engineering showcase | TBD |
+| Landing Page | 品牌首頁 · Brand homepage | [liquid-glass-ui-eta.vercel.app](https://liquid-glass-ui-eta.vercel.app/) |
+| Component Docs | VitePress 元件文檔 · VitePress documentation | [liquid-docs.vercel.app](https://liquid-docs.vercel.app/) |
+| Storybook | 互動元件展示 · Interactive component explorer | [liquid-storybook.vercel.app](https://liquid-storybook.vercel.app/) |
+| Blog Demo | Glass 美學展示 · Visual showcase | [liquid-blog.vercel.app](https://liquid-blog.vercel.app/) |
+| Admin Demo | Form & Table Engine 展示 · Engineering showcase | [liquid-admin.vercel.app](https://liquid-admin.vercel.app/) |
 
 ---
 

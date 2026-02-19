@@ -91,8 +91,8 @@ const highlightedUsage = computed(() =>
       <div class="quickstart-cta">
         <p class="cta-text">Want to go deeper?</p>
         <div class="cta-links">
-          <a href="#" class="cta-link cta-link--primary">Read the Docs →</a>
-          <a href="#" class="cta-link">Explore Storybook →</a>
+          <a href="https://liquid-docs.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-link cta-link--primary">Read the Docs →</a>
+          <a href="https://liquid-storybook.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-link">Explore Storybook →</a>
         </div>
       </div>
     </div>

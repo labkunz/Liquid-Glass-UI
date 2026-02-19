@@ -26,14 +26,14 @@ const scrollTo = (id: string) => {
       <LiquidButton
         variant="glass-css-only"
         size="sm"
-        @click="() => window.open('https://github.com/placeholder/liquid-ui', '_blank')"
+        @click="() => window.open('https://github.com/labkunz/Liquid-Glass-UI', '_blank')"
       >
         GitHub
       </LiquidButton>
       <LiquidButton
         variant="glass-highlight-layered"
         size="sm"
-        @click="() => window.open('#', '_blank')"
+        @click="() => window.open('https://liquid-docs.vercel.app/', '_blank')"
       >
         Docs
       </LiquidButton>
