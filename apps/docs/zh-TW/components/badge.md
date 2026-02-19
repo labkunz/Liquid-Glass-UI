@@ -1,10 +1,10 @@
-# Badge
+# Badge 標籤
 
-A compact semantic label for status, category, or tag display.
+緊湊的語義標籤，用於顯示狀態、分類或標記。
 
 ## Demo
 
-### Colors
+### 顏色
 
 <div style="background:linear-gradient(135deg,#a78bfa,#f472b6,#60a5fa);padding:1.5rem;border-radius:12px;margin:1rem 0;display:flex;gap:0.5rem;flex-wrap:wrap;">
   <LiquidBadge color="default">Default</LiquidBadge>
@@ -15,14 +15,14 @@ A compact semantic label for status, category, or tag display.
   <LiquidBadge color="info">Info</LiquidBadge>
 </div>
 
-### Shapes
+### 形狀
 
 <div style="background:linear-gradient(135deg,#a78bfa,#60a5fa);padding:1.5rem;border-radius:12px;margin:1rem 0;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
-  <LiquidBadge color="primary" shape="pill">Pill (default)</LiquidBadge>
+  <LiquidBadge color="primary" shape="pill">Pill（預設）</LiquidBadge>
   <LiquidBadge color="primary" shape="rounded">Rounded</LiquidBadge>
 </div>
 
-### Sizes
+### 尺寸
 
 <div style="background:linear-gradient(135deg,#a78bfa,#60a5fa);padding:1.5rem;border-radius:12px;margin:1rem 0;display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;">
   <LiquidBadge color="primary" size="sm">Small</LiquidBadge>
@@ -30,18 +30,18 @@ A compact semantic label for status, category, or tag display.
   <LiquidBadge color="primary" size="lg">Large</LiquidBadge>
 </div>
 
-### Semantic Status Example (ATS Review Stages)
+### 語義狀態範例（ATS 招募階段）
 
 <div style="background:linear-gradient(135deg,#0f172a,#1e1b4b);padding:1.5rem;border-radius:12px;margin:1rem 0;display:flex;gap:0.5rem;flex-wrap:wrap;">
-  <LiquidBadge color="default">Pending</LiquidBadge>
-  <LiquidBadge color="info">Round 1</LiquidBadge>
-  <LiquidBadge color="primary">Round 2</LiquidBadge>
+  <LiquidBadge color="default">待審</LiquidBadge>
+  <LiquidBadge color="info">第一輪</LiquidBadge>
+  <LiquidBadge color="primary">第二輪</LiquidBadge>
   <LiquidBadge color="warning">Offer</LiquidBadge>
-  <LiquidBadge color="success">Hired</LiquidBadge>
-  <LiquidBadge color="danger">Rejected</LiquidBadge>
+  <LiquidBadge color="success">錄取</LiquidBadge>
+  <LiquidBadge color="danger">淘汰</LiquidBadge>
 </div>
 
-## Usage
+## 使用方式
 
 ```vue
 <script setup lang="ts">
@@ -57,15 +57,15 @@ import { LiquidBadge } from '@liquid/ui'
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'default' \| 'glass-css-only' \| 'glass-highlight-layered'` | `'default'` | Visual style variant |
-| `color` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'default'` | Semantic color |
-| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Badge size |
-| `shape` | `'pill' \| 'rounded'` | `'pill'` | Border radius style |
+| Prop | 型別 | 預設值 | 說明 |
+|------|------|--------|------|
+| `variant` | `'default' \| 'glass-css-only' \| 'glass-highlight-layered'` | `'default'` | 視覺樣式變體 |
+| `color` | `'default' \| 'primary' \| 'success' \| 'warning' \| 'danger' \| 'info'` | `'default'` | 語義顏色 |
+| `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | 標籤尺寸 |
+| `shape` | `'pill' \| 'rounded'` | `'pill'` | 圓角樣式 |
 
 ## Slots
 
-| Slot | Description |
-|------|-------------|
-| `default` | Badge text content |
+| Slot | 說明 |
+|------|------|
+| `default` | 標籤文字內容 |

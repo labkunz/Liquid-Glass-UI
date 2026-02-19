@@ -25,11 +25,11 @@ const showToast = (type) => {
 
 ### Toast Types
 
-<div style="display:flex;gap:0.75rem;flex-wrap:wrap;padding:1rem 0;">
-  <LiquidButton variant="primary" size="sm" @click="showToast('success')">Show Success</LiquidButton>
-  <LiquidButton variant="danger" size="sm" @click="showToast('error')">Show Error</LiquidButton>
-  <LiquidButton variant="secondary" size="sm" @click="showToast('warning')">Show Warning</LiquidButton>
-  <LiquidButton variant="outline" size="sm" @click="showToast('info')">Show Info</LiquidButton>
+<div style="background:linear-gradient(135deg,#a78bfa,#f472b6,#60a5fa);padding:1.5rem;border-radius:12px;margin:1rem 0;display:flex;gap:0.75rem;flex-wrap:wrap;">
+  <LiquidButton variant="glass-css-only" size="sm" @click="showToast('success')">Show Success</LiquidButton>
+  <LiquidButton variant="glass-css-only" size="sm" @click="showToast('error')">Show Error</LiquidButton>
+  <LiquidButton variant="glass-css-only" size="sm" @click="showToast('warning')">Show Warning</LiquidButton>
+  <LiquidButton variant="glass-css-only" size="sm" @click="showToast('info')">Show Info</LiquidButton>
 </div>
 
 <ClientOnly>
@@ -39,7 +39,7 @@ const showToast = (type) => {
     :message="toastMessage"
     :duration="3000"
     position="bottom-right"
-    variant="default"
+    variant="glass-css-only"
   />
 </ClientOnly>
 

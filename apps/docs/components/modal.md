@@ -10,10 +10,10 @@ const showDefault = ref(false)
 const showLg = ref(false)
 </script>
 
-### Default Modal
+### Glass Modal
 
-<div style="padding:1rem 0;">
-  <LiquidButton variant="primary" @click="showDefault = true">Open Default Modal</LiquidButton>
+<div style="background:linear-gradient(135deg,#a78bfa,#f472b6,#60a5fa);padding:1.5rem;border-radius:12px;margin:1rem 0;">
+  <LiquidButton variant="glass-highlight-layered" @click="showDefault = true">Open Glass Modal</LiquidButton>
 </div>
 
 <ClientOnly>
@@ -21,22 +21,22 @@ const showLg = ref(false)
     v-model="showDefault"
     title="Confirm Action"
     size="md"
-    variant="default"
+    variant="glass-css-only"
   >
     <p>Are you sure you want to proceed? This action cannot be undone.</p>
     <template #footer>
       <div style="display:flex;gap:0.75rem;justify-content:flex-end;">
-        <LiquidButton variant="outline" size="sm" @click="showDefault = false">Cancel</LiquidButton>
+        <LiquidButton variant="glass-css-only" size="sm" @click="showDefault = false">Cancel</LiquidButton>
         <LiquidButton variant="danger" size="sm" @click="showDefault = false">Delete</LiquidButton>
       </div>
     </template>
   </LiquidModal>
 </ClientOnly>
 
-### Large Modal
+### Large Glass Modal
 
-<div style="padding:1rem 0;">
-  <LiquidButton variant="outline" @click="showLg = true">Open Large Modal</LiquidButton>
+<div style="background:linear-gradient(135deg,#0f172a,#1e1b4b);padding:1.5rem;border-radius:12px;margin:1rem 0;">
+  <LiquidButton variant="glass-css-only" @click="showLg = true">Open Large Modal</LiquidButton>
 </div>
 
 <ClientOnly>
@@ -44,13 +44,13 @@ const showLg = ref(false)
     v-model="showLg"
     title="Detailed Information"
     size="lg"
-    variant="default"
+    variant="glass-css-only"
   >
     <p>This is a larger modal dialog, useful for displaying more content or embedding forms.</p>
-    <p style="margin-top:1rem;color:#666;font-size:0.9rem;">Click outside the modal or the × button to close.</p>
+    <p style="margin-top:1rem;color:#94a3b8;font-size:0.9rem;">Click outside the modal or the × button to close.</p>
     <template #footer>
       <div style="display:flex;justify-content:flex-end;">
-        <LiquidButton variant="primary" size="sm" @click="showLg = false">Got it</LiquidButton>
+        <LiquidButton variant="glass-highlight-layered" size="sm" @click="showLg = false">Got it</LiquidButton>
       </div>
     </template>
   </LiquidModal>
