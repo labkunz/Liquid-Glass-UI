@@ -9,7 +9,7 @@
 
 import { computed, ref } from 'vue'
 
-import { parseSchema, buildInitialValues } from '../core/schema-parser'
+import { parseSchema } from '../core/schema-parser'
 import { getVisibleFields, getHiddenFieldKeys } from '../core/condition'
 import { validateForm, isFormValid, extractErrors } from '../core/validator'
 

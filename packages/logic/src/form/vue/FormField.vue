@@ -24,7 +24,7 @@ interface Props {
   error: string | null
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const emit = defineEmits<{
   'update:modelValue': [value: unknown]
@@ -61,8 +61,8 @@ function handleUpdate(value: unknown) {
 
     <!-- 動態渲染對應 UI 元件 -->
     <component
-      :is="componentMap[field.type]"
-      :model-value="modelValue"
+      :is="(componentMap[field.type] as any)"
+      :model-value="(modelValue as string | number | boolean | null | undefined)"
       :placeholder="field.placeholder"
       :disabled="field.disabled"
       :options="field.options"

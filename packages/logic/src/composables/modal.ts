@@ -68,7 +68,7 @@ export interface ModalState {
 
 // ---- 全域單例 Store -----------------------------------------
 
-export const modalStore = reactive<ModalState>({
+export const modalStore: ModalState = reactive<ModalState>({
   isOpen:    false,
   isConfirm: false,
   options:   {},

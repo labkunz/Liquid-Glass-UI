@@ -8,13 +8,13 @@
 // ============================================================
 
 import { computed, reactive, watch } from 'vue'
-import { LiquidTable, LiquidPagination } from '@liquid/ui'
+import { LiquidPagination } from '@liquid/ui'
 import type { TableColumn } from '@liquid/ui'
 
 import { parseColumns, buildInitialSortState, buildInitialFilterState, buildInitialPaginationState } from '../core/schema-parser'
 import { processData } from '../core/data-processor'
 
-import type { ColumnSchema, SortState, TableEngineProps } from '../core/types'
+import type { SortState, TableEngineProps } from '../core/types'
 
 // ---- Props / Emits ------------------------------------------
 
