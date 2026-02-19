@@ -54,7 +54,7 @@ const entryPoints = [
             rel="noopener noreferrer"
             class="entry-link"
           >
-            <LiquidCard variant="default" padding="md" class="entry-card">
+            <LiquidCard variant="glass-css-only" padding="md" class="entry-card">
               <span class="entry-icon">{{ entry.icon }}</span>
               <span class="entry-label">{{ entry.label }}</span>
               <span class="entry-desc">{{ entry.desc }}</span>
@@ -123,7 +123,7 @@ const entryPoints = [
 
 .entry-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .entry-icon {
@@ -135,7 +135,7 @@ const entryPoints = [
 .entry-label {
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--liquid-color-text, #333);
+  color: #f1f5f9;
 }
 
 .entry-desc {
@@ -147,10 +147,10 @@ const entryPoints = [
 
 /* Bottom bar */
 .footer-bar {
-  border-top: 1px solid var(--liquid-color-border, #dee2e6);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 1.5rem 0;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
 }
 
 .footer-bar-inner {
@@ -164,7 +164,7 @@ const entryPoints = [
 .footer-logo {
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--liquid-color-text, #333);
+  color: #f1f5f9;
 }
 
 .footer-copy {

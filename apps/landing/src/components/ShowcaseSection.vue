@@ -16,25 +16,23 @@ import { LiquidCard, LiquidButton, LiquidBadge } from '@liquid/ui'
 
       <div class="showcase-grid">
         <!-- Buttons -->
-        <LiquidCard variant="default" padding="lg" class="showcase-card">
+        <LiquidCard variant="glass-css-only" padding="lg" class="showcase-card">
           <h3 class="showcase-card-title">Button</h3>
-          <p class="showcase-card-sub">5 variants · 3 sizes</p>
+          <p class="showcase-card-sub">10 variants · 3 sizes</p>
           <div class="showcase-items">
-            <LiquidButton variant="primary" size="sm">Primary</LiquidButton>
-            <LiquidButton variant="secondary" size="sm">Secondary</LiquidButton>
-            <LiquidButton variant="outline" size="sm">Outline</LiquidButton>
-            <LiquidButton variant="ghost" size="sm">Ghost</LiquidButton>
-            <LiquidButton variant="danger" size="sm">Danger</LiquidButton>
+            <LiquidButton variant="glass-highlight-layered" size="sm">Highlight</LiquidButton>
+            <LiquidButton variant="glass-css-only" size="sm">Glass</LiquidButton>
+            <LiquidButton variant="glass-layered" size="sm">Layered</LiquidButton>
           </div>
           <div class="showcase-items" style="margin-top: 0.75rem;">
-            <LiquidButton variant="primary" size="sm">Small</LiquidButton>
-            <LiquidButton variant="primary" size="md">Medium</LiquidButton>
-            <LiquidButton variant="primary" size="lg">Large</LiquidButton>
+            <LiquidButton variant="glass-css-only" size="sm">Small</LiquidButton>
+            <LiquidButton variant="glass-css-only" size="md">Medium</LiquidButton>
+            <LiquidButton variant="glass-css-only" size="lg">Large</LiquidButton>
           </div>
         </LiquidCard>
 
         <!-- Badges -->
-        <LiquidCard variant="default" padding="lg" class="showcase-card">
+        <LiquidCard variant="glass-css-only" padding="lg" class="showcase-card">
           <h3 class="showcase-card-title">Badge</h3>
           <p class="showcase-card-sub">6 colors · 2 shapes</p>
           <div class="showcase-items">
@@ -55,8 +53,8 @@ import { LiquidCard, LiquidButton, LiquidBadge } from '@liquid/ui'
         <div class="glass-demo-bg">
           <div class="glass-demo-label">Glass Effect</div>
           <LiquidCard variant="glass-css-only" padding="lg">
-            <h3 class="showcase-card-title" style="color: #1e293b;">Card (Glass)</h3>
-            <p class="showcase-card-sub" style="color: #475569;">backdrop-filter · CSS layers</p>
+            <h3 class="showcase-card-title">Card (Glass)</h3>
+            <p class="showcase-card-sub">backdrop-filter · CSS layers</p>
             <p class="glass-demo-desc">
               Glass morphism via <code>backdrop-filter: blur()</code> and layered
               <code>::before</code> / <code>::after</code> pseudo-elements.
@@ -102,13 +100,13 @@ import { LiquidCard, LiquidButton, LiquidBadge } from '@liquid/ui'
 .showcase-card-title {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--liquid-color-text, #333);
+  color: #f1f5f9;
   margin-bottom: 0.25rem;
 }
 
 .showcase-card-sub {
   font-size: 0.8rem;
-  color: var(--liquid-color-text-secondary, #888);
+  color: #94a3b8;
   margin-bottom: 1rem;
 }
 
@@ -141,6 +139,15 @@ import { LiquidCard, LiquidButton, LiquidBadge } from '@liquid/ui'
   color: #334155;
   line-height: 1.6;
   margin-top: 0.75rem;
+}
+
+/* Override title/sub text inside glass demo card (light bg context) */
+.glass-demo-bg .showcase-card-title {
+  color: #1e293b;
+}
+
+.glass-demo-bg .showcase-card-sub {
+  color: #475569;
 }
 
 @media (max-width: 900px) {

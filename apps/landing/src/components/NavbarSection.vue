@@ -7,7 +7,7 @@ const scrollTo = (id: string) => {
 </script>
 
 <template>
-  <LiquidNavbar variant="glass-light" :sticky="true">
+  <LiquidNavbar variant="glass-css-only" :sticky="true">
     <template #logo>
       <span class="logo">
         <span class="logo-mark">⬡</span>
@@ -24,14 +24,14 @@ const scrollTo = (id: string) => {
 
     <template #actions>
       <LiquidButton
-        variant="outline"
+        variant="glass-css-only"
         size="sm"
         @click="() => window.open('https://github.com/placeholder/liquid-ui', '_blank')"
       >
         GitHub
       </LiquidButton>
       <LiquidButton
-        variant="primary"
+        variant="glass-highlight-layered"
         size="sm"
         @click="() => window.open('#', '_blank')"
       >
@@ -48,13 +48,13 @@ const scrollTo = (id: string) => {
   gap: 0.5rem;
   font-weight: 700;
   font-size: 1.05rem;
-  color: var(--liquid-color-text, #333);
+  color: #f1f5f9;
   user-select: none;
 }
 
 .logo-mark {
   font-size: 1.5rem;
-  color: var(--liquid-color-primary, #007bff);
+  color: #c084fc;
   line-height: 1;
 }
 
@@ -64,14 +64,14 @@ const scrollTo = (id: string) => {
   cursor: pointer;
   font-size: 0.9rem;
   font-family: inherit;
-  color: var(--liquid-color-text-secondary, #666);
+  color: rgba(255, 255, 255, 0.65);
   padding: 0.3rem 0.6rem;
   border-radius: 6px;
   transition: color 0.2s, background 0.2s;
 }
 
 .nav-link:hover {
-  color: var(--liquid-color-text, #333);
-  background: rgba(0, 0, 0, 0.04);
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.08);
 }
 </style>

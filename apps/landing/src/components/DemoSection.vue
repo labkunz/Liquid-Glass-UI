@@ -170,8 +170,8 @@ const ADMIN_URL = '#'
 
 .demo-tag {
   font-size: 0.75rem;
-  background: rgba(0, 0, 0, 0.06);
-  color: var(--liquid-color-text-secondary, #666);
+  background: rgba(99, 102, 241, 0.12);
+  color: #4338ca;
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
@@ -187,7 +187,7 @@ const ADMIN_URL = '#'
   justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .demo-footer .demo-footer:has(.demo-card--dark) {

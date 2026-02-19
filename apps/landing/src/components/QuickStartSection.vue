@@ -1,5 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { LiquidCard } from '@liquid/ui'
+import hljs from 'highlight.js/lib/core'
+import bash from 'highlight.js/lib/languages/bash'
+import xml from 'highlight.js/lib/languages/xml'
+
+hljs.registerLanguage('bash', bash)
+hljs.registerLanguage('xml', xml)
 
 const installCode = `# Install the packages
 pnpm add @liquid/ui @liquid/tokens`
@@ -19,6 +26,31 @@ import '@liquid/tokens/glass.css'
     </LiquidCard>
   </GlassFilterProvider>
 </template>`
+
+const highlightedInstall = computed(() =>
+  hljs.highlight(installCode, { language: 'bash' }).value
+)
+
+/**
+ * Post-process hljs XML output:
+ * PascalCase tag names (Vue/Liquid components) → add `hljs-liquid-name` class → purple
+ * lowercase tag names (native HTML) → keep `.hljs-name` only → VSCode blue
+ */
+function tagColorize(html: string): string {
+  return html.replace(
+    /<span class="hljs-name">([^<]+)<\/span>/g,
+    (_, name: string) => {
+      if (/^[A-Z]/.test(name)) {
+        return `<span class="hljs-name hljs-liquid-name">${name}</span>`
+      }
+      return `<span class="hljs-name">${name}</span>`
+    },
+  )
+}
+
+const highlightedUsage = computed(() =>
+  tagColorize(hljs.highlight(usageCode, { language: 'xml' }).value)
+)
 </script>
 
 <template>
@@ -36,9 +68,10 @@ import '@liquid/tokens/glass.css'
         <div class="step">
           <div class="step-number">1</div>
           <div class="step-content">
-            <LiquidCard variant="default" padding="lg">
+            <LiquidCard variant="glass-css-only" padding="lg">
               <h3 class="step-title">Install</h3>
-              <pre><code>{{ installCode }}</code></pre>
+              <!-- eslint-disable-next-line vue/no-v-html -->
+              <pre><code v-html="highlightedInstall" /></pre>
             </LiquidCard>
           </div>
         </div>
@@ -46,9 +79,10 @@ import '@liquid/tokens/glass.css'
         <div class="step">
           <div class="step-number">2</div>
           <div class="step-content">
-            <LiquidCard variant="default" padding="lg">
+            <LiquidCard variant="glass-css-only" padding="lg">
               <h3 class="step-title">Use</h3>
-              <pre><code>{{ usageCode }}</code></pre>
+              <!-- eslint-disable-next-line vue/no-v-html -->
+              <pre><code v-html="highlightedUsage" /></pre>
             </LiquidCard>
           </div>
         </div>
@@ -121,10 +155,77 @@ import '@liquid/tokens/glass.css'
 .step-title {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--liquid-color-text-secondary, #666);
+  color: #f1f5f9;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
+}
+
+/* highlight.js custom token colors — matching landing page palette */
+pre {
+  margin: 0;
+  overflow-x: auto;
+}
+
+pre code {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+}
+
+/* Base tokens */
+:deep(.hljs-comment),
+:deep(.hljs-quote) {
+  color: #64748b;
+  font-style: italic;
+}
+
+:deep(.hljs-keyword),
+:deep(.hljs-selector-tag),
+:deep(.hljs-built_in) {
+  color: #c084fc;
+}
+
+/* Native HTML tag names — VSCode Dark+ blue */
+:deep(.hljs-name) {
+  color: #4fc1ff;
+}
+
+/* Liquid / Vue component tag names — library purple */
+:deep(.hljs-liquid-name) {
+  color: #c084fc;
+}
+
+:deep(.hljs-string),
+:deep(.hljs-attr) {
+  color: #34d399;
+}
+
+:deep(.hljs-title),
+:deep(.hljs-section),
+:deep(.hljs-tag) {
+  color: #60a5fa;
+}
+
+:deep(.hljs-attribute) {
+  color: #f472b6;
+}
+
+:deep(.hljs-literal),
+:deep(.hljs-number),
+:deep(.hljs-symbol),
+:deep(.hljs-bullet) {
+  color: #fb923c;
+}
+
+:deep(.hljs-variable),
+:deep(.hljs-template-variable) {
+  color: #e2e8f0;
+}
+
+:deep(.hljs-meta) {
+  color: #94a3b8;
 }
 
 .quickstart-cta {
@@ -153,14 +254,14 @@ import '@liquid/tokens/glass.css'
 }
 
 .cta-link:hover {
-  color: var(--liquid-color-text, #333);
+  color: #f1f5f9;
 }
 
 .cta-link--primary {
-  color: var(--liquid-color-primary, #007bff);
+  color: #c084fc;
 }
 
 .cta-link--primary:hover {
-  color: var(--liquid-color-primary-dark, #0056b3);
+  color: #e879f9;
 }
 </style>

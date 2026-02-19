@@ -51,7 +51,7 @@ const features = [
         <LiquidCard
           v-for="feature in features"
           :key="feature.title"
-          variant="default"
+          variant="glass-css-only"
           padding="lg"
           class="feature-card"
         >
@@ -109,13 +109,13 @@ const features = [
 .feature-title {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--liquid-color-text, #333);
+  color: #f1f5f9;
   margin-bottom: 0.5rem;
 }
 
 .feature-desc {
   font-size: 0.9rem;
-  color: var(--liquid-color-text-secondary, #666);
+  color: #94a3b8;
   line-height: 1.65;
 }
 

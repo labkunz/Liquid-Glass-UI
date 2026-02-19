@@ -27,11 +27,11 @@ const scrollToFeatures = () => {
         </p>
 
         <div class="hero-ctas">
-          <LiquidButton variant="primary" size="lg" @click="scrollToFeatures">
+          <LiquidButton variant="glass-highlight-layered" size="lg" @click="scrollToFeatures">
             Explore Features
           </LiquidButton>
           <LiquidButton
-            variant="outline"
+            variant="glass-css-only"
             size="lg"
             @click="() => window.open('https://github.com/placeholder/liquid-ui', '_blank')"
           >
@@ -58,10 +58,9 @@ const scrollToFeatures = () => {
           <div class="preview-row">
             <span class="preview-label">Buttons</span>
             <div class="preview-buttons">
-              <LiquidButton variant="primary" size="sm">Primary</LiquidButton>
-              <LiquidButton variant="secondary" size="sm">Secondary</LiquidButton>
-              <LiquidButton variant="outline" size="sm">Outline</LiquidButton>
-              <LiquidButton variant="ghost" size="sm">Ghost</LiquidButton>
+              <LiquidButton variant="glass-highlight-layered" size="sm">Highlight</LiquidButton>
+              <LiquidButton variant="glass-css-only" size="sm">Glass</LiquidButton>
+              <LiquidButton variant="glass-layered" size="sm">Layered</LiquidButton>
             </div>
           </div>
 
@@ -103,7 +102,7 @@ const scrollToFeatures = () => {
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #3b82f6 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2d9f3 40%, #f472b6 80%, #a78bfa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -112,7 +111,7 @@ const scrollToFeatures = () => {
 
 .hero-subtitle {
   font-size: 1.1rem;
-  color: var(--liquid-color-text-secondary, #666);
+  color: #94a3b8;
   line-height: 1.75;
   margin-bottom: 2rem;
   max-width: 480px;
@@ -135,7 +134,7 @@ const scrollToFeatures = () => {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--liquid-color-text-secondary, #888);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 1.5rem;
 }
 
@@ -146,7 +145,7 @@ const scrollToFeatures = () => {
 .preview-label {
   display: block;
   font-size: 0.75rem;
-  color: var(--liquid-color-text-secondary, #888);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 0.5rem;
 }
 
@@ -160,8 +159,8 @@ const scrollToFeatures = () => {
 .preview-glass-badge {
   margin-top: 1.5rem;
   padding: 0.75rem 1rem;
-  background: rgba(59, 130, 246, 0.08);
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.25);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -171,12 +170,12 @@ const scrollToFeatures = () => {
 .glass-badge-label {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--liquid-color-primary, #007bff);
+  color: #c084fc;
 }
 
 .glass-badge-text {
   font-size: 0.8rem;
-  color: var(--liquid-color-text-secondary, #888);
+  color: rgba(255, 255, 255, 0.45);
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
