@@ -53,6 +53,10 @@ out
 # Vite
 .vite
 
+# VitePress
+**/.vitepress/cache
+**/.vitepress/dist
+
 # Package manager lock files (optional, 視團隊協作需求)
 # pnpm-lock.yaml
 
