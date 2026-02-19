@@ -14,7 +14,6 @@ export default defineConfig(async () => {
   })
 
   return {
-    base: process.env.NODE_ENV === 'production' ? '/blog' : '/',
     plugins: [
       Markdown({
         markdownItSetup(md) {
