@@ -10,10 +10,10 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'glass-css-only', 'glass-highlight-layered'],
+      options: ['default', 'glass-css-only', 'glass-highlight-layered', 'glass-css-only-light', 'glass-highlight-layered-light'],
       description: 'LiquidToast 樣式變體',
       table: {
-        type: { summary: "'default' | 'glass-css-only' | 'glass-highlight-layered'" },
+        type: { summary: "'default' | 'glass-css-only' | 'glass-highlight-layered' | 'glass-css-only-light' | 'glass-highlight-layered-light'" },
         defaultValue: { summary: 'default' },
       },
     },
@@ -278,6 +278,131 @@ export const Positions: Story = {
           <LiquidToast variant="default" type="success" message="Top Right position." position="top-right" :duration="5000" v-model="topRight" />
           <LiquidToast variant="default" type="warning" message="Top Center position." position="top-center" :duration="5000" v-model="topCenter" />
           <LiquidToast variant="default" type="error" message="Bottom Left position." position="bottom-left" :duration="5000" v-model="bottomLeft" />
+        </div>
+      </GlassFilterProvider>
+    `,
+  }),
+};
+
+// GlassCssOnlyLight - glass-css-only-light on light gradient background
+export const GlassCssOnlyLight: Story = {
+  args: {
+    variant: 'glass-css-only-light',
+    type: 'info',
+    message: 'Glass CSS Only Light notification.',
+  },
+  render: (args) => ({
+    components: { LiquidToast, GlassFilterProvider },
+    setup() {
+      const isVisible = ref(false);
+      const show = () => { isVisible.value = true; };
+      return { args, isVisible, show };
+    },
+    template: `
+      <GlassFilterProvider>
+        <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); min-height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 12px; padding: 2rem;">
+          <button @click="show" style="padding: 0.75rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.8); color: rgba(60,50,80,0.9); cursor: pointer; font-size: 14px; font-weight: 500;">
+            顯示 LiquidToast
+          </button>
+          <LiquidToast v-bind="args" v-model="isVisible" />
+        </div>
+      </GlassFilterProvider>
+    `,
+  }),
+};
+
+// GlassHighlightLayeredLight - glass-highlight-layered-light variant
+export const GlassHighlightLayeredLight: Story = {
+  args: {
+    variant: 'glass-highlight-layered-light',
+    type: 'success',
+    message: 'Glass Highlight Layered Light notification.',
+  },
+  render: (args) => ({
+    components: { LiquidToast, GlassFilterProvider },
+    setup() {
+      const isVisible = ref(false);
+      const show = () => { isVisible.value = true; };
+      return { args, isVisible, show };
+    },
+    template: `
+      <GlassFilterProvider>
+        <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); min-height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 12px; padding: 2rem;">
+          <button @click="show" style="padding: 0.75rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.8); color: rgba(60,50,80,0.9); cursor: pointer; font-size: 14px; font-weight: 500;">
+            顯示 LiquidToast
+          </button>
+          <LiquidToast v-bind="args" v-model="isVisible" />
+        </div>
+      </GlassFilterProvider>
+    `,
+  }),
+};
+
+// GlassLightComparison - compare both glass light variants, all 4 types shown
+export const GlassLightComparison: Story = {
+  render: () => ({
+    components: { LiquidToast, GlassFilterProvider },
+    setup() {
+      const cssOnlyInfo = ref(false);
+      const cssOnlySuccess = ref(false);
+      const cssOnlyWarning = ref(false);
+      const cssOnlyError = ref(false);
+      const layeredInfo = ref(false);
+      const layeredSuccess = ref(false);
+      const layeredWarning = ref(false);
+      const layeredError = ref(false);
+
+      const showCssOnly = () => {
+        cssOnlyInfo.value = true;
+        setTimeout(() => { cssOnlySuccess.value = true; }, 200);
+        setTimeout(() => { cssOnlyWarning.value = true; }, 400);
+        setTimeout(() => { cssOnlyError.value = true; }, 600);
+      };
+      const showLayered = () => {
+        layeredInfo.value = true;
+        setTimeout(() => { layeredSuccess.value = true; }, 200);
+        setTimeout(() => { layeredWarning.value = true; }, 400);
+        setTimeout(() => { layeredError.value = true; }, 600);
+      };
+
+      return {
+        cssOnlyInfo, cssOnlySuccess, cssOnlyWarning, cssOnlyError,
+        layeredInfo, layeredSuccess, layeredWarning, layeredError,
+        showCssOnly, showLayered,
+      };
+    },
+    template: `
+      <GlassFilterProvider>
+        <div style="display: flex; flex-direction: column; gap: 2rem;">
+
+          <!-- CSS Only Light comparison -->
+          <div style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); min-height: 220px; display: flex; align-items: center; justify-content: center; border-radius: 12px; padding: 2rem; flex-direction: column; gap: 1rem;">
+            <p style="color: rgba(60,50,80,0.7); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin: 0;">glass-css-only-light — all types</p>
+            <button @click="showCssOnly" style="padding: 0.75rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.8); color: rgba(60,50,80,0.9); cursor: pointer; font-size: 14px; font-weight: 500;">
+              顯示 CSS Only Light 所有類型
+            </button>
+          </div>
+
+          <!-- Highlight Layered Light comparison -->
+          <div style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); min-height: 220px; display: flex; align-items: center; justify-content: center; border-radius: 12px; padding: 2rem; flex-direction: column; gap: 1rem;">
+            <p style="color: rgba(60,50,80,0.7); font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; margin: 0;">glass-highlight-layered-light — all types</p>
+            <button @click="showLayered" style="padding: 0.75rem 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.5); border: 1px solid rgba(255,255,255,0.8); color: rgba(60,50,80,0.9); cursor: pointer; font-size: 14px; font-weight: 500;">
+              顯示 Layered Light 所有類型
+            </button>
+          </div>
+
+          <!-- CSS Only Light Toasts -->
+          <LiquidToast variant="glass-css-only-light" type="info" message="CSS Only Light: Info notification." position="top-left" :duration="6000" v-model="cssOnlyInfo" />
+          <LiquidToast variant="glass-css-only-light" type="success" message="CSS Only Light: Success notification." position="top-left" :duration="6000" v-model="cssOnlySuccess" />
+          <LiquidToast variant="glass-css-only-light" type="warning" message="CSS Only Light: Warning notification." position="bottom-left" :duration="6000" v-model="cssOnlyWarning" />
+          <LiquidToast variant="glass-css-only-light" type="error" message="CSS Only Light: Error notification." position="bottom-left" :duration="6000" v-model="cssOnlyError" />
+
+          <!-- Layered Light Toasts -->
+          <LiquidToast variant="glass-highlight-layered-light" type="info" message="Layered Light: Info notification." position="top-right" :duration="6000" v-model="layeredInfo" />
+          <LiquidToast variant="glass-highlight-layered-light" type="success" message="Layered Light: Success notification." position="top-right" :duration="6000" v-model="layeredSuccess" />
+          <LiquidToast variant="glass-highlight-layered-light" type="warning" message="Layered Light: Warning notification." position="bottom-right" :duration="6000" v-model="layeredWarning" />
+          <LiquidToast variant="glass-highlight-layered-light" type="error" message="Layered Light: Error notification." position="bottom-right" :duration="6000" v-model="layeredError" />
+
         </div>
       </GlassFilterProvider>
     `,

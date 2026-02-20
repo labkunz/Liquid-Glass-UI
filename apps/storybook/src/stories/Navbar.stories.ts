@@ -40,7 +40,7 @@ export const Default: Story = {
     components: { LiquidNavbar },
     setup() { return { args }; },
     template: `
-      <div style="border-radius: 12px; overflow: hidden;">
+      <div style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; overflow: hidden; background: #f8f9fa;">
         <LiquidNavbar v-bind="args">
           <template #logo>
             <span style="font-weight: 700; font-size: 1rem; color: #1a1a2e;">◈ Liquid UI</span>
@@ -54,7 +54,7 @@ export const Default: Story = {
             <button style="padding: 0.4rem 1rem; border-radius: 8px; background: #7c3aed; color: white; border: none; cursor: pointer; font-size: 0.875rem; font-weight: 500;">開始使用</button>
           </template>
         </LiquidNavbar>
-        <div style="padding: 3rem 2rem; background: #f8f9fa;">
+        <div style="padding: 3rem 2rem;">
           <p style="color: #666; font-size: 14px; margin: 0;">頁面內容區域</p>
         </div>
       </div>
@@ -69,7 +69,7 @@ export const GlassLight: Story = {
     components: { LiquidNavbar },
     setup() { return { args }; },
     template: `
-      <div style="border-radius: 12px; overflow: hidden;">
+      <div style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; overflow: hidden; background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 50%, #f5f0ff 100%);">
         <LiquidNavbar v-bind="args">
           <template #logo>
             <span style="font-weight: 700; font-size: 1rem;">
@@ -82,7 +82,7 @@ export const GlassLight: Story = {
             <a href="#" style="font-size: 0.9rem; color: #4a5568; text-decoration: none; font-weight: 500;">GitHub</a>
           </template>
         </LiquidNavbar>
-        <div style="padding: 3rem 2rem; background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 50%, #f5f0ff 100%);">
+        <div style="padding: 3rem 2rem;">
           <p style="color: #555; font-size: 14px; margin: 0;">Blog 頁面內容區域（亮色漸層背景）</p>
         </div>
       </div>
@@ -97,7 +97,7 @@ export const GlassCssOnly: Story = {
     components: { LiquidNavbar },
     setup() { return { args }; },
     template: `
-      <div style="border-radius: 12px; overflow: hidden;">
+      <div style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; overflow: hidden; background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);">
         <LiquidNavbar v-bind="args">
           <template #logo>
             <span style="font-weight: 700; font-size: 1rem; color: white;">⚙ Admin Panel</span>
@@ -111,7 +111,7 @@ export const GlassCssOnly: Story = {
             <button style="padding: 0.4rem 1rem; border-radius: 8px; background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.25); cursor: pointer; font-size: 0.875rem; font-weight: 500; backdrop-filter: blur(8px);">登出</button>
           </template>
         </LiquidNavbar>
-        <div style="padding: 3rem 2rem; background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);">
+        <div style="padding: 3rem 2rem;">
           <p style="color: rgba(255,255,255,0.5); font-size: 14px; margin: 0;">Admin 頁面內容區域（暗色背景）</p>
         </div>
       </div>
@@ -129,7 +129,7 @@ export const VariantComparison: Story = {
         <!-- Default -->
         <div>
           <p style="color: #888; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">variant="default"</p>
-          <div style="border-radius: 12px; overflow: hidden;">
+          <div style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; overflow: hidden; background: #f8f9fa;">
             <LiquidNavbar variant="default" :sticky="false">
               <template #logo>
                 <span style="font-weight: 700; color: #1a1a2e;">◈ Liquid UI</span>
@@ -139,7 +139,7 @@ export const VariantComparison: Story = {
                 <a href="#" style="color: #4a5568; text-decoration: none; font-size: 0.875rem;">文件</a>
               </template>
             </LiquidNavbar>
-            <div style="padding: 1.5rem 2rem; background: #f8f9fa;">
+            <div style="padding: 1.5rem 2rem;">
               <p style="color: #999; font-size: 13px; margin: 0;">一般亮色頁面</p>
             </div>
           </div>
@@ -148,7 +148,7 @@ export const VariantComparison: Story = {
         <!-- Glass Light -->
         <div>
           <p style="color: #888; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">variant="glass-light"</p>
-          <div style="border-radius: 12px; overflow: hidden;">
+          <div style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; overflow: hidden; background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 50%, #f5f0ff 100%);">
             <LiquidNavbar variant="glass-light" :sticky="false">
               <template #logo>
                 <span style="font-weight: 700; color: #1a1a2e;">◈ Blog</span>
@@ -158,7 +158,7 @@ export const VariantComparison: Story = {
                 <a href="#" style="color: #4a5568; text-decoration: none; font-size: 0.875rem;">GitHub</a>
               </template>
             </LiquidNavbar>
-            <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 50%, #f5f0ff 100%);">
+            <div style="padding: 1.5rem 2rem;">
               <p style="color: #777; font-size: 13px; margin: 0;">亮色漸層背景（Blog 場景）</p>
             </div>
           </div>
@@ -167,7 +167,7 @@ export const VariantComparison: Story = {
         <!-- Glass CSS Only -->
         <div>
           <p style="color: #888; font-size: 12px; margin: 0 0 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;">variant="glass-css-only"</p>
-          <div style="border-radius: 12px; overflow: hidden;">
+          <div style="border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; overflow: hidden; background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);">
             <LiquidNavbar variant="glass-css-only" :sticky="false">
               <template #logo>
                 <span style="font-weight: 700; color: white;">⚙ Admin</span>
@@ -177,7 +177,7 @@ export const VariantComparison: Story = {
                 <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.875rem;">設定</a>
               </template>
             </LiquidNavbar>
-            <div style="padding: 1.5rem 2rem; background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);">
+            <div style="padding: 1.5rem 2rem;">
               <p style="color: rgba(255,255,255,0.4); font-size: 13px; margin: 0;">暗色漸層背景（Admin 場景）</p>
             </div>
           </div>
