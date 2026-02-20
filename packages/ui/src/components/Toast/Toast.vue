@@ -2,7 +2,7 @@
 import { computed, onMounted, useCssModule } from 'vue';
 
 export interface ToastProps {
-  variant?: 'default' | 'glass-css-only' | 'glass-highlight-layered';
+  variant?: 'default' | 'glass-css-only' | 'glass-highlight-layered' | 'glass-css-only-light' | 'glass-highlight-layered-light';
   type?: 'info' | 'success' | 'warning' | 'error';
   message?: string;
   modelValue?: boolean;
@@ -41,11 +41,13 @@ const toCamelCase = (str: string) =>
 const containerClass = computed(() => [
   style[toCamelCase('liquid-toast-container')],
   style[toCamelCase(`liquid-toast-container--${props.position}`)],
+  style[toCamelCase(`liquid-toast-container--${props.variant}`)],
 ]);
 
 const toastClasses = computed(() => [
   style[toCamelCase('liquid-toast')],
   style[toCamelCase(`liquid-toast--${props.variant}`)],
+  // style[toCamelCase(`liquid-toast--default`)],
   style[toCamelCase(`liquid-toast--${props.type}`)],
 ]);
 </script>

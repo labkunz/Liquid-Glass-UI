@@ -149,14 +149,6 @@
   color: rgba(255, 255, 255, 0.95);
 }
 
-.liquid-modal--glass-css-only .liquid-modal-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.liquid-modal--glass-css-only .liquid-modal-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
 /* ===== glass-highlight-layered variant ===== */
 .liquid-modal--glass-highlight-layered {
   position: relative;
@@ -206,12 +198,4 @@
 .liquid-modal--glass-highlight-layered .liquid-modal-close:hover {
   background: rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.95);
-}
-
-.liquid-modal--glass-highlight-layered .liquid-modal-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.liquid-modal--glass-highlight-layered .liquid-modal-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }

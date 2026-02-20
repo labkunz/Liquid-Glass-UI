@@ -132,8 +132,6 @@
 }
 .liquid-toggle--glass-css-only .liquid-toggle-thumb {
   background: rgba(255, 255, 255, 0.9);
-  position: relative;
-  z-index: 1;
 }
 .liquid-toggle--glass-css-only .liquid-toggle-label {
   color: rgba(255, 255, 255, 0.9);
@@ -177,8 +175,6 @@
 }
 .liquid-toggle--glass-highlight-layered .liquid-toggle-thumb {
   background: rgba(255, 255, 255, 0.9);
-  position: relative;
-  z-index: 2;
 }
 .liquid-toggle--glass-highlight-layered .liquid-toggle-label {
   color: rgba(255, 255, 255, 0.9);

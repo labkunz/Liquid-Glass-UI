@@ -9,6 +9,7 @@
   position: fixed;
   z-index: 1100;
   pointer-events: none;
+  border-radius: 10px;
 }
 .liquid-toast-container--top-right { top: 1.5rem; right: 1.5rem; }
 .liquid-toast-container--top-left { top: 1.5rem; left: 1.5rem; }
@@ -85,65 +86,187 @@
 }
 .liquid-toast--default .liquid-toast-close { color: inherit; }
 
-/* glass-css-only variant */
+/* glass-css-only container - 只負責模糊網頁內容 */
+.liquid-toast-container--glass-css-only {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: transparent;
+}
+
+/* glass-css-only variant - 負責所有視覺效果 */
 .liquid-toast--glass-css-only {
   position: relative;
   background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.5);
   color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.5);
   overflow: hidden;
 }
+
+/* 高光層（參考 Button 的 0.55 強度） */
 .liquid-toast--glass-css-only::before {
   content: '';
   position: absolute;
   inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(255, 255, 255, 0) 60%);
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0) 60%);
   pointer-events: none;
-  z-index: 0;
 }
-.liquid-toast--glass-css-only > * { position: relative; z-index: 1; }
+
+/* 頂部補光層（參考 Button） */
+.liquid-toast--glass-css-only::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% -10%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.liquid-toast--glass-css-only > * { position: relative; z-index: 2; }
 /* type accent colors for glass-css-only */
 .liquid-toast--glass-css-only.liquid-toast--info { border-left: 3px solid rgba(14, 165, 233, 0.7); }
 .liquid-toast--glass-css-only.liquid-toast--success { border-left: 3px solid rgba(34, 197, 94, 0.7); }
 .liquid-toast--glass-css-only.liquid-toast--warning { border-left: 3px solid rgba(234, 179, 8, 0.7); }
 .liquid-toast--glass-css-only.liquid-toast--error { border-left: 3px solid rgba(239, 68, 68, 0.7); }
 
-/* glass-highlight-layered variant */
+/* glass-highlight-layered container - 只負責模糊網頁內容 */
+.liquid-toast-container--glass-highlight-layered {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: transparent;
+}
+
+/* glass-highlight-layered variant - 負責所有視覺效果 */
 .liquid-toast--glass-highlight-layered {
   position: relative;
   background: transparent;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
+
+/* 半透明色層 + SVG 高光 filter */
 .liquid-toast--glass-highlight-layered::before {
   content: '';
   position: absolute;
   inset: 0;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: inherit;
-  background: rgba(255, 255, 255, 0.12);
   filter: url(#glass-highlight-only);
   pointer-events: none;
   z-index: 0;
 }
+
+/* CSS 漸層補充光源 */
 .liquid-toast--glass-highlight-layered::after {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: inherit;
   background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 65%);
+  border-radius: inherit;
   pointer-events: none;
   z-index: 1;
 }
+
 .liquid-toast--glass-highlight-layered > * { position: relative; z-index: 2; }
 .liquid-toast--glass-highlight-layered.liquid-toast--info { border-left: 3px solid rgba(14, 165, 233, 0.6); }
 .liquid-toast--glass-highlight-layered.liquid-toast--success { border-left: 3px solid rgba(34, 197, 94, 0.6); }
 .liquid-toast--glass-highlight-layered.liquid-toast--warning { border-left: 3px solid rgba(234, 179, 8, 0.6); }
 .liquid-toast--glass-highlight-layered.liquid-toast--error { border-left: 3px solid rgba(239, 68, 68, 0.6); }
+
+/* glass-css-only-light container - 只負責模糊網頁內容（淺色背景用） */
+.liquid-toast-container--glass-css-only-light {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: transparent;
+}
+
+/* glass-css-only-light variant - 負責所有視覺效果（淺色背景用） */
+.liquid-toast--glass-css-only-light {
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 1px 4px rgba(100, 80, 140, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  color: rgba(60, 50, 80, 0.9);
+  overflow: hidden;
+}
+
+/* 高光層 */
+.liquid-toast--glass-css-only-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 60%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* 頂部補光層 */
+.liquid-toast--glass-css-only-light::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% -10%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.liquid-toast--glass-css-only-light > * { position: relative; z-index: 2; }
+/* type accent colors for glass-css-only-light - 深色調以增加對比 */
+.liquid-toast--glass-css-only-light.liquid-toast--info { border-left: 3px solid rgba(14, 165, 233, 0.85); }
+.liquid-toast--glass-css-only-light.liquid-toast--success { border-left: 3px solid rgba(34, 197, 94, 0.85); }
+.liquid-toast--glass-css-only-light.liquid-toast--warning { border-left: 3px solid rgba(234, 179, 8, 0.85); }
+.liquid-toast--glass-css-only-light.liquid-toast--error { border-left: 3px solid rgba(239, 68, 68, 0.85); }
+
+/* glass-highlight-layered-light container - 只負責模糊網頁內容（淺色背景用） */
+.liquid-toast-container--glass-highlight-layered-light {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: transparent;
+}
+
+/* glass-highlight-layered-light variant - 負責所有視覺效果（淺色背景用） */
+.liquid-toast--glass-highlight-layered-light {
+  position: relative;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 1px 4px rgba(100, 80, 140, 0.1);
+  color: rgba(60, 50, 80, 0.9);
+  overflow: hidden;
+}
+
+/* 半透明色層 + SVG 高光 filter */
+.liquid-toast--glass-highlight-layered-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: inherit;
+  filter: url(#glass-highlight-only);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* CSS 漸層補充光源 */
+.liquid-toast--glass-highlight-layered-light::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 65%);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.liquid-toast--glass-highlight-layered-light > * { position: relative; z-index: 2; }
+/* type accent colors for glass-highlight-layered-light - 深色調以增加對比 */
+.liquid-toast--glass-highlight-layered-light.liquid-toast--info { border-left: 3px solid rgba(14, 165, 233, 0.85); }
+.liquid-toast--glass-highlight-layered-light.liquid-toast--success { border-left: 3px solid rgba(34, 197, 94, 0.85); }
+.liquid-toast--glass-highlight-layered-light.liquid-toast--warning { border-left: 3px solid rgba(234, 179, 8, 0.85); }
+.liquid-toast--glass-highlight-layered-light.liquid-toast--error { border-left: 3px solid rgba(239, 68, 68, 0.85); }
