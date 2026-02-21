@@ -23,20 +23,16 @@ const scrollTo = (id: string) => {
     </template>
 
     <template #actions>
-      <LiquidButton
-        variant="glass-css-only"
-        size="sm"
-        @click="() => window.open('https://github.com/labkunz/Liquid-Glass-UI', '_blank')"
-      >
-        GitHub
-      </LiquidButton>
-      <LiquidButton
-        variant="glass-highlight-layered"
-        size="sm"
-        @click="() => window.open('https://liquid-docs.vercel.app/', '_blank')"
-      >
-        Docs
-      </LiquidButton>
+      <a href="https://github.com/labkunz/Liquid-Glass-UI" target="_blank" rel="noopener noreferrer">
+        <LiquidButton variant="glass-css-only" size="sm">
+          GitHub
+        </LiquidButton>
+      </a>
+      <a href="https://liquid-docs.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <LiquidButton variant="glass-highlight-layered" size="sm">
+          Docs
+        </LiquidButton>
+      </a>
     </template>
   </LiquidNavbar>
 </template>

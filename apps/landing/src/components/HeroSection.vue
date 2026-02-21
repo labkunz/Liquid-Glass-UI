@@ -30,13 +30,11 @@ const scrollToFeatures = () => {
           <LiquidButton variant="glass-highlight-layered" size="lg" @click="scrollToFeatures">
             Explore Features
           </LiquidButton>
-          <LiquidButton
-            variant="glass-css-only"
-            size="lg"
-            @click="() => window.open('https://github.com/labkunz/Liquid-Glass-UI', '_blank')"
-          >
-            View on GitHub
-          </LiquidButton>
+          <a href="https://github.com/labkunz/Liquid-Glass-UI" target="_blank" rel="noopener noreferrer">
+            <LiquidButton variant="glass-css-only" size="lg">
+              View on GitHub
+            </LiquidButton>
+          </a>
         </div>
       </div>
 

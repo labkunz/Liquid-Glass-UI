@@ -38,13 +38,11 @@ const ADMIN_URL = 'https://liquid-admin.vercel.app/'
             </div>
             <div class="demo-footer">
               <span class="demo-audience">For designers & PMs</span>
-              <LiquidButton
-                variant="primary"
-                size="sm"
-                @click="() => window.open(BLOG_URL, '_blank')"
-              >
-                Visit Blog →
-              </LiquidButton>
+              <a :href="BLOG_URL" target="_blank" rel="noopener noreferrer">
+                <LiquidButton variant="primary" size="sm">
+                  Visit Blog →
+                </LiquidButton>
+              </a>
             </div>
           </LiquidCard>
         </div>
@@ -68,13 +66,11 @@ const ADMIN_URL = 'https://liquid-admin.vercel.app/'
             </div>
             <div class="demo-footer">
               <span class="demo-audience demo-audience--dark">For engineers & tech leads</span>
-              <LiquidButton
-                variant="outline"
-                size="sm"
-                @click="() => window.open(ADMIN_URL, '_blank')"
-              >
-                Visit Admin →
-              </LiquidButton>
+              <a :href="ADMIN_URL" target="_blank" rel="noopener noreferrer">
+                <LiquidButton variant="outline" size="sm">
+                  Visit Admin →
+                </LiquidButton>
+              </a>
             </div>
           </LiquidCard>
         </div>
