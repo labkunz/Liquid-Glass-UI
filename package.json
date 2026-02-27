@@ -27,7 +27,10 @@
     "typecheck:packages": "pnpm -r --filter './packages/*' run typecheck",
     "clean": "pnpm -r exec rm -rf dist node_modules",
     "clean:dist": "pnpm -r exec rm -rf dist",
-    "install:all": "pnpm install"
+    "install:all": "pnpm install",
+    "test": "pnpm --filter @liquid/ui test",
+    "test:ui": "pnpm --filter @liquid/ui test",
+    "test:watch": "pnpm --filter @liquid/ui test:watch"
   },
   "keywords": [
     "ui",
