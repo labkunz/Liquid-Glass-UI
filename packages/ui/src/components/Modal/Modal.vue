@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { computed, useCssModule } from 'vue';
-
-export interface ModalProps {
-  variant?: 'default' | 'glass-css-only' | 'glass-highlight-layered';
-  size?: 'sm' | 'md' | 'lg' | 'xl';
-  modelValue?: boolean;
-  title?: string;
-  showClose?: boolean;
-}
+import type { ModalProps } from './types';
 
 const props = withDefaults(defineProps<ModalProps>(), {
   variant: 'default',

@@ -1,20 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeUnmount, useCssModule } from 'vue';
-
-export interface SelectOption<T = string | number> {
-  value: T;
-  label: string;
-  disabled?: boolean;
-}
-
-export interface SelectProps<T = string | number> {
-  variant?: 'default' | 'glass-css-only' | 'glass-highlight-layered';
-  size?: 'sm' | 'md' | 'lg';
-  options?: SelectOption<T>[];
-  modelValue?: T | null;
-  placeholder?: string;
-  disabled?: boolean;
-}
+import type { SelectOption, SelectProps } from './types'
 
 const props = withDefaults(defineProps<SelectProps<string | number>>(), {
   variant: 'default',

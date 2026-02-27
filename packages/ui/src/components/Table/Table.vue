@@ -1,21 +1,6 @@
 <script setup lang="ts">
 import { computed, useCssModule } from 'vue';
-
-export interface TableColumn<T> {
-  key: keyof T;
-  label: string;
-  width?: string;
-  align?: 'left' | 'center' | 'right';
-  render?: (value: T[keyof T], row: T) => string
-}
-
-export interface TableProps<T = Record<string, unknown>> {
-  variant?: 'default' | 'glass-css-only' | 'glass-highlight-layered';
-  columns: TableColumn<T>[];
-  data: T[];
-  striped?: boolean;
-  hoverable?: boolean;
-}
+import type { TableProps } from './types';
 
 const props = withDefaults(defineProps<TableProps<Record<string, unknown>>>(), {
   variant: 'default',
