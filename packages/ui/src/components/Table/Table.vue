@@ -1,25 +1,26 @@
 <script setup lang="ts">
 import { computed, useCssModule } from 'vue';
 
-export interface TableColumn {
-  key: string;
+export interface TableColumn<T> {
+  key: keyof T;
   label: string;
   width?: string;
   align?: 'left' | 'center' | 'right';
+  render?: (value: T[keyof T], row: T) => string
 }
 
-export interface TableProps {
+export interface TableProps<T = Record<string, unknown>> {
   variant?: 'default' | 'glass-css-only' | 'glass-highlight-layered';
-  columns: TableColumn[];
-  rows: Record<string, unknown>[];
+  columns: TableColumn<T>[];
+  data: T[];
   striped?: boolean;
   hoverable?: boolean;
 }
 
-const props = withDefaults(defineProps<TableProps>(), {
+const props = withDefaults(defineProps<TableProps<Record<string, unknown>>>(), {
   variant: 'default',
   columns: () => [],
-  rows: () => [],
+  data: () => [],
   striped: false,
   hoverable: true,
 });
@@ -40,12 +41,12 @@ const tableClasses = computed(() => [
   props.hoverable ? style[toCamelCase('liquid-table--hoverable')] : '',
 ]);
 
-const thClass = (col: TableColumn) => [
+const thClass = (col: typeof props.columns[number]) => [
   style[toCamelCase('liquid-table-th')],
   col.align ? style[toCamelCase(`liquid-table-th--${col.align}`)] : '',
 ];
 
-const tdClass = (col: TableColumn) => [
+const tdClass = (col: typeof props.columns[number]) => [
   style[toCamelCase('liquid-table-td')],
   col.align ? style[toCamelCase(`liquid-table-td--${col.align}`)] : '',
 ];
@@ -68,19 +69,19 @@ const tdClass = (col: TableColumn) => [
       </thead>
       <tbody :class="style[toCamelCase('liquid-table-tbody')]">
         <tr
-          v-for="(row, i) in rows"
+          v-for="(row, i) in data"
           :key="i"
           :class="style[toCamelCase('liquid-table-tr')]"
         >
           <td
             v-for="col in columns"
-            :key="col.key"
+            :key="String(col.key)"
             :class="tdClass(col)"
           >
-            {{ row[col.key] }}
+            {{ col.render ? col.render(row[col.key], row) : row[col.key] }}
           </td>
         </tr>
-        <tr v-if="rows.length === 0" :class="style[toCamelCase('liquid-table-tr')]">
+        <tr v-if="data.length === 0" :class="style[toCamelCase('liquid-table-tr')]">
           <td :colspan="columns.length" :class="style[toCamelCase('liquid-table-empty')]">
             無資料
           </td>

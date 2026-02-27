@@ -51,7 +51,7 @@ const meta = {
     striped: false,
     hoverable: true,
     columns: DEMO_COLUMNS,
-    rows: DEMO_ROWS,
+    data: DEMO_ROWS,
   },
 } satisfies Meta<typeof LiquidTable>;
 
