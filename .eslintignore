@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+
+# Build outputs
+dist
+.nuxt
+.output
+.vercel
+storybook-static
+
+# Cache
+.cache
+.vite
+.turbo
+
+# Generated files
+*.d.ts
+!vite-env.d.ts
+!env.d.ts
+
+# Config files that may contain non-standard syntax
+*.config.js
+*.config.ts
+!eslint.config.*
