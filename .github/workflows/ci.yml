@@ -15,11 +15,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. 設定 pnpm
+      # 2. 設定 pnpm（自動讀取 package.json 的 packageManager 欄位）
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       # 3. 設定 Node.js
       - name: Setup Node.js
