@@ -11,6 +11,7 @@ hljs.registerLanguage('xml', xml)
 const installCode = `# Install the packages
 pnpm add @liquid/ui @liquid/tokens`
 
+/* eslint-disable no-useless-escape */
 const usageCode = `<script setup lang="ts">
 import { GlassFilterProvider, LiquidButton, LiquidCard } from '@liquid/ui'
 import '@liquid/tokens/colors.css'
@@ -26,6 +27,7 @@ import '@liquid/tokens/glass.css'
     </LiquidCard>
   </GlassFilterProvider>
 </template>`
+/* eslint-enable no-useless-escape */
 
 const highlightedInstall = computed(() =>
   hljs.highlight(installCode, { language: 'bash' }).value

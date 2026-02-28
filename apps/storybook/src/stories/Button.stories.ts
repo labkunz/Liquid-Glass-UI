@@ -344,7 +344,7 @@ export const GlassOnDifferentBackgrounds: Story = {
           <div style="
             padding: 2rem;
             background:
-              url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\"><rect fill=\"%23667eea\" width=\"50\" height=\"50\"/><rect fill=\"%23764ba2\" x=\"50\" width=\"50\" height=\"50\"/><rect fill=\"%23764ba2\" y=\"50\" width=\"50\" height=\"50\"/><rect fill=\"%23667eea\" x=\"50\" y=\"50\" width=\"50\" height=\"50\"/></svg>'),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%23667eea" width="50" height="50"/><rect fill="%23764ba2" x="50" width="50" height="50"/><rect fill="%23764ba2" y="50" width="50" height="50"/><rect fill="%23667eea" x="50" y="50" width="50" height="50"/></svg>'),
               linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
             background-size: 20px 20px, cover;
             border-radius: 8px;
