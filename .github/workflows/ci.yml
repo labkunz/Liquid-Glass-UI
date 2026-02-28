@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout 程式碼
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 設定 pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      # 3. 設定 Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      # 4. 安裝依賴
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 5. Lint 檢查
+      - name: Run ESLint
+        run: pnpm lint
+
+      # 6. TypeScript 型別檢查（只檢查 packages）
+      - name: Type check packages
+        run: pnpm typecheck:packages
+
+      # 7. 執行測試
+      - name: Run tests
+        run: pnpm test:ui
+
+      # 8. 建構 packages（驗證能否成功建構）
+      - name: Build packages
+        run: pnpm build:packages
