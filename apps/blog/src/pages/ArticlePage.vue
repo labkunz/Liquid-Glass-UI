@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, shallowRef, watchEffect } from 'vue'
-import { useRoute, useRouter, RouterLink } from 'vue-router'
+import { useRoute, RouterLink } from 'vue-router'
 import type { Component } from 'vue'
 import { LiquidBadge, LiquidTooltip } from '@liquid/ui'
 import BlogNavbar from '../components/BlogNavbar.vue'
@@ -8,7 +8,6 @@ import { getArticleBySlug, categoryColors, categoryGradients } from '../data/art
 import { useToast } from '../composables/useToast'
 
 const route = useRoute()
-const router = useRouter()
 const { success } = useToast()
 
 const slug = computed(() => route.params.slug as string)

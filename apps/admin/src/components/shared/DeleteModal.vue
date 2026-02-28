@@ -8,7 +8,7 @@ interface Props {
   loading?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   title: '確認刪除',
   message: '此操作無法復原，確定要刪除嗎？',
   loading: false,

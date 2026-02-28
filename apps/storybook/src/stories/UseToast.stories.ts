@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import { defineComponent, h } from 'vue';
 import { ToastProvider, useToast } from '@liquid/logic';
 import { LiquidButton, LiquidStack } from '@liquid/ui';
 
