@@ -41,8 +41,12 @@ const entryPoints = [
     <div class="entry-points">
       <div class="container">
         <div class="entry-header">
-          <p class="section-label">Explore The Ecosystem</p>
-          <h2 class="section-title">Five Ways to Explore</h2>
+          <p class="section-label">
+            Explore The Ecosystem
+          </p>
+          <h2 class="section-title">
+            Five Ways to Explore
+          </h2>
         </div>
 
         <div class="entry-grid">
@@ -54,7 +58,11 @@ const entryPoints = [
             rel="noopener noreferrer"
             class="entry-link"
           >
-            <LiquidCard variant="glass-css-only" padding="md" class="entry-card">
+            <LiquidCard
+              variant="glass-css-only"
+              padding="md"
+              class="entry-card"
+            >
               <span class="entry-icon">{{ entry.icon }}</span>
               <span class="entry-label">{{ entry.label }}</span>
               <span class="entry-desc">{{ entry.desc }}</span>
@@ -72,11 +80,26 @@ const entryPoints = [
           Built with Vue 3 + Liquid Glass · © 2025
         </span>
         <div class="footer-links">
-          <a href="https://github.com/labkunz/Liquid-Glass-UI" target="_blank" rel="noopener noreferrer" class="footer-link">
+          <a
+            href="https://github.com/labkunz/Liquid-Glass-UI"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+          >
             GitHub
           </a>
-          <a href="https://liquid-docs.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-link">Docs</a>
-          <a href="https://liquid-storybook.vercel.app/" target="_blank" rel="noopener noreferrer" class="footer-link">Storybook</a>
+          <a
+            href="https://liquid-docs.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+          >Docs</a>
+          <a
+            href="https://liquid-storybook.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-link"
+          >Storybook</a>
         </div>
       </div>
     </div>

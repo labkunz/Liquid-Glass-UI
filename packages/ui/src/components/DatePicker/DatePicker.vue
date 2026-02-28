@@ -54,7 +54,7 @@ const fieldClass = computed(() => style[toCamelCase('liquid-datepicker-field')])
       :min="min || undefined"
       :max="max || undefined"
       @change="handleChange"
-    />
+    >
   </div>
 </template>
 

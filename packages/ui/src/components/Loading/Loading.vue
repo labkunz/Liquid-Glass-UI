@@ -36,25 +36,52 @@ const spinnerClass = computed(() => [
 </script>
 
 <template>
-  <div :class="classes" role="status" :aria-label="label || '載入中'">
+  <div
+    :class="classes"
+    role="status"
+    :aria-label="label || '載入中'"
+  >
     <!-- Spinner type -->
-    <div v-if="type === 'spinner'" :class="spinnerClass">
-      <svg viewBox="0 0 50 50" fill="none">
-        <circle cx="25" cy="25" r="20" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-dasharray="80 40"/>
+    <div
+      v-if="type === 'spinner'"
+      :class="spinnerClass"
+    >
+      <svg
+        viewBox="0 0 50 50"
+        fill="none"
+      >
+        <circle
+          cx="25"
+          cy="25"
+          r="20"
+          stroke="currentColor"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-dasharray="80 40"
+        />
       </svg>
     </div>
 
     <!-- Dots type -->
-    <div v-else-if="type === 'dots'" :class="spinnerClass">
+    <div
+      v-else-if="type === 'dots'"
+      :class="spinnerClass"
+    >
       <span :class="style[toCamelCase('liquid-loading-dot')]" />
       <span :class="style[toCamelCase('liquid-loading-dot')]" />
       <span :class="style[toCamelCase('liquid-loading-dot')]" />
     </div>
 
     <!-- Pulse type -->
-    <div v-else-if="type === 'pulse'" :class="spinnerClass" />
+    <div
+      v-else-if="type === 'pulse'"
+      :class="spinnerClass"
+    />
 
-    <span v-if="label" :class="style[toCamelCase('liquid-loading-label')]">{{ label }}</span>
+    <span
+      v-if="label"
+      :class="style[toCamelCase('liquid-loading-label')]"
+    >{{ label }}</span>
   </div>
 </template>
 

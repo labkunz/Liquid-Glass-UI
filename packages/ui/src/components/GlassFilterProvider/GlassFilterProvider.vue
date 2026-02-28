@@ -23,7 +23,13 @@
     <defs>
       <!-- ==================== Filter 1: Subtle Glass (保守方案) ==================== -->
       <!-- 適用於 Button、Input 等小型元件，折射效果微弱，確保文字可讀 -->
-      <filter id="glass-subtle" x="-20%" y="-20%" width="140%" height="140%">
+      <filter
+        id="glass-subtle"
+        x="-20%"
+        y="-20%"
+        width="140%"
+        height="140%"
+      >
         <!-- 產生噪點紋理 -->
         <feTurbulence
           type="fractalNoise"
@@ -59,7 +65,11 @@
           lighting-color="#ffffff"
           result="specular"
         >
-          <fePointLight x="100" y="100" z="200" />
+          <fePointLight
+            x="100"
+            y="100"
+            z="200"
+          />
         </feSpecularLighting>
 
         <!-- 合成高光與位移後的圖形 -->
@@ -84,7 +94,13 @@
 
       <!-- ==================== Filter 2: Intense Glass (激進方案) ==================== -->
       <!-- 適用於 Card、Modal 等大型浮層元件，折射效果明顯 -->
-      <filter id="glass-intense" x="-50%" y="-50%" width="200%" height="200%">
+      <filter
+        id="glass-intense"
+        x="-50%"
+        y="-50%"
+        width="200%"
+        height="200%"
+      >
         <!-- 產生更複雜的噪點紋理 -->
         <feTurbulence
           type="fractalNoise"
@@ -120,7 +136,11 @@
           lighting-color="#ffffff"
           result="specular"
         >
-          <fePointLight x="150" y="150" z="300" />
+          <fePointLight
+            x="150"
+            y="150"
+            z="300"
+          />
         </feSpecularLighting>
 
         <!-- 合成高光 -->
@@ -146,7 +166,13 @@
       <!-- ==================== Filter 3: Highlight Only (只有高光，無位移) ==================== -->
       <!-- 移除 feDisplacementMap，只保留有機高光效果，元素形狀不會被扭曲 -->
       <!-- 適用於 glass-highlight-only 和 glass-highlight-layered variant -->
-      <filter id="glass-highlight-only" x="-20%" y="-20%" width="140%" height="140%">
+      <filter
+        id="glass-highlight-only"
+        x="-20%"
+        y="-20%"
+        width="140%"
+        height="140%"
+      >
         <!-- 產生噪點做為光照法線圖 -->
         <feTurbulence
           type="fractalNoise"
@@ -172,7 +198,11 @@
           lighting-color="#ffffff"
           result="specular"
         >
-          <fePointLight x="120" y="80" z="180" />
+          <fePointLight
+            x="120"
+            y="80"
+            z="180"
+          />
         </feSpecularLighting>
 
         <!-- 把高光限制在原始圖形範圍內 -->
@@ -197,7 +227,13 @@
 
       <!-- ==================== Filter 4: Background Refraction Only ==================== -->
       <!-- 僅對背景層套用，文字層保持清晰 -->
-      <filter id="glass-backdrop" x="-30%" y="-30%" width="160%" height="160%">
+      <filter
+        id="glass-backdrop"
+        x="-30%"
+        y="-30%"
+        width="160%"
+        height="160%"
+      >
         <feTurbulence
           type="fractalNoise"
           baseFrequency="0.009"

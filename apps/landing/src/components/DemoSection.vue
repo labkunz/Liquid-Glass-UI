@@ -9,8 +9,12 @@ const ADMIN_URL = 'https://liquid-admin.vercel.app/'
   <section class="demos">
     <div class="container">
       <div class="section-header">
-        <p class="section-label">Live Demos</p>
-        <h2 class="section-title">Two Demos. One Component Library.</h2>
+        <p class="section-label">
+          Live Demos
+        </p>
+        <h2 class="section-title">
+          Two Demos. One Component Library.
+        </h2>
         <p class="section-desc">
           The same set of components powering two completely different products —
           proving versatility across design styles and engineering needs.
@@ -20,11 +24,22 @@ const ADMIN_URL = 'https://liquid-admin.vercel.app/'
       <div class="demos-grid">
         <!-- Blog Demo -->
         <div class="demo-wrapper demo-wrapper--light">
-          <LiquidCard variant="glass-css-only" padding="lg" class="demo-card">
+          <LiquidCard
+            variant="glass-css-only"
+            padding="lg"
+            class="demo-card"
+          >
             <div class="demo-card-header">
-              <LiquidBadge color="primary" size="sm">Design Focus</LiquidBadge>
+              <LiquidBadge
+                color="primary"
+                size="sm"
+              >
+                Design Focus
+              </LiquidBadge>
             </div>
-            <h3 class="demo-title">Liquid Glass Blog</h3>
+            <h3 class="demo-title">
+              Liquid Glass Blog
+            </h3>
             <p class="demo-desc">
               A content-focused blog showcasing Liquid Glass aesthetics in a light, airy design.
               Demonstrates Card, Badge, Navbar, Toast, and Pagination in a real-world layout.
@@ -38,8 +53,15 @@ const ADMIN_URL = 'https://liquid-admin.vercel.app/'
             </div>
             <div class="demo-footer">
               <span class="demo-audience">For designers & PMs</span>
-              <a :href="BLOG_URL" target="_blank" rel="noopener noreferrer">
-                <LiquidButton variant="primary" size="sm">
+              <a
+                :href="BLOG_URL"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LiquidButton
+                  variant="primary"
+                  size="sm"
+                >
                   Visit Blog →
                 </LiquidButton>
               </a>
@@ -49,11 +71,22 @@ const ADMIN_URL = 'https://liquid-admin.vercel.app/'
 
         <!-- Admin Demo -->
         <div class="demo-wrapper demo-wrapper--dark">
-          <LiquidCard variant="glass-css-only" padding="lg" class="demo-card demo-card--dark">
+          <LiquidCard
+            variant="glass-css-only"
+            padding="lg"
+            class="demo-card demo-card--dark"
+          >
             <div class="demo-card-header">
-              <LiquidBadge color="info" size="sm">Engineering Focus</LiquidBadge>
+              <LiquidBadge
+                color="info"
+                size="sm"
+              >
+                Engineering Focus
+              </LiquidBadge>
             </div>
-            <h3 class="demo-title demo-title--dark">ATS Admin System</h3>
+            <h3 class="demo-title demo-title--dark">
+              ATS Admin System
+            </h3>
             <p class="demo-desc demo-desc--dark">
               An Applicant Tracking System (ATS) built with Form Engine and Table Engine.
               Full CRUD with schema-driven forms, sortable/filterable tables, and real-world business logic.
@@ -66,8 +99,15 @@ const ADMIN_URL = 'https://liquid-admin.vercel.app/'
             </div>
             <div class="demo-footer">
               <span class="demo-audience demo-audience--dark">For engineers & tech leads</span>
-              <a :href="ADMIN_URL" target="_blank" rel="noopener noreferrer">
-                <LiquidButton variant="outline" size="sm">
+              <a
+                :href="ADMIN_URL"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <LiquidButton
+                  variant="outline"
+                  size="sm"
+                >
                   Visit Admin →
                 </LiquidButton>
               </a>

@@ -27,7 +27,10 @@ const toggleMobile = () => { isMobileOpen.value = !isMobileOpen.value; };
 </script>
 
 <template>
-  <nav :class="classes" aria-label="main navigation">
+  <nav
+    :class="classes"
+    aria-label="main navigation"
+  >
     <div :class="style[toCamelCase('liquid-navbar-inner')]">
       <!-- Logo -->
       <div :class="style[toCamelCase('liquid-navbar-logo')]">
@@ -59,7 +62,10 @@ const toggleMobile = () => { isMobileOpen.value = !isMobileOpen.value; };
 
     <!-- Mobile menu -->
     <Transition name="liquid-navbar-mobile">
-      <div v-if="isMobileOpen" :class="style[toCamelCase('liquid-navbar-mobile')]">
+      <div
+        v-if="isMobileOpen"
+        :class="style[toCamelCase('liquid-navbar-mobile')]"
+      >
         <slot name="links" />
       </div>
     </Transition>

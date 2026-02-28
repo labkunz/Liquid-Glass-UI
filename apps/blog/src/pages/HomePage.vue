@@ -55,7 +55,9 @@ function formatDate(dateStr: string) {
     <main class="home-page__main">
       <!-- Hero -->
       <section class="home-page__hero container">
-        <h1 class="home-page__title">Liquid Glass Blog</h1>
+        <h1 class="home-page__title">
+          Liquid Glass Blog
+        </h1>
         <p class="home-page__subtitle">
           設計、前端、AI 工具、後端學習筆記，以 Liquid Glass 為美學主張
         </p>
@@ -100,8 +102,12 @@ function formatDate(dateStr: string) {
 
             <!-- Card content -->
             <div class="home-page__card-body">
-              <h2 class="home-page__card-title">{{ article.title }}</h2>
-              <p class="home-page__card-excerpt">{{ article.excerpt }}</p>
+              <h2 class="home-page__card-title">
+                {{ article.title }}
+              </h2>
+              <p class="home-page__card-excerpt">
+                {{ article.excerpt }}
+              </p>
 
               <div class="home-page__card-meta">
                 <span class="home-page__card-date">{{ formatDate(article.date) }}</span>
@@ -125,13 +131,19 @@ function formatDate(dateStr: string) {
         </RouterLink>
 
         <!-- Empty state -->
-        <div v-if="pagedArticles.length === 0" class="home-page__empty">
+        <div
+          v-if="pagedArticles.length === 0"
+          class="home-page__empty"
+        >
           此分類暫無文章
         </div>
       </section>
 
       <!-- Pagination -->
-      <div v-if="totalPages > 1" class="home-page__pagination container">
+      <div
+        v-if="totalPages > 1"
+        class="home-page__pagination container"
+      >
         <LiquidPagination
           :current-page="currentPage"
           :total-pages="totalPages"

@@ -59,15 +59,26 @@ function formatDate(dateStr: string) {
 
     <main class="article-page__main">
       <!-- Loading -->
-      <div v-if="isLoading" class="article-page__loading">
+      <div
+        v-if="isLoading"
+        class="article-page__loading"
+      >
         <div class="article-page__spinner" />
       </div>
 
       <!-- 404 -->
-      <div v-else-if="notFound" class="article-page__not-found container">
+      <div
+        v-else-if="notFound"
+        class="article-page__not-found container"
+      >
         <h1>找不到文章</h1>
         <p>你要找的文章不存在，可能已被移除或連結有誤。</p>
-        <RouterLink to="/" class="article-page__back-btn">回到首頁</RouterLink>
+        <RouterLink
+          to="/"
+          class="article-page__back-btn"
+        >
+          回到首頁
+        </RouterLink>
       </div>
 
       <!-- Article -->
@@ -78,7 +89,12 @@ function formatDate(dateStr: string) {
           :class="`article-page__hero--${categoryGradients[article.category]}`"
         >
           <div class="article-page__hero-inner container">
-            <RouterLink to="/" class="article-page__back">← 回到文章列表</RouterLink>
+            <RouterLink
+              to="/"
+              class="article-page__back"
+            >
+              ← 回到文章列表
+            </RouterLink>
 
             <LiquidBadge
               :color="categoryColors[article.category]"
@@ -88,7 +104,9 @@ function formatDate(dateStr: string) {
               {{ article.category }}
             </LiquidBadge>
 
-            <h1 class="article-page__title">{{ article.title }}</h1>
+            <h1 class="article-page__title">
+              {{ article.title }}
+            </h1>
 
             <div class="article-page__meta">
               <span>{{ formatDate(article.date) }}</span>
@@ -112,16 +130,31 @@ function formatDate(dateStr: string) {
 
         <!-- Toolbar -->
         <div class="article-page__toolbar container">
-          <LiquidTooltip content="複製文章連結" placement="bottom">
-            <button class="article-page__tool-btn" @click="copyArticleLink">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <LiquidTooltip
+            content="複製文章連結"
+            placement="bottom"
+          >
+            <button
+              class="article-page__tool-btn"
+              @click="copyArticleLink"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
                 <path
                   d="M6.5 9.5C6.89 10.04 7.39 10.49 7.97 10.82C8.55 11.15 9.19 11.34 9.85 11.37C10.51 11.4 11.17 11.27 11.77 10.99C12.37 10.71 12.89 10.29 13.29 9.77L14.79 7.77C15.49 6.86 15.82 5.72 15.71 4.58C15.6 3.44 15.06 2.38 14.2 1.62C13.34 0.85 12.22 0.44 11.07 0.46C9.92 0.48 8.82 0.93 7.99 1.73L7.25 2.47"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
                 />
                 <path
                   d="M9.5 6.5C9.11 5.96 8.61 5.51 8.03 5.18C7.45 4.85 6.81 4.66 6.15 4.63C5.49 4.6 4.83 4.73 4.23 5.01C3.63 5.29 3.11 5.71 2.71 6.23L1.21 8.23C0.51 9.14 0.18 10.28 0.29 11.42C0.4 12.56 0.94 13.62 1.8 14.38C2.66 15.15 3.78 15.56 4.93 15.54C6.08 15.52 7.18 15.07 8.01 14.27L8.74 13.53"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
                 />
               </svg>
               複製連結
@@ -138,7 +171,12 @@ function formatDate(dateStr: string) {
 
         <!-- Footer nav -->
         <div class="article-page__footer-nav container">
-          <RouterLink to="/" class="article-page__back-btn">← 回到文章列表</RouterLink>
+          <RouterLink
+            to="/"
+            class="article-page__back-btn"
+          >
+            ← 回到文章列表
+          </RouterLink>
         </div>
       </template>
     </main>

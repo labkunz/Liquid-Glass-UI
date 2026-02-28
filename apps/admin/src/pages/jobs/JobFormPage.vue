@@ -175,11 +175,23 @@ function handleCancel() {
   <AdminLayout>
     <div class="form-page">
       <div class="form-page__header">
-        <button class="form-page__back" @click="handleCancel">← 返回列表</button>
-        <h2 class="form-page__title">{{ isEdit ? '編輯職缺' : '新增職缺' }}</h2>
+        <button
+          class="form-page__back"
+          @click="handleCancel"
+        >
+          ← 返回列表
+        </button>
+        <h2 class="form-page__title">
+          {{ isEdit ? '編輯職缺' : '新增職缺' }}
+        </h2>
       </div>
 
-      <LiquidCard variant="glass-css-only" padding="none" overflow="visible" class="form-page__card">
+      <LiquidCard
+        variant="glass-css-only"
+        padding="none"
+        overflow="visible"
+        class="form-page__card"
+      >
         <FormEngine
           v-model="formData"
           :schema="schema"
@@ -188,10 +200,16 @@ function handleCancel() {
         >
           <template #actions>
             <div class="form-page__actions">
-              <LiquidButton variant="ghost" @click="handleCancel">
+              <LiquidButton
+                variant="ghost"
+                @click="handleCancel"
+              >
                 取消
               </LiquidButton>
-              <LiquidButton type="submit" variant="primary">
+              <LiquidButton
+                type="submit"
+                variant="primary"
+              >
                 {{ isEdit ? '儲存變更' : '新增職缺' }}
               </LiquidButton>
             </div>

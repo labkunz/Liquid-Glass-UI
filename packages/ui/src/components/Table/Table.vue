@@ -66,8 +66,14 @@ const tdClass = (col: typeof props.columns[number]) => [
             {{ col.render ? col.render(row[col.key], row) : row[col.key] }}
           </td>
         </tr>
-        <tr v-if="data.length === 0" :class="style[toCamelCase('liquid-table-tr')]">
-          <td :colspan="columns.length" :class="style[toCamelCase('liquid-table-empty')]">
+        <tr
+          v-if="data.length === 0"
+          :class="style[toCamelCase('liquid-table-tr')]"
+        >
+          <td
+            :colspan="columns.length"
+            :class="style[toCamelCase('liquid-table-empty')]"
+          >
             無資料
           </td>
         </tr>

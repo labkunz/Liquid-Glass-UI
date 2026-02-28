@@ -57,7 +57,10 @@ function isActive(path: string) {
         :class="{ 'admin-sidebar__nav-item--active': isActive(item.path) }"
       >
         <!-- eslint-disable-next-line vue/no-v-html -->
-        <span class="admin-sidebar__nav-icon" v-html="item.icon" />
+        <span
+          class="admin-sidebar__nav-icon"
+          v-html="item.icon"
+        />
         <span class="admin-sidebar__nav-label">{{ item.label }}</span>
       </RouterLink>
     </nav>

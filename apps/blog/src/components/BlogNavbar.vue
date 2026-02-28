@@ -4,16 +4,27 @@ import { LiquidNavbar } from '@liquid/ui'
 </script>
 
 <template>
-  <LiquidNavbar variant="glass-light" :sticky="true">
+  <LiquidNavbar
+    variant="glass-light"
+    :sticky="true"
+  >
     <template #logo>
-      <RouterLink to="/" class="blog-navbar__logo">
+      <RouterLink
+        to="/"
+        class="blog-navbar__logo"
+      >
         <span class="blog-navbar__logo-icon">◈</span>
         <span class="blog-navbar__logo-text">Liquid Glass Blog</span>
       </RouterLink>
     </template>
 
     <template #links>
-      <RouterLink to="/" class="blog-navbar__link">文章</RouterLink>
+      <RouterLink
+        to="/"
+        class="blog-navbar__link"
+      >
+        文章
+      </RouterLink>
       <a
         href="https://github.com"
         target="_blank"

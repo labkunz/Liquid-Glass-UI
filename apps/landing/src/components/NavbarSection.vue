@@ -7,7 +7,10 @@ const scrollTo = (id: string) => {
 </script>
 
 <template>
-  <LiquidNavbar variant="glass-css-only" :sticky="true">
+  <LiquidNavbar
+    variant="glass-css-only"
+    :sticky="true"
+  >
     <template #logo>
       <span class="logo">
         <span class="logo-mark">⬡</span>
@@ -16,20 +19,54 @@ const scrollTo = (id: string) => {
     </template>
 
     <template #links>
-      <button class="nav-link" @click="scrollTo('features')">Features</button>
-      <button class="nav-link" @click="scrollTo('demos')">Demos</button>
-      <button class="nav-link" @click="scrollTo('showcase')">Components</button>
-      <button class="nav-link" @click="scrollTo('quick-start')">Quick Start</button>
+      <button
+        class="nav-link"
+        @click="scrollTo('features')"
+      >
+        Features
+      </button>
+      <button
+        class="nav-link"
+        @click="scrollTo('demos')"
+      >
+        Demos
+      </button>
+      <button
+        class="nav-link"
+        @click="scrollTo('showcase')"
+      >
+        Components
+      </button>
+      <button
+        class="nav-link"
+        @click="scrollTo('quick-start')"
+      >
+        Quick Start
+      </button>
     </template>
 
     <template #actions>
-      <a href="https://github.com/labkunz/Liquid-Glass-UI" target="_blank" rel="noopener noreferrer">
-        <LiquidButton variant="glass-css-only" size="sm">
+      <a
+        href="https://github.com/labkunz/Liquid-Glass-UI"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <LiquidButton
+          variant="glass-css-only"
+          size="sm"
+        >
           GitHub
         </LiquidButton>
       </a>
-      <a href="https://liquid-docs.vercel.app/" target="_blank" rel="noopener noreferrer">
-        <LiquidButton variant="glass-highlight-layered" size="sm">
+      <a
+        href="https://liquid-docs.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <LiquidButton
+          variant="glass-highlight-layered"
+          size="sm"
+        >
           Docs
         </LiquidButton>
       </a>

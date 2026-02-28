@@ -57,7 +57,11 @@ const arrowClasses = computed(() => [
   >
     <slot />
     <Transition name="tooltip">
-      <div v-if="isVisible && content" :class="tooltipClasses" role="tooltip">
+      <div
+        v-if="isVisible && content"
+        :class="tooltipClasses"
+        role="tooltip"
+      >
         <span :class="arrowClasses" />
         {{ content }}
       </div>

@@ -146,8 +146,14 @@ function getSortIcon(key: string): string {
       v-if="normalizedColumns.some((c) => c.filterable)"
       class="table-engine__filters"
     >
-      <template v-for="col in normalizedColumns" :key="col.key">
-        <div v-if="col.filterable" class="table-engine__filter-item">
+      <template
+        v-for="col in normalizedColumns"
+        :key="col.key"
+      >
+        <div
+          v-if="col.filterable"
+          class="table-engine__filter-item"
+        >
           <label class="table-engine__filter-label">{{ col.label }}</label>
           <input
             class="table-engine__filter-input"
@@ -155,7 +161,7 @@ function getSortIcon(key: string): string {
             :placeholder="`搜尋 ${col.label}…`"
             :value="filterState[col.key] ?? ''"
             @input="handleFilterInput(col.key, ($event.target as HTMLInputElement).value)"
-          />
+          >
         </div>
       </template>
     </div>
@@ -200,13 +206,20 @@ function getSortIcon(key: string): string {
               class="table-engine__td"
               :class="[`table-engine__td--${col.align ?? 'left'}`]"
             >
-              <slot :name="`cell-${col.key}`" :value="row[col.key]" :row="row">
+              <slot
+                :name="`cell-${col.key}`"
+                :value="row[col.key]"
+                :row="row"
+              >
                 {{ row[col.key] }}
               </slot>
             </td>
           </tr>
           <tr v-if="displayRows.length === 0">
-            <td :colspan="tableColumns.length" class="table-engine__empty">
+            <td
+              :colspan="tableColumns.length"
+              class="table-engine__empty"
+            >
               無資料
             </td>
           </tr>
@@ -215,7 +228,10 @@ function getSortIcon(key: string): string {
     </div>
 
     <!-- 分頁 -->
-    <div v-if="showPagination && processed.totalPages > 1" class="table-engine__pagination">
+    <div
+      v-if="showPagination && processed.totalPages > 1"
+      class="table-engine__pagination"
+    >
       <span class="table-engine__total">共 {{ processed.total }} 筆</span>
       <LiquidPagination
         :current-page="paginationState.page"

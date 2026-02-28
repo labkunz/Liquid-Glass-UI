@@ -76,17 +76,29 @@ async function confirmDelete() {
       <!-- Header -->
       <div class="list-page__header">
         <div>
-          <h2 class="list-page__title">應徵者管理</h2>
+          <h2 class="list-page__title">
+            應徵者管理
+          </h2>
           <p class="list-page__subtitle">
             共 {{ candidatesStore.totalCandidates }} 位應徵者，
             本月新增 {{ candidatesStore.thisMonthCount }} 位
           </p>
         </div>
-        <LiquidButton variant="primary" @click="router.push('/candidates/create')">+ 新增應徵者</LiquidButton>
+        <LiquidButton
+          variant="primary"
+          @click="router.push('/candidates/create')"
+        >
+          + 新增應徵者
+        </LiquidButton>
       </div>
 
       <!-- Table -->
-      <LiquidCard variant="glass-css-only" padding="none" overflow="visible" class="list-page__table">
+      <LiquidCard
+        variant="glass-css-only"
+        padding="none"
+        overflow="visible"
+        class="list-page__table"
+      >
         <TableEngine
           :columns="columns"
           :rows="rows"
@@ -107,10 +119,18 @@ async function confirmDelete() {
           <!-- Actions -->
           <template #cell-_id="{ value }">
             <div class="list-page__row-actions">
-              <LiquidButton variant="ghost" size="sm" @click="handleEdit(value as string)">
+              <LiquidButton
+                variant="ghost"
+                size="sm"
+                @click="handleEdit(value as string)"
+              >
                 編輯
               </LiquidButton>
-              <LiquidButton variant="danger" size="sm" @click="handleDelete(value as string)">
+              <LiquidButton
+                variant="danger"
+                size="sm"
+                @click="handleDelete(value as string)"
+              >
                 刪除
               </LiquidButton>
             </div>

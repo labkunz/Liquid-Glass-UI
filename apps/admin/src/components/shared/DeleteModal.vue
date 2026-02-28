@@ -35,14 +35,24 @@ function confirm() {
     variant="glass-css-only"
     @update:model-value="emit('update:modelValue', $event)"
   >
-    <p class="delete-modal__message">{{ message }}</p>
+    <p class="delete-modal__message">
+      {{ message }}
+    </p>
 
     <template #footer>
       <div class="delete-modal__actions">
-        <LiquidButton variant="ghost" :disabled="loading" @click="close">
+        <LiquidButton
+          variant="ghost"
+          :disabled="loading"
+          @click="close"
+        >
           取消
         </LiquidButton>
-        <LiquidButton variant="danger" :disabled="loading" @click="confirm">
+        <LiquidButton
+          variant="danger"
+          :disabled="loading"
+          @click="confirm"
+        >
           <span v-if="loading">刪除中…</span>
           <span v-else>確認刪除</span>
         </LiquidButton>

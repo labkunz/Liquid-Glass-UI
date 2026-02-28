@@ -59,11 +59,14 @@ const thumbClasses = computed(() => [
       :checked="modelValue"
       :disabled="disabled"
       @change="toggle"
-    />
+    >
     <span :class="trackClasses">
       <span :class="thumbClasses" />
     </span>
-    <span v-if="label" :class="style[toCamelCase('liquid-toggle-label')]">{{ label }}</span>
+    <span
+      v-if="label"
+      :class="style[toCamelCase('liquid-toggle-label')]"
+    >{{ label }}</span>
   </label>
 </template>
 

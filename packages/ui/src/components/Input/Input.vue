@@ -51,7 +51,7 @@ const fieldClass = computed(() => style[toCamelCase('liquid-input-field')]);
       :disabled="disabled"
       :value="modelValue"
       @input="handleInput"
-    />
+    >
   </div>
 </template>
 

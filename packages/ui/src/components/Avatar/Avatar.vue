@@ -49,7 +49,7 @@ const classes = computed(() => [
       :src="src"
       :alt="alt"
       @error="handleImgError"
-    />
+    >
     <span
       v-else-if="showInitials"
       :class="style[toCamelCase('liquid-avatar-initials')]"
@@ -60,8 +60,11 @@ const classes = computed(() => [
       v-else
       :class="style[toCamelCase('liquid-avatar-placeholder')]"
     >
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
       </svg>
     </span>
   </div>

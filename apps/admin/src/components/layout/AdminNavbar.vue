@@ -20,7 +20,9 @@ const pageTitle = computed(() => {
 <template>
   <header class="admin-navbar">
     <div class="admin-navbar__inner">
-      <h1 class="admin-navbar__title">{{ pageTitle }}</h1>
+      <h1 class="admin-navbar__title">
+        {{ pageTitle }}
+      </h1>
       <div class="admin-navbar__actions">
         <span class="admin-navbar__badge">Demo Mode</span>
       </div>

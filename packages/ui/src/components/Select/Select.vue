@@ -90,7 +90,10 @@ const optionClasses = (option: SelectOption) => [
 </script>
 
 <template>
-  <div ref="selectRef" :class="wrapperClasses">
+  <div
+    ref="selectRef"
+    :class="wrapperClasses"
+  >
     <button
       type="button"
       :class="triggerClasses"
@@ -99,13 +102,27 @@ const optionClasses = (option: SelectOption) => [
     >
       <span :class="style[toCamelCase('liquid-select-value')]">{{ selectedLabel }}</span>
       <span :class="[style[toCamelCase('liquid-select-arrow')], isOpen ? style[toCamelCase('liquid-select-arrow--open')] : '']">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-          <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+          <path
+            d="M2 4L6 8L10 4"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </span>
     </button>
 
-    <div v-if="isOpen" :class="dropdownClasses">
+    <div
+      v-if="isOpen"
+      :class="dropdownClasses"
+    >
       <button
         v-for="option in options"
         :key="option.value"

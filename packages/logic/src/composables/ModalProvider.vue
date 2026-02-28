@@ -46,7 +46,9 @@ function handleClose() {
   >
     <!-- 內容區：confirm 模式顯示 message，一般模式顯示 content -->
     <template v-if="modalStore.isConfirm">
-      <p class="modal-provider__message">{{ opts.message }}</p>
+      <p class="modal-provider__message">
+        {{ opts.message }}
+      </p>
     </template>
     <template v-else>
       <!-- 動態元件 -->
@@ -60,7 +62,10 @@ function handleClose() {
     </template>
 
     <!-- Footer：confirm 模式才顯示確認/取消按鈕 -->
-    <template v-if="modalStore.isConfirm" #footer>
+    <template
+      v-if="modalStore.isConfirm"
+      #footer
+    >
       <div class="modal-provider__actions">
         <LiquidButton
           variant="outline"

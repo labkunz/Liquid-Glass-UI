@@ -12,9 +12,18 @@ import FooterSection from './components/FooterSection.vue'
 <template>
   <GlassFilterProvider>
     <!-- Animated background blobs -->
-    <div class="blob blob-purple" aria-hidden="true" />
-    <div class="blob blob-pink" aria-hidden="true" />
-    <div class="blob blob-blue" aria-hidden="true" />
+    <div
+      class="blob blob-purple"
+      aria-hidden="true"
+    />
+    <div
+      class="blob blob-pink"
+      aria-hidden="true"
+    />
+    <div
+      class="blob blob-blue"
+      aria-hidden="true"
+    />
 
     <div class="content-layer">
       <NavbarSection />

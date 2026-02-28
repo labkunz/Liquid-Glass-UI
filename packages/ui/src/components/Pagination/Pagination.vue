@@ -71,7 +71,10 @@ const navBtnClass = (disabled: boolean) => [
 </script>
 
 <template>
-  <nav :class="classes" aria-label="pagination">
+  <nav
+    :class="classes"
+    aria-label="pagination"
+  >
     <button
       v-if="showPrevNext"
       :class="navBtnClass(currentPage <= 1)"

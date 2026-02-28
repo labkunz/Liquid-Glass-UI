@@ -67,7 +67,10 @@ const panelClasses = computed(() => [
 <template>
   <div :class="wrapperClasses">
     <!-- Tab 標籤列 -->
-    <div :class="navClasses" role="tablist">
+    <div
+      :class="navClasses"
+      role="tablist"
+    >
       <button
         v-for="tab in tabs"
         :key="tab.key"
@@ -81,7 +84,10 @@ const panelClasses = computed(() => [
     </div>
 
     <!-- Tab 內容區 -->
-    <div :class="panelClasses" role="tabpanel">
+    <div
+      :class="panelClasses"
+      role="tabpanel"
+    >
       <slot :name="activeKey">
         <slot />
       </slot>

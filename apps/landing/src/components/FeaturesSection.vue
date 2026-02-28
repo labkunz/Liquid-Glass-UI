@@ -39,8 +39,12 @@ const features = [
   <section class="features">
     <div class="container">
       <div class="section-header">
-        <p class="section-label">Why Liquid Glass UI</p>
-        <h2 class="section-title">Built for Both Beauty and Depth</h2>
+        <p class="section-label">
+          Why Liquid Glass UI
+        </p>
+        <h2 class="section-title">
+          Built for Both Beauty and Depth
+        </h2>
         <p class="section-desc">
           A component library that doesn't force you to choose between visual expressiveness
           and engineering practicality.
@@ -56,8 +60,12 @@ const features = [
           class="feature-card"
         >
           <span class="feature-icon">{{ feature.icon }}</span>
-          <h3 class="feature-title">{{ feature.title }}</h3>
-          <p class="feature-desc">{{ feature.desc }}</p>
+          <h3 class="feature-title">
+            {{ feature.title }}
+          </h3>
+          <p class="feature-desc">
+            {{ feature.desc }}
+          </p>
         </LiquidCard>
       </div>
     </div>

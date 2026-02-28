@@ -60,11 +60,17 @@ const dotClass = computed(() => [
       :name="name"
       :disabled="disabled"
       @change="handleChange"
-    />
+    >
     <span :class="dotClass">
-      <span v-if="isChecked" :class="style[toCamelCase('liquid-radio-dot-inner')]" />
+      <span
+        v-if="isChecked"
+        :class="style[toCamelCase('liquid-radio-dot-inner')]"
+      />
     </span>
-    <span v-if="label" :class="style[toCamelCase('liquid-radio-label')]">{{ label }}</span>
+    <span
+      v-if="label"
+      :class="style[toCamelCase('liquid-radio-label')]"
+    >{{ label }}</span>
   </label>
 </template>
 

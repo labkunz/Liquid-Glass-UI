@@ -46,7 +46,11 @@ const btnClasses = (value: string) => [
 </script>
 
 <template>
-  <div :class="barClasses" role="group" aria-label="filter options">
+  <div
+    :class="barClasses"
+    role="group"
+    aria-label="filter options"
+  >
     <button
       v-for="opt in normalizedOptions"
       :key="opt.value"

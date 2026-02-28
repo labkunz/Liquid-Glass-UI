@@ -47,20 +47,54 @@ const footerClass = computed(() => style[toCamelCase('liquid-modal-footer')]);
 <template>
   <Teleport to="body">
     <Transition name="modal">
-      <div v-if="modelValue" :class="overlayClass" @click="handleOverlayClick">
-        <div :class="modalClasses" role="dialog" aria-modal="true">
-          <div v-if="title || showClose" :class="headerClass">
-            <h3 v-if="title" :class="titleClass">{{ title }}</h3>
-            <button v-if="showClose" :class="closeClass" @click="close" aria-label="Close">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      <div
+        v-if="modelValue"
+        :class="overlayClass"
+        @click="handleOverlayClick"
+      >
+        <div
+          :class="modalClasses"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div
+            v-if="title || showClose"
+            :class="headerClass"
+          >
+            <h3
+              v-if="title"
+              :class="titleClass"
+            >
+              {{ title }}
+            </h3>
+            <button
+              v-if="showClose"
+              :class="closeClass"
+              aria-label="Close"
+              @click="close"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M2 2L14 14M14 2L2 14"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
               </svg>
             </button>
           </div>
           <div :class="bodyClass">
             <slot />
           </div>
-          <div v-if="$slots.footer" :class="footerClass">
+          <div
+            v-if="$slots.footer"
+            :class="footerClass"
+          >
             <slot name="footer" />
           </div>
         </div>

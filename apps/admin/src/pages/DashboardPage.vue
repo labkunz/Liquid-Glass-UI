@@ -71,11 +71,18 @@ const candidateStages = computed(() => {
           class="stat-card"
           :style="{ '--stat-color': stat.color }"
         >
-          <div class="stat-card__label">{{ stat.label }}</div>
-          <div class="stat-card__value" :style="{ color: stat.color }">
+          <div class="stat-card__label">
+            {{ stat.label }}
+          </div>
+          <div
+            class="stat-card__value"
+            :style="{ color: stat.color }"
+          >
             {{ stat.value }}
           </div>
-          <div class="stat-card__sub">{{ stat.sub }}</div>
+          <div class="stat-card__sub">
+            {{ stat.sub }}
+          </div>
         </div>
       </section>
 
@@ -83,7 +90,9 @@ const candidateStages = computed(() => {
       <div class="dashboard__charts">
         <!-- 部門分布 -->
         <div class="dashboard__chart-card stat-card">
-          <h3 class="dashboard__chart-title">開放中職缺 — 部門分布</h3>
+          <h3 class="dashboard__chart-title">
+            開放中職缺 — 部門分布
+          </h3>
           <div class="dashboard__bar-list">
             <div
               v-for="([dept, count]) in topDepartments"
@@ -104,7 +113,10 @@ const candidateStages = computed(() => {
                 />
               </div>
             </div>
-            <div v-if="topDepartments.length === 0" class="dashboard__empty">
+            <div
+              v-if="topDepartments.length === 0"
+              class="dashboard__empty"
+            >
               目前無開放職缺
             </div>
           </div>
@@ -112,7 +124,9 @@ const candidateStages = computed(() => {
 
         <!-- 應徵者階段分布 -->
         <div class="dashboard__chart-card stat-card">
-          <h3 class="dashboard__chart-title">應徵者審核階段分布</h3>
+          <h3 class="dashboard__chart-title">
+            應徵者審核階段分布
+          </h3>
           <div class="dashboard__bar-list">
             <div
               v-for="stage in candidateStages"
@@ -139,12 +153,34 @@ const candidateStages = computed(() => {
 
       <!-- 快速連結 -->
       <section class="dashboard__quick-actions stat-card">
-        <h3 class="dashboard__chart-title">快速操作</h3>
+        <h3 class="dashboard__chart-title">
+          快速操作
+        </h3>
         <div class="dashboard__action-grid">
-          <LiquidButton variant="primary" @click="router.push('/jobs/create')">新增職缺</LiquidButton>
-          <LiquidButton variant="ghost" @click="router.push('/candidates/create')">新增應徵者</LiquidButton>
-          <LiquidButton variant="ghost" @click="router.push('/jobs')">查看所有職缺</LiquidButton>
-          <LiquidButton variant="ghost" @click="router.push('/candidates')">查看所有應徵者</LiquidButton>
+          <LiquidButton
+            variant="primary"
+            @click="router.push('/jobs/create')"
+          >
+            新增職缺
+          </LiquidButton>
+          <LiquidButton
+            variant="ghost"
+            @click="router.push('/candidates/create')"
+          >
+            新增應徵者
+          </LiquidButton>
+          <LiquidButton
+            variant="ghost"
+            @click="router.push('/jobs')"
+          >
+            查看所有職缺
+          </LiquidButton>
+          <LiquidButton
+            variant="ghost"
+            @click="router.push('/candidates')"
+          >
+            查看所有應徵者
+          </LiquidButton>
         </div>
       </section>
     </div>

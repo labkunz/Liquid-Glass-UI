@@ -56,7 +56,11 @@ function handleUpdate(value: unknown) {
     <!-- 欄位標籤 -->
     <label class="form-field__label">
       {{ field.label }}
-      <span v-if="field.required" class="form-field__required" aria-hidden="true">*</span>
+      <span
+        v-if="field.required"
+        class="form-field__required"
+        aria-hidden="true"
+      >*</span>
     </label>
 
     <!-- 動態渲染對應 UI 元件 -->
@@ -70,7 +74,11 @@ function handleUpdate(value: unknown) {
     />
 
     <!-- 錯誤訊息 -->
-    <p v-if="error" class="form-field__error" role="alert">
+    <p
+      v-if="error"
+      class="form-field__error"
+      role="alert"
+    >
       {{ error }}
     </p>
   </div>

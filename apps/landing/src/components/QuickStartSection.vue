@@ -57,8 +57,12 @@ const highlightedUsage = computed(() =>
   <section class="quickstart">
     <div class="container">
       <div class="section-header">
-        <p class="section-label">Get Started</p>
-        <h2 class="section-title">Up and Running in Minutes</h2>
+        <p class="section-label">
+          Get Started
+        </p>
+        <h2 class="section-title">
+          Up and Running in Minutes
+        </h2>
         <p class="section-desc">
           Install the packages, import the tokens, and start building with Liquid Glass components.
         </p>
@@ -66,10 +70,17 @@ const highlightedUsage = computed(() =>
 
       <div class="steps">
         <div class="step">
-          <div class="step-number">1</div>
+          <div class="step-number">
+            1
+          </div>
           <div class="step-content">
-            <LiquidCard variant="glass-css-only" padding="lg">
-              <h3 class="step-title">Install</h3>
+            <LiquidCard
+              variant="glass-css-only"
+              padding="lg"
+            >
+              <h3 class="step-title">
+                Install
+              </h3>
               <!-- eslint-disable-next-line vue/no-v-html -->
               <pre><code v-html="highlightedInstall" /></pre>
             </LiquidCard>
@@ -77,10 +88,17 @@ const highlightedUsage = computed(() =>
         </div>
 
         <div class="step">
-          <div class="step-number">2</div>
+          <div class="step-number">
+            2
+          </div>
           <div class="step-content">
-            <LiquidCard variant="glass-css-only" padding="lg">
-              <h3 class="step-title">Use</h3>
+            <LiquidCard
+              variant="glass-css-only"
+              padding="lg"
+            >
+              <h3 class="step-title">
+                Use
+              </h3>
               <!-- eslint-disable-next-line vue/no-v-html -->
               <pre><code v-html="highlightedUsage" /></pre>
             </LiquidCard>
@@ -89,10 +107,22 @@ const highlightedUsage = computed(() =>
       </div>
 
       <div class="quickstart-cta">
-        <p class="cta-text">Want to go deeper?</p>
+        <p class="cta-text">
+          Want to go deeper?
+        </p>
         <div class="cta-links">
-          <a href="https://liquid-docs.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-link cta-link--primary">Read the Docs →</a>
-          <a href="https://liquid-storybook.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-link">Explore Storybook →</a>
+          <a
+            href="https://liquid-docs.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-link cta-link--primary"
+          >Read the Docs →</a>
+          <a
+            href="https://liquid-storybook.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="cta-link"
+          >Explore Storybook →</a>
         </div>
       </div>
     </div>

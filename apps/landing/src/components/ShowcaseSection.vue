@@ -6,8 +6,12 @@ import { LiquidCard, LiquidButton, LiquidBadge } from '@liquid/ui'
   <section class="showcase">
     <div class="container">
       <div class="section-header">
-        <p class="section-label">See It In Action</p>
-        <h2 class="section-title">Handcrafted with Vue 3</h2>
+        <p class="section-label">
+          See It In Action
+        </p>
+        <h2 class="section-title">
+          Handcrafted with Vue 3
+        </h2>
         <p class="section-desc">
           Every component is purpose-built with a consistent API and Liquid Glass aesthetics.
           Interactive, accessible, and ready to use.
@@ -16,45 +20,128 @@ import { LiquidCard, LiquidButton, LiquidBadge } from '@liquid/ui'
 
       <div class="showcase-grid">
         <!-- Buttons -->
-        <LiquidCard variant="glass-css-only" padding="lg" class="showcase-card">
-          <h3 class="showcase-card-title">Button</h3>
-          <p class="showcase-card-sub">10 variants · 3 sizes</p>
+        <LiquidCard
+          variant="glass-css-only"
+          padding="lg"
+          class="showcase-card"
+        >
+          <h3 class="showcase-card-title">
+            Button
+          </h3>
+          <p class="showcase-card-sub">
+            10 variants · 3 sizes
+          </p>
           <div class="showcase-items">
-            <LiquidButton variant="glass-highlight-layered" size="sm">Highlight</LiquidButton>
-            <LiquidButton variant="glass-css-only" size="sm">Glass</LiquidButton>
-            <LiquidButton variant="glass-layered" size="sm">Layered</LiquidButton>
+            <LiquidButton
+              variant="glass-highlight-layered"
+              size="sm"
+            >
+              Highlight
+            </LiquidButton>
+            <LiquidButton
+              variant="glass-css-only"
+              size="sm"
+            >
+              Glass
+            </LiquidButton>
+            <LiquidButton
+              variant="glass-layered"
+              size="sm"
+            >
+              Layered
+            </LiquidButton>
           </div>
-          <div class="showcase-items" style="margin-top: 0.75rem;">
-            <LiquidButton variant="glass-css-only" size="sm">Small</LiquidButton>
-            <LiquidButton variant="glass-css-only" size="md">Medium</LiquidButton>
-            <LiquidButton variant="glass-css-only" size="lg">Large</LiquidButton>
+          <div
+            class="showcase-items"
+            style="margin-top: 0.75rem;"
+          >
+            <LiquidButton
+              variant="glass-css-only"
+              size="sm"
+            >
+              Small
+            </LiquidButton>
+            <LiquidButton
+              variant="glass-css-only"
+              size="md"
+            >
+              Medium
+            </LiquidButton>
+            <LiquidButton
+              variant="glass-css-only"
+              size="lg"
+            >
+              Large
+            </LiquidButton>
           </div>
         </LiquidCard>
 
         <!-- Badges -->
-        <LiquidCard variant="glass-css-only" padding="lg" class="showcase-card">
-          <h3 class="showcase-card-title">Badge</h3>
-          <p class="showcase-card-sub">6 colors · 2 shapes</p>
+        <LiquidCard
+          variant="glass-css-only"
+          padding="lg"
+          class="showcase-card"
+        >
+          <h3 class="showcase-card-title">
+            Badge
+          </h3>
+          <p class="showcase-card-sub">
+            6 colors · 2 shapes
+          </p>
           <div class="showcase-items">
-            <LiquidBadge color="default">Default</LiquidBadge>
-            <LiquidBadge color="primary">Primary</LiquidBadge>
-            <LiquidBadge color="success">Success</LiquidBadge>
-            <LiquidBadge color="warning">Warning</LiquidBadge>
-            <LiquidBadge color="danger">Danger</LiquidBadge>
-            <LiquidBadge color="info">Info</LiquidBadge>
+            <LiquidBadge color="default">
+              Default
+            </LiquidBadge>
+            <LiquidBadge color="primary">
+              Primary
+            </LiquidBadge>
+            <LiquidBadge color="success">
+              Success
+            </LiquidBadge>
+            <LiquidBadge color="warning">
+              Warning
+            </LiquidBadge>
+            <LiquidBadge color="danger">
+              Danger
+            </LiquidBadge>
+            <LiquidBadge color="info">
+              Info
+            </LiquidBadge>
           </div>
-          <div class="showcase-items" style="margin-top: 0.75rem;">
-            <LiquidBadge color="primary" shape="pill">Pill shape</LiquidBadge>
-            <LiquidBadge color="primary" shape="rounded">Rounded</LiquidBadge>
+          <div
+            class="showcase-items"
+            style="margin-top: 0.75rem;"
+          >
+            <LiquidBadge
+              color="primary"
+              shape="pill"
+            >
+              Pill shape
+            </LiquidBadge>
+            <LiquidBadge
+              color="primary"
+              shape="rounded"
+            >
+              Rounded
+            </LiquidBadge>
           </div>
         </LiquidCard>
 
         <!-- Glass Card -->
         <div class="glass-demo-bg">
-          <div class="glass-demo-label">Glass Effect</div>
-          <LiquidCard variant="glass-css-only" padding="lg">
-            <h3 class="showcase-card-title">Card (Glass)</h3>
-            <p class="showcase-card-sub">backdrop-filter · CSS layers</p>
+          <div class="glass-demo-label">
+            Glass Effect
+          </div>
+          <LiquidCard
+            variant="glass-css-only"
+            padding="lg"
+          >
+            <h3 class="showcase-card-title">
+              Card (Glass)
+            </h3>
+            <p class="showcase-card-sub">
+              backdrop-filter · CSS layers
+            </p>
             <p class="glass-demo-desc">
               Glass morphism via <code>backdrop-filter: blur()</code> and layered
               <code>::before</code> / <code>::after</code> pseudo-elements.

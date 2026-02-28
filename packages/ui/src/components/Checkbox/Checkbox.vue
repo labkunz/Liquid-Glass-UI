@@ -53,13 +53,26 @@ const labelClass = computed(() => style[toCamelCase('liquid-checkbox-label')]);
       :checked="modelValue"
       :disabled="disabled"
       @change="handleChange"
-    />
+    >
     <span :class="boxClass">
-      <svg v-if="modelValue" viewBox="0 0 12 10" fill="none">
-        <path d="M1 5L4.5 8.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg
+        v-if="modelValue"
+        viewBox="0 0 12 10"
+        fill="none"
+      >
+        <path
+          d="M1 5L4.5 8.5L11 1.5"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
     </span>
-    <span v-if="label" :class="labelClass">{{ label }}</span>
+    <span
+      v-if="label"
+      :class="labelClass"
+    >{{ label }}</span>
   </label>
 </template>
 

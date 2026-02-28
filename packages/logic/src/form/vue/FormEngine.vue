@@ -82,7 +82,11 @@ function handleSubmit() {
 </script>
 
 <template>
-  <form class="form-engine" novalidate @submit.prevent="handleSubmit">
+  <form
+    class="form-engine"
+    novalidate
+    @submit.prevent="handleSubmit"
+  >
     <!-- 依序渲染可見欄位 -->
     <FormField
       v-for="field in visibleFields"
@@ -94,9 +98,16 @@ function handleSubmit() {
     />
 
     <!-- 送出按鈕：有自訂 #actions slot 或 showSubmit=true 時才渲染容器 -->
-    <div v-if="showSubmit || $slots['actions']" class="form-engine__actions">
+    <div
+      v-if="showSubmit || $slots['actions']"
+      class="form-engine__actions"
+    >
       <slot name="actions">
-        <button v-if="showSubmit" type="submit" class="form-engine__submit">
+        <button
+          v-if="showSubmit"
+          type="submit"
+          class="form-engine__submit"
+        >
           {{ submitLabel }}
         </button>
       </slot>

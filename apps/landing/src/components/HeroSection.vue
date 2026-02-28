@@ -12,7 +12,11 @@ const scrollToFeatures = () => {
       <!-- Text content -->
       <div class="hero-content">
         <div class="hero-tag">
-          <LiquidBadge color="primary" variant="default" shape="pill">
+          <LiquidBadge
+            color="primary"
+            variant="default"
+            shape="pill"
+          >
             Vue 3 · TypeScript · Liquid Glass
           </LiquidBadge>
         </div>
@@ -27,11 +31,22 @@ const scrollToFeatures = () => {
         </p>
 
         <div class="hero-ctas">
-          <LiquidButton variant="glass-highlight-layered" size="lg" @click="scrollToFeatures">
+          <LiquidButton
+            variant="glass-highlight-layered"
+            size="lg"
+            @click="scrollToFeatures"
+          >
             Explore Features
           </LiquidButton>
-          <a href="https://github.com/labkunz/Liquid-Glass-UI" target="_blank" rel="noopener noreferrer">
-            <LiquidButton variant="glass-css-only" size="lg">
+          <a
+            href="https://github.com/labkunz/Liquid-Glass-UI"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <LiquidButton
+              variant="glass-css-only"
+              size="lg"
+            >
               View on GitHub
             </LiquidButton>
           </a>
@@ -40,25 +55,53 @@ const scrollToFeatures = () => {
 
       <!-- Component preview card -->
       <div class="hero-preview">
-        <LiquidCard variant="glass-css-only" padding="lg">
-          <p class="preview-heading">Component Preview</p>
+        <LiquidCard
+          variant="glass-css-only"
+          padding="lg"
+        >
+          <p class="preview-heading">
+            Component Preview
+          </p>
 
           <div class="preview-row">
             <span class="preview-label">Badges</span>
             <div class="preview-badges">
-              <LiquidBadge color="primary">Design</LiquidBadge>
-              <LiquidBadge color="info">Frontend</LiquidBadge>
-              <LiquidBadge color="success">AI Tools</LiquidBadge>
-              <LiquidBadge color="warning">Backend</LiquidBadge>
+              <LiquidBadge color="primary">
+                Design
+              </LiquidBadge>
+              <LiquidBadge color="info">
+                Frontend
+              </LiquidBadge>
+              <LiquidBadge color="success">
+                AI Tools
+              </LiquidBadge>
+              <LiquidBadge color="warning">
+                Backend
+              </LiquidBadge>
             </div>
           </div>
 
           <div class="preview-row">
             <span class="preview-label">Buttons</span>
             <div class="preview-buttons">
-              <LiquidButton variant="glass-highlight-layered" size="sm">Highlight</LiquidButton>
-              <LiquidButton variant="glass-css-only" size="sm">Glass</LiquidButton>
-              <LiquidButton variant="glass-layered" size="sm">Layered</LiquidButton>
+              <LiquidButton
+                variant="glass-highlight-layered"
+                size="sm"
+              >
+                Highlight
+              </LiquidButton>
+              <LiquidButton
+                variant="glass-css-only"
+                size="sm"
+              >
+                Glass
+              </LiquidButton>
+              <LiquidButton
+                variant="glass-layered"
+                size="sm"
+              >
+                Layered
+              </LiquidButton>
             </div>
           </div>
 
