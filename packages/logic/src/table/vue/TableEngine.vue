@@ -78,7 +78,7 @@ const processed = computed(() =>
 
 // ---- 欄位轉換（符合 LiquidTable 的 TableColumn 格式） --------
 
-const tableColumns = computed<TableColumn[]>(() =>
+const tableColumns = computed<TableColumn<Record<string, unknown>>[]>(() =>
   normalizedColumns.value.map((col) => ({
     key:   col.key,
     label: col.label,
