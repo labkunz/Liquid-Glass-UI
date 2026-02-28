@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, useCssModule } from 'vue';
+import { computed, watch, onBeforeUnmount, useCssModule } from 'vue';
 
 export interface ToastProps {
   variant?: 'default' | 'glass-css-only' | 'glass-highlight-layered' | 'glass-css-only-light' | 'glass-highlight-layered-light';
@@ -23,13 +23,39 @@ const emit = defineEmits<{
   'update:modelValue': [value: boolean];
 }>();
 
+let timer: ReturnType<typeof setTimeout> | null = null;
+
 const close = () => {
+  if (timer) {
+    clearTimeout(timer);
+    timer = null;
+  }
   emit('update:modelValue', false);
 };
 
-onMounted(() => {
-  if (props.modelValue && props.duration > 0) {
-    setTimeout(close, props.duration);
+// 監聽 modelValue 和 duration 的變化
+watch(
+  () => [props.modelValue, props.duration] as const,
+  ([isVisible, duration]) => {
+    // 清除舊的 timer
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+
+    // 如果顯示且有設定 duration，啟動新的 timer
+    if (isVisible && duration > 0) {
+      timer = setTimeout(close, duration);
+    }
+  },
+  { immediate: true }
+);
+
+// 元件卸載前清理 timer
+onBeforeUnmount(() => {
+  if (timer) {
+    clearTimeout(timer);
+    timer = null;
   }
 });
 
